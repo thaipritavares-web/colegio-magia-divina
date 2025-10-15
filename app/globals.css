@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fontes Cerulya CF */
+@font-face {
+  font-family: 'Cerulya CF';
+  src: url('/fonts/Fontspring-DEMO-cerulyacf-regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cerulya CF';
+  src: url('/fonts/Fontspring-DEMO-cerulyacf-bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Fontes Router */
+@font-face {
+  font-family: 'Router';
+  src: url('/fonts/fonnts.com-Router_Thin.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Router';
+  src: url('/fonts/fonnts.com-Router_Extralight.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Router';
+  src: url('/fonts/fonnts.com-Router_Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Router';
+  src: url('/fonts/fonnts.com-Router.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Router';
+  src: url('/fonts/fonnts.com-Router_Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  body {
+    @apply bg-white text-gray-text;
+    font-family: 'Router', sans-serif;
+    font-weight: 300;
+  }
+  
+  h1 {
+    @apply text-azul-escuro;
+    font-weight: 400;
+  }
+  
+  h2 {
+    @apply text-roxo-medio;
+    font-weight: 300;
+  }
+  
+  h3 {
+    @apply text-azul-marinho;
+    font-weight: 400;
+  }
+}
+
+@layer utilities {
+  .font-router-thin {
+    font-family: 'Router', sans-serif;
+    font-weight: 300;
+  }
+  
+  .font-router {
+    font-family: 'Router', sans-serif;
+    font-weight: 400;
+  }
+  
+  .font-router-bold {
+    font-family: 'Router', sans-serif;
+    font-weight: 700;
+  }
+  
+  .text-body {
+    @apply text-gray-text;
+  }
+  
+  .text-secondary {
+    @apply text-gray-medium;
+  }
+}

@@ -1,72 +1,89 @@
-# 📋 CHANGELOG - v3.0
+# 📋 CHANGELOG - Colégio Tradução de Magia Divina
 
-## [3.0.0] - 2025-10-15
+Todas as mudanças notáveis neste projeto serão documentadas neste arquivo.
 
-### 🎉 VERSÃO COMPLETA - Reúne TUDO!
-
-#### ✨ Adicionado
-- **Formulário de Afiliação Completo:**
-  - CEP com busca automática (TAB + clique)
-  - Estado/Cidade com autocomplete
-  - Graus com busca e seleção visual
-  - Tags visuais para identificar certificados
-  - Upload inteligente com validação
-  - Card de reconhecimento para 21+ e 29 graus
-
-- **Sistema de Títulos:**
-  - Mago / Mago do Arco Íris / Mestre Mago
-  - Mensagem especial: "Que o Divino Mistério do Arco Íris te abençoe"
-  - Fundo branco com sombra arco-íris (21-28 graus)
-  - Fundo branco com sombra dourada (29 graus)
-
-- **Validações:**
-  - CPF com dígito verificador
-  - Email em tempo real
-  - Telefone com máscara
-  - Requisitos por tipo (Iniciador/Iniciado)
-  - Graus obrigatórios marcados
-
-#### 🎨 Melhorias Visuais (da v2.1)
-- Fonte Cerulya CF em títulos
-- Família Router em textos
-- Sombras elegantes nos botões
-- Efeitos hover suaves
-- Gradientes na paleta oficial
-
-#### 🔒 Segurança (da v2.2)
-- Proteção de senha com hash
-- Middleware de autenticação
-- Páginas protegidas
-- Logout seguro
-
-#### 🚀 Deploy
-- .gitignore otimizado
-- deploy-seguro.ps1 com validações
-- Tamanho: 2.5MB (sem node_modules)
-- Pronto para GitHub + Vercel
+O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
+e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ---
 
-## [2.2.0] - 2025-10-14
+## [Não Lançado]
 
-### 🔒 Foco em Segurança
-- Proteção de senha implementada
-- Middleware de autenticação
-- Área logada protegida
-
----
-
-## [2.1.0] - 2025-10-14
-
-### 🎨 Foco em Visual
-- Fonte Cerulya CF
-- Família Router
-- Sombras e efeitos
-- Identidade visual completa
+### Em Desenvolvimento
+- Setup inicial do projeto
+- Configuração de workflow e padrões
 
 ---
 
-## [1.0.0] - Inicial
-- Estrutura básica Next.js
-- Páginas principais
-- Layout inicial
+## [1.0.0] - 2025-10-15
+
+### ✨ Adicionado
+- Criação do repositório inicial
+- Estrutura de arquivos base do projeto
+- `.gitignore` com proteções de segurança
+- `WORKFLOW.md` com padrões e instruções completas
+- `CHANGELOG.md` para histórico de versões
+
+### 📚 Notas Técnicas
+- Projeto configurado com paleta oficial de cores
+- Fontes definidas: Cerulya CF e Router
+- Encoding UTF-8 obrigatório em todos os arquivos
+- Repositório preparado para desenvolvimento colaborativo
+
+### 🎯 Próximos Passos
+- [ ] Implementar estrutura HTML base do site
+- [ ] Criar header com menu de navegação
+- [ ] Desenvolver footer conforme mockup
+- [ ] Implementar área deslogada (sobre, FAQ, blog)
+- [ ] Desenvolver sistema de afiliação
+
+---
+
+## Template para Próximas Releases
+
+```markdown
+## [X.X.X] - YYYY-MM-DD
+
+### ✨ Adicionado
+- [Nova funcionalidade implementada]
+
+### 🔧 Modificado
+- [Funcionalidade existente alterada]
+
+### 🐛 Corrigido
+- [Bug identificado e resolvido]
+
+### ⚠️ Problemas Conhecidos
+- [Issues identificadas mas não resolvidas]
+
+### 📚 Notas Técnicas
+- [Decisões técnicas importantes]
+- [Mudanças de arquitetura]
+- [Dependências adicionadas/removidas]
+
+### 🔗 Links Relevantes
+- [Link para mockup aprovado]
+- [Link para discussão]
+- [Link para issue/PR]
+```
+
+---
+
+## Convenções de Versionamento
+
+### MAJOR.MINOR.PATCH
+
+- **MAJOR** (X.0.0): Mudanças incompatíveis com versões anteriores
+- **MINOR** (0.X.0): Adição de funcionalidades mantendo compatibilidade
+- **PATCH** (0.0.X): Correções de bugs mantendo compatibilidade
+
+### Exemplos:
+- `1.0.0` → Release inicial
+- `1.1.0` → Adicionado sistema de blog
+- `1.1.1` → Corrigido bug no formulário de contato
+- `2.0.0` → Reestruturação completa do backend
+
+---
+
+**Repositório:** github.com/thaipritavares-web/colegio-magia-divina  
+**Última atualização:** 2025-10-15

@@ -1,0 +1,80 @@
+# ===================================
+# .gitignore - Colégio Magia Divina
+# ===================================
+
+# ARQUIVOS SENSÍVEIS - NUNCA COMMITAR
+# ===================================
+.env
+.env.local
+.env.production
+*.key
+*.pem
+*.cer
+config/credentials.php
+config/database.php
+config/payment-keys.php
+
+# UPLOADS DE USUÁRIOS - DADOS PESSOAIS
+# ===================================
+uploads/
+certificados/
+documentos/
+fotos/
+arquivos_usuarios/
+
+# DEPENDÊNCIAS E BIBLIOTECAS
+# ===================================
+node_modules/
+vendor/
+bower_components/
+jspm_packages/
+
+# LOGS E TEMPORÁRIOS
+# ===================================
+*.log
+logs/
+*.tmp
+*.temp
+*.cache
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDEs E EDITORES
+# ===================================
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# BUILDS E COMPILADOS
+# ===================================
+dist/
+build/
+*.min.js
+*.min.css
+*.map
+
+# BACKUPS
+# ===================================
+*.bak
+*.backup
+*.old
+backup/
+
+# SISTEMA OPERACIONAL
+# ===================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ARQUIVOS ESPECÍFICOS DO PROJETO
+# ===================================
+# Adicione aqui arquivos específicos que não devem ser versionados

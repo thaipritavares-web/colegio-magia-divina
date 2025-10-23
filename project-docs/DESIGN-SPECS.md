@@ -1,6 +1,6 @@
 # ESPECIFICAÇÕES DE DESIGN
 
-**Última atualização:** 2025-10-18 16:00 (Checkpoint #2)
+**Última atualização:** 2025-10-23 (Checkpoint #9.5)
 
 ---
 
@@ -151,6 +151,60 @@
 
 ---
 
+## 🔤 TIPOGRAFIA
+
+### Família de Fontes
+
+**Kaushan Script** - Apenas para o nome do colégio
+- Uso: Título principal "Colégio Tradição de Magia Divina" no HeaderHome
+- Estilo: Cursiva elegante, manuscrita
+- Cor: Azul escuro (`#1B223F` ou `#26377F`)
+
+**Router** - Para todo o resto do site
+- Uso: Corpo de texto, títulos, menus, botões
+- Variações disponíveis: Thin (300), Regular (400), Medium (500), Bold (700)
+
+### Pesos de Fonte Router
+
+| Weight | Valor | Classe Tailwind | Uso |
+|--------|-------|-----------------|-----|
+| **Thin** | 300 | `font-router-thin` | H1, H2 (títulos principais) |
+| **Regular** | 400 | `font-router` | H3, corpo de texto, parágrafos |
+| **Medium** | 500 | `font-router-medium` | H4, botões, links importantes |
+| **Bold** | 700 | `font-router-bold` | CTAs muito fortes, avisos críticos |
+
+### Hierarquia de Títulos
+
+```tsx
+// H1 - Título Principal da Página
+// Desktop: 56px | Tablet: 48px | Mobile: 40px
+className="text-3xl md:text-4xl lg:text-5xl font-router-thin text-roxo-medio mb-8"
+style={{letterSpacing: '-1px'}}
+// Uso: Nome da página, hero titles
+
+// H2 - Título de Seção
+// Desktop: 40px | Tablet: 32px | Mobile: 28px
+className="text-2xl md:text-3xl lg:text-4xl font-router-thin text-roxo-medio mb-6"
+// Uso: Divisões principais da página
+
+// H3 - Subtítulo / Título de Card
+// Desktop: 28px | Tablet: 24px | Mobile: 20px
+className="text-xl md:text-2xl font-router text-azul-marinho mb-4"
+// Uso: Cards, blocos de conteúdo, subsections
+
+// H4 - Texto de Destaque
+// Desktop/Mobile: 20px
+className="text-lg font-router-medium text-azul-escuro mb-3"
+// Uso: Pequenos destaques, labels importantes
+
+// Corpo de Texto
+// Desktop/Mobile: 16px
+className="text-base font-router text-azul-marinho"
+// Uso: Parágrafos, conteúdo geral
+```
+
+---
+
 ## 📏 MEDIDAS E ESPAÇAMENTOS (Estimados)
 
 ### Header Home:
@@ -280,7 +334,7 @@ const config: Config = {
         // Paleta Oficial Colégio Tradição
         'azul-marinho': '#1B223F',
         'azul-escuro': '#26377F',
-        'roxo-medio': '##5A5AA4',
+        'roxo-medio': '#5A5AA4',
         'lilas-claro': '#C6C0E1',
         'lavanda': '#DDCFE8',
         'lilas-quase-branco': '#ECE0F0',

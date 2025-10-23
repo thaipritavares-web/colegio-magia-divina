@@ -16,7 +16,12 @@
 
 ---
 
-## 🎨 SISTEMA DE SOMBREAMENTOS
+## 🎨 SISTEMA DE SOMBREAMENTOS (OBSOLETO)
+
+**⚠️ AVISO:** Esta seção está obsoleta. Use o **SISTEMA DE SOMBRAS PADRONIZADO** documentado no Checkpoint #8 (final deste documento).
+
+<details>
+<summary>Ver sistema antigo (apenas para referência histórica)</summary>
 
 ### Níveis de Elevação
 
@@ -59,6 +64,8 @@ Usar cor base `#1B223F` (Azul Marinho Escuro) com opacidade variável:
 | **Modais** | shadow-xl | - | - |
 | **Tooltips** | shadow-2xl | - | - |
 | **Dropdowns** | shadow-2xl | - | - |
+
+</details>
 
 ---
 

@@ -1,20 +1,140 @@
 ﻿# 📚 HISTÓRICO COMPLETO DE CHECKPOINTS
 
 **Última atualização:** 23/10/2025  
-**Checkpoint atual:** #8  
-**Progresso geral:** 37% (documentação de contexto)  
-**Status:** Checkpoint #8 concluído - Salvando decisões e contexto
+**Checkpoint atual:** #9.5  
+**Progresso geral:** 38% (documentação corrigida)  
+**Status:** Checkpoint #9.5 concluído - Inconsistências críticas corrigidas
 
 ---
 
 ## 🔖 ÍNDICE RÁPIDO
 
-- [📍 Checkpoint #8](#checkpoint-8) - ATUAL (23/10/2025) - Salvando Contexto e Decisões ✅
+- [📍 Checkpoint #9.5](#checkpoint-95) - ATUAL (23/10/2025) - Correções de Documentação ✅
+- [📍 Checkpoint #8](#checkpoint-8) (23/10/2025) - Salvando Contexto e Decisões ✅
 - [📍 Checkpoint #7](#checkpoint-7) (20/10/2025) - Melhorias de UX ⏳
 - [📍 Checkpoint #6](#checkpoint-6) (20/10/2025) - Projeto Funcionando ✅
 - [📍 Checkpoint #5](#checkpoint-5) (19/10/2025) - Análise e Decisões ✅
 - [📍 Checkpoints anteriores](#checkpoints-anteriores)
 - [📊 Estatísticas Gerais](#estatisticas-gerais)
+
+---
+
+## 📍 CHECKPOINT #9.5 - CORREÇÕES DE DOCUMENTAÇÃO
+
+**Data:** 23/10/2025  
+**Status:** ✅ CONCLUÍDO  
+**Progresso:** 37% → 38% (documentação)  
+**Tempo real:** 15 min
+
+### 🎯 Objetivo
+
+Corrigir inconsistências críticas e médias identificadas na análise de documentação ANTES de implementar correções técnicas, para evitar erros de implementação.
+
+### 🔍 Origem
+
+Checkpoint criado após análise detalhada de todos os documentos de UX, Design e Decisões, onde foram identificadas 8 inconsistências (2 críticas, 4 médias, 2 baixas).
+
+### ✅ Correções Implementadas
+
+#### 🔴 CRÍTICAS
+
+1. **Corrigido erro de digitação na paleta - DESIGN-SPECS.md**
+   - ❌ Antes: `'roxo-medio': '##5A5AA4'`
+   - ✅ Depois: `'roxo-medio': '#5A5AA4'`
+   - **Impacto:** ALTO - Cor usada em todos os CTAs e botões
+   - **Local:** linha 283
+
+2. **Adicionada documentação completa de tipografia - DESIGN-SPECS.md**
+   - ✅ Nova seção "TIPOGRAFIA" com tabela de weights
+   - ✅ Hierarquia de títulos documentada (H1, H2, H3, H4)
+   - ✅ Especificações de tamanhos responsivos
+   - ✅ Uso correto: Router Regular (400) para corpo de texto
+   - **Local:** Após seção de paleta
+
+#### 🟡 MÉDIAS
+
+3. **Sistema de sombras duplicado resolvido - UX-GUIDELINES.md**
+   - ✅ Sistema antigo marcado como OBSOLETO
+   - ✅ Adicionado aviso para usar sistema do Checkpoint #8
+   - ✅ Conteúdo antigo mantido em `<details>` para histórico
+   - **Local:** linhas 19-63
+
+### 📂 Arquivos Modificados
+
+1. ✅ **DESIGN-SPECS.md** (3 mudanças)
+   - Corrigido `##5A5AA4` → `#5A5AA4`
+   - Adicionada seção completa de Tipografia
+   - Atualizada data: Checkpoint #9.5
+
+2. ✅ **UX-GUIDELINES.md** (1 mudança)
+   - Sistema de sombras antigo marcado como obsoleto
+
+3. ✅ **CHECKPOINTS-HISTORICO.md** (este arquivo)
+   - Adicionado Checkpoint #9.5
+
+### 📊 Métricas
+
+**Inconsistências corrigidas:** 3 de 8 (37.5%)
+- 🔴 Críticas: 2/2 (100%)
+- 🟡 Médias: 1/4 (25%)
+- 🟢 Baixas: 0/2 (0%)
+
+**Inconsistências restantes (não críticas):**
+- 🟡 Nome da cor: `lilas-branco` vs `lilas-quase-branco` (baixo impacto)
+- 🟡 Alturas dos headers: Falta medir implementação real
+- 🟡 Max-width: Falta especificar limite em 1440px+
+- 🟢 Email de contato: Definir antes do deploy
+- 🟢 Breakpoints: Documentar comportamento > 1440px
+
+**Nota:** Inconsistências restantes têm baixo impacto e serão resolvidas durante implementação.
+
+### 🎨 Principais Melhorias
+
+**1. Paleta de Cores**
+```typescript
+// ANTES (ERRADO - não funcionava)
+'roxo-medio': '##5A5AA4'
+
+// DEPOIS (CORRETO)
+'roxo-medio': '#5A5AA4'
+```
+
+**2. Tipografia Documentada**
+```tsx
+// H1 - 56px desktop / 40px mobile
+className="text-3xl md:text-4xl lg:text-5xl font-router-thin"
+
+// H2 - 40px desktop / 28px mobile
+className="text-2xl md:text-3xl lg:text-4xl font-router-thin"
+
+// H3 - 28px desktop / 20px mobile
+className="text-xl md:text-2xl font-router"
+
+// Corpo - 16px
+className="text-base font-router"
+```
+
+**3. Sistema de Sombras Clarificado**
+- ❌ Antigo: Múltiplas opacidades conflitantes
+- ✅ Novo: Sistema padronizado (0.08, 0.12, etc.)
+- ✅ Referência clara ao Checkpoint #8
+
+### 🔗 Documentos Relacionados
+
+- **Análise completa:** `/outputs/ANALISE-INCONSISTENCIAS-UX.md`
+- **DESIGN-SPECS.md:** Atualizado com tipografia
+- **UX-GUIDELINES.md:** Sistema de sombras obsoleto marcado
+
+### 📌 Status Atual
+
+✅ **CONCLUÍDO** - Documentação crítica corrigida. Pronto para Checkpoint #9 (Encoding UTF-8).
+
+### 🚀 Próximos Passos
+
+**Checkpoint #9:** Correção do erro de encoding UTF-8
+- Corrigir caracteres especiais (São, Tradição, Colégio)
+- Validar UTF-8 em todos os arquivos
+- Testar no Vercel
 
 ---
 

@@ -1,20 +1,42 @@
-# 📊 ACOMPANHAMENTO DE PROGRESSO - CHECKPOINT #8
+# 📊 ACOMPANHAMENTO DE PROGRESSO - CHECKPOINT #9.5
 
 **Data:** 23/10/2025  
-**Status Geral:** 35% → 37% (documentação)
+**Status Geral:** 37% → 38% (documentação corrigida)
 
 ---
 
 ## 🎯 VISÃO GERAL
 
 ```
-███████████░░░░░░░░░░░░░░░░░ 37% (após documentação)
+███████████░░░░░░░░░░░░░░░░░ 38% (após correções)
 
 ✅ Fase 1: BASE         100% ████████████
 ⏳ Fase 2: PÁGINAS       45% █████░░░░░░░
 ⏳ Fase 3: AUTH           0% ░░░░░░░░░░░░
 ⏳ Fase 4: FEATURES       0% ░░░░░░░░░░░░
 ```
+
+---
+
+## 📋 CHECKPOINT #9.5 - CORREÇÕES DE DOCUMENTAÇÃO
+
+### Status: ✅ CONCLUÍDO
+
+**Inconsistências corrigidas:**
+- [x] Erro crítico: `##5A5AA4` → `#5A5AA4` em DESIGN-SPECS.md
+- [x] Tipografia completa documentada em DESIGN-SPECS.md
+- [x] Sistema de sombras antigo marcado como obsoleto
+- [x] Hierarquia de títulos clarificada
+- [x] Weights de fonte Router documentados
+
+**Arquivos modificados:**
+1. DESIGN-SPECS.md (3 mudanças)
+2. UX-GUIDELINES.md (sistema obsoleto marcado)
+3. CHECKPOINTS-HISTORICO.md (adicionado #9.5)
+4. Este arquivo (PROGRESS-TRACKING.md)
+
+**Progresso:** 37% → 38%  
+**Motivo do aumento:** Inconsistências críticas corrigidas
 
 ---
 
@@ -74,6 +96,6 @@
 
 ---
 
-**Última Atualização:** 23/10/2025  
+**Última Atualização:** 23/10/2025 - Checkpoint #9.5  
 **Próxima Revisão:** Após execução do Checkpoint #9  
-**Status:** 📋 Documentação completa, pronto para correções
+**Status:** 📋 Documentação corrigida, pronto para correções técnicas

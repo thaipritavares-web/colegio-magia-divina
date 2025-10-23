@@ -1250,3 +1250,183 @@ Todos os textos devem ter contraste mínimo:
 ---
 
 **FIM DAS DIRETRIZES DE UX**
+
+---
+
+## 📏 HIERARQUIA DE TÍTULOS PADRONIZADA (Checkpoint #8)
+
+**Última atualização:** 23/10/2025 - Checkpoint #8
+
+### Sistema de Títulos Responsivos
+
+```tsx
+// H1 - Título Principal da Página
+// Desktop: 56px | Tablet: 48px | Mobile: 40px
+className="text-3xl md:text-4xl lg:text-5xl font-router-thin text-roxo-medio mb-8"
+style={{letterSpacing: '-1px'}}
+// Weight: 300 (Thin)
+// Uso: Nome da página, hero titles
+
+// H2 - Título de Seção
+// Desktop: 40px | Tablet: 32px | Mobile: 28px
+className="text-2xl md:text-3xl lg:text-4xl font-router-thin text-roxo-medio mb-6"
+// Weight: 300 (Thin)
+// Uso: Divisões principais da página
+
+// H3 - Subtítulo / Título de Card
+// Desktop: 28px | Tablet: 24px | Mobile: 20px
+className="text-xl md:text-2xl font-router text-azul-marinho mb-4"
+// Weight: 400 (Normal/Regular)
+// Uso: Cards, blocos de conteúdo, subsections
+
+// H4 - Texto de Destaque
+// Desktop/Mobile: 20px
+className="text-lg font-router-medium text-azul-escuro mb-3"
+// Weight: 500 (Medium)
+// Uso: Pequenos destaques, labels importantes
+```
+
+### Weights da Fonte Router
+
+```css
+/* Router Thin */
+font-weight: 300;
+/* Uso: H1, H2 - Títulos principais */
+
+/* Router Regular */
+font-weight: 400;
+/* Uso: H3, corpo de texto */
+
+/* Router Medium */
+font-weight: 500;
+/* Uso: H4, botões, links importantes */
+
+/* Router Bold */
+font-weight: 700;
+/* Uso: CTAs muito fortes, avisos críticos */
+```
+
+### Quando Usar Cada Título
+
+| Elemento | Uso | Exemplo |
+|----------|-----|---------|
+| **H1** | Nome da página | "Sobre o Colégio" |
+| **H2** | Seções principais | "Nossa História", "Missão e Valores" |
+| **H3** | Cards, subsections | "Cursos Oferecidos", "Diretoria" |
+| **H4** | Destaques menores | "Contato", "Horários" |
+
+---
+
+## 🎨 SISTEMA DE SOMBRAS PADRONIZADO (Checkpoint #8)
+
+**Última atualização:** 23/10/2025 - Checkpoint #8
+
+### Filosofia das Sombras
+
+**Princípio:** Sombras sutis que sugerem elevação sem peso visual excessivo
+
+**Cor base das sombras:** `rgba(27, 34, 63, ...)` (Azul Marinho)
+
+### Headers
+
+```css
+/* Header Normal (sem scroll) */
+.header {
+  box-shadow: none;
+  background: #ECE0F0; /* Lilás Quase Branco */
+}
+
+/* Header com Scroll */
+.header.scrolled {
+  box-shadow: 0 2px 8px rgba(27, 34, 63, 0.08);
+  background: #FFFFFF; /* Opcionalmente muda para branco */
+}
+```
+
+**Motivo:** 
+- Headers limpos sem sombra no topo da página
+- Sombra aparece ao scrollar para indicar elevação
+- Transição suave (300ms)
+
+### Cards e Blocos de Conteúdo
+
+```css
+/* Card Normal */
+.card {
+  box-shadow: 0 2px 8px rgba(27, 34, 63, 0.08);
+  transition: all 300ms ease-in-out;
+}
+
+/* Card Hover */
+.card:hover {
+  box-shadow: 0 8px 16px rgba(27, 34, 63, 0.12);
+  transform: translateY(-4px);
+}
+```
+
+**Tailwind Classes:**
+```tsx
+// Card normal
+className="shadow-sm hover:shadow-md"
+
+// Card com elevação maior
+className="shadow-md hover:shadow-lg"
+```
+
+### Botões
+
+```css
+/* Botão Normal */
+.button {
+  box-shadow: 0 2px 4px rgba(27, 34, 63, 0.1);
+}
+
+/* Botão Hover */
+.button:hover {
+  box-shadow: 0 4px 8px rgba(27, 34, 63, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Botão Active (pressionado) */
+.button:active {
+  box-shadow: 0 1px 2px rgba(27, 34, 63, 0.05);
+  transform: translateY(0);
+}
+```
+
+### Modais e Dropdowns
+
+```css
+/* Modal */
+.modal {
+  box-shadow: 0 20px 40px rgba(27, 34, 63, 0.2);
+}
+
+/* Dropdown Menu */
+.dropdown {
+  box-shadow: 0 10px 20px rgba(27, 34, 63, 0.15);
+}
+```
+
+### Regras de Uso
+
+1. **Nunca usar sombras pretas puras** - Sempre usar azul marinho com opacidade
+2. **Sombras crescem com hover** - Indicam interatividade
+3. **Headers sem sombra** - Exceto quando scrollado
+4. **Cards sempre com sombra** - Mesmo que sutil
+5. **Transições suaves** - 300ms ease-in-out
+
+### Opacidades Padronizadas
+
+```
+0.05 - Mínima (botão pressionado)
+0.08 - Suave (cards normais, header scrolled)
+0.10 - Leve (botões normais)
+0.12 - Média (cards hover)
+0.15 - Pronunciada (botões hover, dropdowns)
+0.20 - Forte (modais)
+```
+
+---
+
+**Nota:** Estas especificações foram documentadas no Checkpoint #8 e devem ser seguidas rigorosamente em todas as implementações futuras.

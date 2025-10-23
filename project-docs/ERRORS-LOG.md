@@ -13,6 +13,93 @@ Este arquivo serve para documentar:
 
 ---
 
+## 2025-10-23 - 15:30
+### ❌ ERRO #16: Encoding UTF-8 quebrado em arquivos do projeto
+
+**O que foi pedido:**
+Correção em massa de arquivos usando scripts PowerShell.
+
+**O que deu errado:**
+Scripts PowerShell executados sem especificação de encoding UTF-8 corromperam caracteres especiais em múltiplos arquivos do projeto.
+
+**Manifestação do problema:**
+```
+ANTES (correto):     "São Paulo", "Tradição", "José"
+DEPOIS (quebrado):   "SÃ£o Paulo", "TradiÃ§Ã£o", "JosÃ©"
+```
+
+**Arquivos afetados:**
+- `/app/globals.css` - Nome de fontes e comentários
+- `/components/Header.tsx` - Textos do menu
+- `/components/HeaderHome.tsx` - Título do site
+- Possivelmente outros arquivos `.tsx`, `.ts`, `.css`
+
+**Código problemático:**
+```powershell
+# Script executado SEM encoding especificado
+(Get-Content arquivo.tsx) -replace 'pattern', 'replacement' | Set-Content arquivo.tsx
+# ❌ Set-Content usa encoding padrão do sistema (não UTF-8)
+```
+
+**Como foi descoberto:**
+- Usuária (Thais) identificou caracteres quebrados ao testar o site
+- Exemplos: "São" → "SÃ£o", "Tradição" → "TradiÃ§Ã£o"
+- Checkpoint #8 criado para documentar antes de corrigir
+
+**Como foi resolvido:**
+**AINDA NÃO RESOLVIDO - CHECKPOINT #9 VAI CORRIGIR**
+
+**Solução necessária:**
+1. Identificar TODOS os arquivos com encoding quebrado
+2. Restaurar versão anterior (via Git) OU
+3. Corrigir manualmente cada arquivo
+4. Validar UTF-8 em todos os arquivos
+5. Criar script de validação para prevenir
+
+**Script correto (para futuro):**
+```powershell
+# SEMPRE especificar UTF-8
+$content = Get-Content arquivo.tsx -Encoding UTF8
+$content -replace 'pattern', 'replacement' | Set-Content arquivo.tsx -Encoding UTF8
+```
+
+**Ou usar:**
+```powershell
+# Alternativa mais segura
+[System.IO.File]::ReadAllText("arquivo.tsx", [System.Text.Encoding]::UTF8)
+[System.IO.File]::WriteAllText("arquivo.tsx", $content, [System.Text.Encoding]::UTF8)
+```
+
+**Lição aprendida:**
+- **SEMPRE** especificar `-Encoding UTF8` em comandos PowerShell
+- **NUNCA** usar `Set-Content` sem encoding explícito
+- **SEMPRE** validar caracteres especiais após scripts em massa
+- **CRIAR** script de validação UTF-8 automatizado
+- **TESTAR** com palavras-chave: São, José, Tradição, etc.
+
+**Prevenção futura:**
+1. ✅ Criar `validar-utf8.ps1` - Script de validação
+2. ✅ Adicionar ao checklist pré-commit
+3. ✅ Testar sempre com palavras acentuadas
+4. ✅ Usar Git diff antes de commitar
+
+**Commit de correção:**
+[Pendente - Checkpoint #9]
+
+**Tempo perdido:**
+[A ser calculado quando corrigido]
+
+**Severidade:** 🔴 CRÍTICO - Encoding quebrado afeta identidade visual e profissionalismo do site
+
+**Contexto adicional:**
+- Este erro foi identificado na conversa "Website design for beginners"
+- Thais estava cansada mas insistiu em fazer checkpoint antes de corrigir
+- Checkpoint #8 foi criado especificamente para documentar este erro
+- Decisão tomada: Dividir Checkpoint #7 em checkpoints menores (abordagem incremental)
+
+---
+
+
 ## 2025-10-19 - 23:45
 ### ❌ ERRO #1: Componentes Header e Footer não existem (IMPORTS QUEBRADOS)
 

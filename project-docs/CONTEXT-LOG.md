@@ -74,6 +74,16 @@ Desenvolver o website institucional do **Colégio de Sacerdotes e Sacerdotisas d
 - Hierarquia visual refinada
 - **Status:** Documentado, aguardando execução
 
+
+### **Checkpoint #8** (ATUAL) ✅
+- **✅ SALVANDO CONTEXTO E DECISÕES**
+- Documentação de erro de encoding UTF-8
+- Decisão de abordagem incremental
+- Hierarquia de títulos padronizada
+- Sistema de sombras padronizado
+- Preparação para Checkpoint #9 (correções)
+- **Status:** Concluído - Documentação salva
+
 ---
 
 ## 🛠️ STACK TECNOLÓGICA

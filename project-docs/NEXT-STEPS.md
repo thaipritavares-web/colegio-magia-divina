@@ -1,75 +1,112 @@
-# 🎯 PRÓXIMAS AÇÕES - CHECKPOINT #7
+﻿# 🎯 PRÓXIMAS AÇÕES - CHECKPOINT #8
 
-**Data:** 20/10/2025  
-**Status:** 📋 Aguardando execução do Checkpoint #7
+**Data:** 23/10/2025  
+**Status:** ✅ Checkpoint #8 concluído - Pronto para Checkpoint #9
 
 ---
 
 ## 🚀 IMEDIATO (AGORA)
 
-### 1. **Executar Checkpoint #7** ⏳
-**Tempo estimado:** 3h30min
+### 1. **Executar Checkpoint #9 - Correção de Encoding UTF-8** 🔴
+**Tempo estimado:** 1-2 horas  
+**Prioridade:** CRÍTICA
 
-**Fases:**
-1. ✅ Corrigir logo do Header (10 min)
-2. ✅ Criar componente FadeInSection (20 min)
-3. ✅ Ajustes globais de estilo (30 min)
-4. ✅ Atualizar Home page (40 min)
-5. ✅ Atualizar páginas internas (50 min)
-6. ✅ Implementar indicador de menu (30 min)
-7. ✅ Testes finais (30 min)
+**Problema:**
+- Caracteres especiais quebrados (ã, é, ç)
+- "São" aparece como "SÃ£o"
+- "Tradição" aparece como "TradiÃ§Ã£o"
+
+**Arquivos afetados:**
+1. `/app/globals.css`
+2. `/components/Header.tsx`
+3. `/components/HeaderHome.tsx`
+
+**Tarefas:**
+- [ ] Identificar todos os caracteres quebrados
+- [ ] Restaurar encoding UTF-8 correto
+- [ ] Validar: São, José, Tradição, etc.
+- [ ] Criar script de validação (`validar-utf8.ps1`)
+- [ ] Testar no browser
 
 **Como iniciar:**
 ```bash
-cd C:\Users\thais\Documents\Projeto_website_colegio-tradicao-magia-divina\colegio-tradicao
+cd C:\Users\thais\Documents\Projeto_website_colegio-tradicao-magia-divina
 npm run dev
 ```
 
+**Palavras-chave para testar:**
+- São Paulo
+- Tradição
+- José
+- Rubens Saraceni (verificar acentos)
+- Colégio
+- Magia
+
 ---
 
-### 2. **Testar Todas as Melhorias** ⏳
-**Tempo estimado:** 30 min
+### 2. **Validar Correção** ⏳
+**Tempo estimado:** 15 min
 
 **Checklist:**
-- [ ] Logo correto no header padrão
-- [ ] Visual quadrado (sem rounded)
-- [ ] Sombras com hover funcionando
-- [ ] Bordas lilás visíveis
-- [ ] Espaçamentos consistentes
-- [ ] Títulos responsivos em mobile
-- [ ] Contraste adequado
-- [ ] Menu mostra página atual
-- [ ] Animações de entrada suaves
-- [ ] Hierarquia de títulos clara
-
-**Testar em:**
-- [ ] Chrome Desktop (1920px)
-- [ ] Chrome Mobile (375px)
-- [ ] Safari (se disponível)
-- [ ] Edge
+- [ ] Todos os acentos corretos
+- [ ] Cedilhas corretas
+- [ ] Til correto
+- [ ] Nenhum caractere estranho (Ã, Ã§, etc)
+- [ ] Testar em Chrome
+- [ ] Testar em Firefox (se disponível)
 
 ---
 
-### 3. **Validar Responsividade** ⏳
-**Tempo estimado:** 20 min
+## 📅 DEPOIS DO CHECKPOINT #9
 
-**Breakpoints para testar:**
-```
-Mobile:   320px, 375px, 425px
-Tablet:   768px, 1024px
-Desktop:  1280px, 1440px, 1920px
-```
+### Checkpoint #10 - Ajustes Visuais (Parte 1)
+**Tempo estimado:** 1-1.5 horas
 
-**O que verificar:**
-- [ ] Textos legíveis em todas as resoluções
-- [ ] Cards não quebram layout
-- [ ] Menu acessível em mobile
-- [ ] Imagens não cortadas
-- [ ] Sem scroll horizontal
+**O que será feito (2-3 itens do Checkpoint #7):**
+1. Corrigir logo do Header padrão
+2. Remover bordas arredondadas (rounded)
+3. Adicionar sombras com hover nos cards
+
+**Por quê dividir?**
+- Mudanças menores = mais fácil testar
+- Se der erro, sabe exatamente qual mudança causou
+- Facilita rollback
 
 ---
 
-## 📅 ESTA SEMANA (21-27/10)
+### Checkpoint #11 - Ajustes Visuais (Parte 2)
+**Tempo estimado:** 1-1.5 horas
+
+**O que será feito:**
+1. Adicionar bordas lilás nos cards
+2. Padronizar espaçamentos
+3. Melhorar contraste (lavanda/40 → lavanda/60)
+
+---
+
+### Checkpoint #12 - Melhorias de Responsividade
+**Tempo estimado:** 1 hora
+
+**O que será feito:**
+1. Títulos responsivos (H1, H2, H3)
+2. Validar breakpoints
+3. Testar em mobile (320px, 375px)
+
+---
+
+### Checkpoint #13 - Interatividade
+**Tempo estimado:** 1 hora
+
+**O que será feito:**
+1. Indicador de página atual no menu
+2. Animações de entrada (FadeInSection)
+3. Testes finais
+
+---
+
+## 📆 ESTA SEMANA (24-30/10)
+
+Após completar Checkpoints #9-#13:
 
 ### 1. **Adicionar Conteúdo Real**
 **Tempo estimado:** 4-6 horas
@@ -112,27 +149,9 @@ Desktop:  1280px, 1440px, 1920px
   - [ ] Cidade/Estado
   - [ ] Botão "Ver detalhes" (placeholder)
 
-**Arquivo a criar:**
-```
-/app/membros/page.tsx (atualizar)
-/data/mockMembers.ts (criar)
-```
-
 ---
 
-### 3. **Refinar Design**
-**Tempo estimado:** 2 horas
-
-**Ajustes finos:**
-- [ ] Verificar todos os hover effects
-- [ ] Ajustar timing das animações se necessário
-- [ ] Testar cores em diferentes monitores
-- [ ] Validar acessibilidade (contraste)
-- [ ] Adicionar loading states onde necessário
-
----
-
-## 📆 PRÓXIMAS 2 SEMANAS (28/10 - 10/11)
+## 📆 PRÓXIMAS 2 SEMANAS (31/10 - 13/11)
 
 ### 1. **Setup Supabase**
 **Tempo estimado:** 4-6 horas
@@ -185,182 +204,94 @@ Desktop:  1280px, 1440px, 1920px
 
 ---
 
-## 📆 PRÓXIMO MÊS (11/11 - 10/12)
+## 🔍 CHECKLIST DE VALIDAÇÃO
 
-### 1. **Formulário de Afiliação Completo**
-**Tempo estimado:** 8-10 horas
+### Após Checkpoint #9:
+- [ ] Encoding UTF-8 correto em todos os arquivos
+- [ ] Zero caracteres quebrados
+- [ ] Palavras-chave testadas (São, José, Tradição)
+- [ ] Build local funcionando
+- [ ] Console sem erros
 
-**Implementar:**
-- [ ] Formulário multi-step
-- [ ] Validações completas
-- [ ] Upload de documentos
-- [ ] Salvamento no Supabase
-- [ ] Email de confirmação
-
----
-
-### 2. **Integração Mercado Pago**
-**Tempo estimado:** 8-12 horas
-
-**Tarefas:**
-- [ ] Criar conta Mercado Pago (se não tem)
-- [ ] Obter credenciais
-- [ ] Instalar SDK
-- [ ] Criar checkout page
-- [ ] Implementar webhooks
-- [ ] Testar pagamento em sandbox
+### Após Checkpoints #10-#13:
+- [ ] Todos os ajustes visuais implementados
+- [ ] Logo correto nas páginas internas
+- [ ] Visual quadrado com sombras
+- [ ] Bordas lilás visíveis
+- [ ] Espaçamentos consistentes
+- [ ] Títulos responsivos
+- [ ] Contraste adequado
+- [ ] Menu mostra página atual
+- [ ] Animações suaves
+- [ ] Testado em 3+ breakpoints
 
 ---
 
-### 3. **Sistema de Blog**
-**Tempo estimado:** 6-8 horas
+## ⚠️ LIÇÕES APRENDIDAS (Checkpoint #8)
 
-**Opções:**
-- [ ] Decidir: Markdown vs CMS
-- [ ] Implementar CRUD (se admin)
-- [ ] Página de listagem
-- [ ] Página de post individual
-- [ ] Categorias e tags
+### O que NÃO fazer:
+1. ❌ Scripts PowerShell sem `-Encoding UTF8`
+2. ❌ Muitas mudanças em um único checkpoint
+3. ❌ Não testar caracteres especiais após scripts
 
----
-
-## 🔍 TESTES E VALIDAÇÕES
-
-### Após cada implementação:
-- [ ] Testes unitários (se aplicável)
-- [ ] Testes manuais
-- [ ] Testar em dispositivos reais
-- [ ] Validar acessibilidade
-- [ ] Verificar performance
-
-### Antes do deploy:
-- [ ] Lighthouse audit
-- [ ] Testar todos os fluxos
-- [ ] Verificar SEO
-- [ ] Validar meta tags
-- [ ] Testar em produção (staging)
+### O que SEMPRE fazer:
+1. ✅ Especificar encoding UTF-8 explicitamente
+2. ✅ Dividir checkpoints grandes em menores
+3. ✅ Testar com palavras acentuadas (São, José, Tradição)
+4. ✅ Validar antes de commitar
+5. ✅ Documentar decisões importantes
 
 ---
 
-## 📊 MÉTRICAS DE SUCESSO
+## 💡 PROTOCOLO DE CHECKPOINT (Reforço)
 
-### Checkpoint #7:
-- [ ] Todas as 10 melhorias implementadas
-- [ ] Testes passando
-- [ ] Zero erros no console
-- [ ] Visual aprovado
+### Checkpoint = Salvar decisões e contexto
+- ✅ Atualizar 7 arquivos de documentação
+- ✅ Adicionar seções incrementais
+- ✅ NÃO criar novos arquivos
+- ✅ NÃO criar pastas checkpoint-[timestamp]
+- ✅ NÃO criar CHECKPOINT-SUMMARY.md separado
 
-### Esta Semana:
-- [ ] 3 páginas com conteúdo real
-- [ ] Busca de membros funcionando (mock)
-- [ ] Design refinado
-
-### Próximas 2 Semanas:
-- [ ] Supabase configurado
-- [ ] Login/Registro funcionando
-- [ ] Dashboard básico implementado
-
-### Próximo Mês:
-- [ ] Afiliação completa funcionando
-- [ ] Pagamento integrado
-- [ ] Blog operacional
-
----
-
-## ⚠️ BLOQUEADORES POTENCIAIS
-
-### Técnicos:
-1. **Credenciais Supabase** - Precisa criar conta
-2. **Credenciais Mercado Pago** - Precisa configurar
-3. **Conteúdo das páginas** - Precisa dos textos reais
-
-### Soluções:
-- Usar mocks até ter credenciais reais
-- Documentar o que falta
-- Prosseguir com outras tarefas
-
----
-
-## 📝 DOCUMENTAÇÃO
-
-### Após Checkpoint #7:
-- [ ] Atualizar PROGRESS-TRACKING.md
-- [ ] Criar Checkpoint #8 (quando necessário)
-- [ ] Atualizar CONTEXT-LOG.md
-- [ ] Git commit com mensagem clara
-
-### Commits sugeridos:
-```
-feat: implementa melhorias de UX do Checkpoint #7
-fix: corrige logo do header padrão
-style: remove bordas arredondadas e adiciona bordas lilás
-feat: adiciona animação de entrada nos cards
-feat: implementa indicador de página atual no menu
-```
-
----
-
-## 🎯 PRIORIDADES
-
-### 🔴 CRÍTICO (Fazer primeiro):
-1. Executar Checkpoint #7
-2. Testar todas as melhorias
-3. Validar responsividade
-
-### 🟡 IMPORTANTE (Esta semana):
-1. Adicionar conteúdo real
-2. Busca de membros (mock)
-3. Refinar design
-
-### 🟢 DESEJÁVEL (Quando possível):
-1. Setup Supabase
-2. Autenticação
-3. Dashboards
-
----
-
-## 💡 DICAS IMPORTANTES
-
-### Durante desenvolvimento:
-1. **Sempre testar após cada mudança** - `npm run dev`
-2. **Commitar frequentemente** - Pequenos commits
-3. **Seguir CODE-STANDARDS.md** - Manter padrão
-4. **Documentar decisões** - Atualizar DECISIONS.md
-
-### Ao encontrar problemas:
-1. **Verificar console** - Erros de TypeScript
-2. **Checar ERRORS-LOG.md** - Erros conhecidos
-3. **Consultar documentação** - Next.js/Tailwind
-4. **Testar em ambiente limpo** - `npm run build`
+### Arquivos que SEMPRE atualizar:
+1. CHECKPOINTS-HISTORICO.md
+2. ERRORS-LOG.md (se houver erro)
+3. DECISIONS.md (se houver decisão)
+4. UX-GUIDELINES.md (se houver decisão de UX)
+5. CONTEXT-LOG.md
+6. PROGRESS-TRACKING.md
+7. NEXT-STEPS.md (este arquivo)
 
 ---
 
 ## 📞 SUPORTE
 
 ### Documentos de referência:
-- **CHECKPOINT-7.md** - Especificações completas
+- **CHECKPOINTS-HISTORICO.md** - Histórico completo
+- **ERRORS-LOG.md** - Erros conhecidos e soluções
+- **DECISIONS.md** - Decisões tomadas
+- **UX-GUIDELINES.md** - Guia de UX (agora com hierarquias!)
 - **CODE-STANDARDS.md** - Padrões de código
 - **FEATURES-SPEC.md** - Funcionalidades
-- **DECISIONS.md** - Decisões tomadas
-- **UX-GUIDELINES.md** - Guia de UX
 
 ### Para nova conversa com Claude:
-> "Claude, estou continuando o projeto do Checkpoint #7. Acabei de implementar [descrever o que fez]. O que devo fazer a seguir? Consulte NEXT-STEPS.md."
+> "Claude, estou continuando o projeto. Acabei de completar o Checkpoint #8 (documentação). Preciso executar o Checkpoint #9 (correção de encoding UTF-8). Consulte NEXT-STEPS.md e ERRORS-LOG.md (ERR-016)."
 
 ---
 
 ## ✅ CHECKLIST GERAL
 
-### Antes de considerar Checkpoint #7 completo:
-- [ ] Todos os 10 itens implementados
-- [ ] Testado em 3+ navegadores
-- [ ] Testado em mobile e desktop
+### Antes de considerar Checkpoint #9 completo:
+- [ ] Encoding UTF-8 corrigido em todos os arquivos afetados
+- [ ] Validação de caracteres especiais
+- [ ] Script `validar-utf8.ps1` criado
+- [ ] Testado no browser
 - [ ] Zero erros no console
-- [ ] Build de produção funcionando
-- [ ] Documentação atualizada
+- [ ] Documentação atualizada (7 arquivos)
 - [ ] Git commit realizado
 
 ---
 
-**Próxima atualização:** Após execução do Checkpoint #7  
-**Última revisão:** 20/10/2025
+**Próxima atualização:** Após execução do Checkpoint #9  
+**Última revisão:** 23/10/2025  
+**Foco atual:** 🔴 Correção de encoding UTF-8 (prioridade crítica)
+

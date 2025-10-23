@@ -295,6 +295,54 @@ className="space-y-8"
 
 ---
 
+---
+
+### ✅ Abordagem Incremental para Checkpoints (NOVO - Checkpoint #8)
+
+**Decisão:** Dividir checkpoints grandes em checkpoints menores e incrementais  
+
+**Problema identificado:**
+- Checkpoint #7 continha muitas mudanças simultâneas (10 melhorias)
+- Risco alto: difícil identificar qual mudança causou problema
+- Difícil fazer rollback de mudanças específicas
+
+**Nova estratégia:**
+```
+ANTES: Checkpoint #7 = 10 mudanças de uma vez
+DEPOIS:
+  - Checkpoint #8 = Documentação de decisões
+  - Checkpoint #9 = Correção encoding UTF-8
+  - Checkpoint #10 = Ajustes visuais (parte 1)
+  - Checkpoint #11 = Ajustes visuais (parte 2)
+  - etc.
+```
+
+**Benefícios:**
+1. **Facilita rollback** - Pode reverter checkpoint específico
+2. **Facilita testes** - Menos mudanças por vez
+3. **Facilita identificação de problemas** - Sabe exatamente qual mudança causou o erro
+4. **Reduz risco** - Mudanças menores = menos chance de erro
+5. **Melhora documentação** - Cada checkpoint tem foco claro
+
+**Regra:**
+- Máximo 3-4 mudanças relacionadas por checkpoint
+- Checkpoints de documentação separados de checkpoints de código
+- Sempre testar após cada checkpoint
+
+**Aplicação:**
+- Checkpoint #7 será dividido em múltiplos checkpoints menores
+- Cada melhoria será implementada e testada separadamente
+- Documentação atualizada a cada checkpoint
+
+**Data:** Checkpoint #8 (23/10/2025)  
+**Status:** ✅ Implementado
+
+**Motivo:** 
+- Aprendizado com erros anteriores
+- Evitar perda de trabalho
+- Facilitar manutenção futura
+
+
 ### ✅ Contraste e Legibilidade (NOVO - Checkpoint #7)
 
 **Decisão:** Melhorar contraste mantendo estilo

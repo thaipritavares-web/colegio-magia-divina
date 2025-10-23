@@ -1,4 +1,4 @@
-# WORKFLOW - PROCESSO DE TRABALHO
+﻿# WORKFLOW - PROCESSO DE TRABALHO
 
 ---
 
@@ -63,7 +63,7 @@ Claude irá:
 **Comandos Git:**
 
 ```powershell
-cd "C:\Users\thais\Documents\Projeto_website_colegio-tradicao-magia-divina\colegio-tradicao"
+cd "C:\Users\thais\Documents\Projeto_website_colegio-tradicao-magia-divina"
 git add .
 git commit -m "Backup antes de [descrição da mudança]"
 ```
@@ -175,7 +175,7 @@ Depois que Claude executar:
 **Commits:**
 
 ```powershell
-cd "C:\Users\thais\Documents\Projeto_website_colegio-tradicao-magia-divina\colegio-tradicao"
+cd "C:\Users\thais\Documents\Projeto_website_colegio-tradicao-magia-divina"
 git add .
 git commit -m "Implementado: [descrição]"
 ```
@@ -199,7 +199,7 @@ git checkout -- .
 ### COMANDOS:
 
 ```powershell
-cd "C:\Users\thais\Documents\Projeto_website_colegio-tradicao-magia-divina\colegio-tradicao"
+cd "C:\Users\thais\Documents\Projeto_website_colegio-tradicao-magia-divina"
 git status
 git add .
 git commit -m "Descrição clara do que mudou"
@@ -245,7 +245,7 @@ git push origin main
 
 **Ver últimos commits:**
 ```powershell
-cd "C:\Users\thais\Documents\Projeto_website_colegio-tradicao-magia-divina\colegio-tradicao"
+cd "C:\Users\thais\Documents\Projeto_website_colegio-tradicao-magia-divina"
 git log --oneline
 ```
 
@@ -337,3 +337,4 @@ Todo checkpoint DEVE conter:
 4. ✅ Link `computer://` para download do ZIP
 
 **Thais não deve precisar navegar em pastas manualmente - apenas baixar o ZIP e extrair.**
+

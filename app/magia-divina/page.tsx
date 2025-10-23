@@ -18,7 +18,7 @@ export default function MagiaDivina() {
           <p className="text-azul-escuro leading-relaxed mb-4">
             O conhecimento da Magia Divina está organizado em diversos graus, cada um focando em aspectos específicos do trabalho espiritual. Os principais graus incluem:
           </p>
-          <div className="bg-lavanda p-6 rounded-lg">
+          <div className="bg-lavanda p-6 ">
             <ul className="space-y-2 text-azul-escuro">
               <li>• Magia Sagrada das Sete Chamas</li>
               <li>• Magia Sagrada das Sete Pedras</li>
@@ -37,14 +37,14 @@ export default function MagiaDivina() {
           </p>
         </section>
 
-        <section className="bg-lilas-branco p-6 rounded-lg">
+        <section className="bg-lilas-branco p-6 ">
           <h2 className="text-2xl font-bold text-azul-marinho mb-4">Como Começar?</h2>
           <p className="text-azul-escuro mb-4">
             Para iniciar-se na Magia Divina, é necessário buscar um Mago Iniciador certificado pelo Colégio. Consulte nossa seção de membros para encontrar um iniciador próximo a você.
           </p>
           <a 
             href="/membros" 
-            className="inline-block bg-roxo-medio hover:bg-azul-escuro text-white px-6 py-2 rounded-lg transition-colors"
+            className="inline-block bg-roxo-medio hover:bg-azul-escuro text-white px-6 py-2 transition-colors"
           >
             Buscar Iniciadores
           </a>

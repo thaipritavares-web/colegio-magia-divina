@@ -5,7 +5,7 @@ export default function Membros() {
         Consulta de Membros
       </h1>
 
-      <div className="bg-lavanda p-8 rounded-lg text-center">
+      <div className="bg-lavanda p-8 text-center">
         <p className="text-xl text-azul-escuro mb-4">
           Sistema de consulta de membros em desenvolvimento.
         </p>

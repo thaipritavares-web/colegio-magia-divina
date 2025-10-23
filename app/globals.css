@@ -14,7 +14,7 @@
 /* Router - Regular */
 @font-face {
   font-family: 'Router';
-  src: url('/fonts/fonnts_com-Router.otf') format('opentype');
+  src: url('/fonts/fonnts.com-Router.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -23,7 +23,7 @@
 /* Router - Thin */
 @font-face {
   font-family: 'Router Thin';
-  src: url('/fonts/fonnts_com-Router_Thin.otf') format('opentype');
+  src: url('/fonts/fonnts.com-Router_Thin.otf') format('opentype');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -32,7 +32,7 @@
 /* Router - Light */
 @font-face {
   font-family: 'Router';
-  src: url('/fonts/fonnts_com-Router_Light.otf') format('opentype');
+  src: url('/fonts/fonnts.com-Router_Light.otf') format('opentype');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -41,7 +41,7 @@
 /* Router - Medium */
 @font-face {
   font-family: 'Router';
-  src: url('/fonts/fonnts_com-Router_Medium.otf') format('opentype');
+  src: url('/fonts/fonnts.com-Router_Medium.otf') format('opentype');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -50,7 +50,7 @@
 /* Router - Bold */
 @font-face {
   font-family: 'Router Bold';
-  src: url('/fonts/fonnts_com-Router_Bold.otf') format('opentype');
+  src: url('/fonts/fonnts.com-Router_Bold.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -59,7 +59,7 @@
 /* Router - ExtraLight */
 @font-face {
   font-family: 'Router';
-  src: url('/fonts/fonnts_com-Router_Extralight.otf') format('opentype');
+  src: url('/fonts/fonnts.com-Router_Extralight.otf') format('opentype');
   font-weight: 200;
   font-style: normal;
   font-display: swap;

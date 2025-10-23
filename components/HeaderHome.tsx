@@ -18,7 +18,7 @@ export default function HeaderHome() {
   ]
 
   return (
-    <header className="bg-white sticky top-0 z-50 bg-white shadow-md">
+    <header className="sticky top-0 z-50 bg-gradient-to-r from-[rgba(255,255,255,0.95)] to-[rgba(236,224,240,0.95)] backdrop-blur-md shadow-md">
       <div className="max-w-[1440px] mx-auto px-20 py-10">
         
         {/* LINHA 1: Menu + Login à direita */}

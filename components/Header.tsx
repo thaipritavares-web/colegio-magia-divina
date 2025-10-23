@@ -18,7 +18,7 @@ export default function Header() {
   ]
 
   return (
-    <header className="bg-white shadow-sm">
+    <header className="bg-white shadow-sm sticky top-0 z-50 bg-white shadow-md">
       <div className="max-w-[1440px] mx-auto px-20 py-5">
         <div className="flex items-center justify-between">
           

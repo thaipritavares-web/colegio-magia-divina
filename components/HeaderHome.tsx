@@ -18,7 +18,7 @@ export default function HeaderHome() {
   ]
 
   return (
-    <header className="bg-white">
+    <header className="bg-white sticky top-0 z-50 bg-white shadow-md">
       <div className="max-w-[1440px] mx-auto px-20 py-10">
         
         {/* LINHA 1: Menu + Login à direita */}

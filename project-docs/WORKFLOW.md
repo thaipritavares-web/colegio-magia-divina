@@ -540,3 +540,33 @@ git merge nome-da-branch
 
 **Última atualização:** 23/10/2025  
 **Versão:** 2.0 - Workflow Otimizado com Acessos Diretos
+---
+
+## 🐛 TROUBLESHOOTING DE ERROS
+
+**PROTOCOLO OBRIGATÓRIO:**
+
+Quando você reportar qualquer erro, Claude DEVE seguir o protocolo documentado em:
+
+📄 **`/project-docs/TROUBLESHOOTING-PROTOCOL.md`**
+
+### Resumo do Protocolo (5 Fases Obrigatórias):
+
+1. **LEVANTAR HIPÓTESES** - Listar NO MÍNIMO 5 possíveis causas
+2. **INVESTIGAR TODAS** - Verificar cada hipótese SEM implementar nada
+3. **RANQUEAR** - Ordenar por probabilidade (ALTÍSSIMA → BAIXA)
+4. **DIAGNOSTICAR** - Identificar causa raiz com evidências
+5. **PROPOR SOLUÇÃO** - APENAS depois das fases 1-4
+
+### ⚠️ PROIBIDO:
+❌ Tentar soluções antes de análise completa
+❌ "Vamos reinstalar e ver se funciona"
+❌ Implementar antes de investigar todas hipóteses
+
+### ✅ OBRIGATÓRIO:
+✅ Análise científica completa
+✅ Diagnóstico com evidências
+✅ Uma solução (a certa) após análise
+
+**Para detalhes completos, sempre consultar o arquivo TROUBLESHOOTING-PROTOCOL.md**
+

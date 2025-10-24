@@ -22,37 +22,11 @@ export default function HeaderHome() {
     <header className="sticky top-0 z-50 bg-gradient-to-r from-[rgba(255,255,255,0.95)] to-[rgba(236,224,240,0.95)] backdrop-blur-md shadow-header">
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-20 py-6">
         
-        {/* Layout Principal: Logo+Título à esquerda | Menu+Login à direita */}
-        <div className="flex items-center justify-between gap-8">
+        {/* LINHA 1: Menu + Login SEMPRE à direita */}
+        <nav className="flex justify-end items-center gap-6 mb-8">
           
-          {/* LADO ESQUERDO: Logo + Título */}
-          <div className="flex items-start gap-6">
-            <div className="w-[140px] h-[140px] flex-shrink-0">
-              <Image
-                src="/images/logo sem texto.svg"
-                alt="Logo Colégio Tradição de Magia Divina"
-                width={140}
-                height={140}
-                priority
-                className="w-full h-full object-contain"
-              />
-            </div>
-            
-            <div className="pt-2">
-              {/* Título - Kaushan Script */}
-              <h1 className="text-[48px] md:text-[56px] font-kaushian text-azul-escuro leading-tight mb-3">
-                Colégio Tradição de Magia Divina
-              </h1>
-              
-              {/* Subtítulo */}
-              <P size="base" className="mb-0 max-w-[550px] text-gray-medium">
-                Subtítulo que define o contexto, compartilha mais informações sobre o site ou, de modo geral, estimula as pessoas a continuar conferindo a página.
-              </P>
-            </div>
-          </div>
-
-          {/* LADO DIREITO: Menu + Login (Desktop) */}
-          <nav className="hidden lg:flex items-center gap-6">
+          {/* Desktop Menu */}
+          <div className="hidden lg:flex items-center gap-6">
             {menuItems.map((item) => (
               <Link
                 key={item.href}
@@ -70,7 +44,7 @@ export default function HeaderHome() {
             >
               Login
             </Link>
-          </nav>
+          </div>
 
           {/* Mobile Menu Button */}
           <button
@@ -101,11 +75,11 @@ export default function HeaderHome() {
               )}
             </svg>
           </button>
-        </div>
+        </nav>
 
         {/* Mobile Menu Dropdown */}
         {isMenuOpen && (
-          <div className="lg:hidden mt-6 pb-4 border-t border-lilas-claro pt-4">
+          <div className="lg:hidden mb-6 pb-4 border-b border-lilas-claro">
             <div className="flex flex-col gap-4">
               {menuItems.map((item) => (
                 <Link
@@ -127,6 +101,34 @@ export default function HeaderHome() {
             </div>
           </div>
         )}
+
+        {/* LINHA 2 e 3: Logo + Título + Subtítulo (SEMPRE à esquerda) */}
+        <div className="flex items-start gap-8">
+          {/* Logo 200x200 */}
+          <div className="w-[200px] h-[200px] flex-shrink-0">
+            <Image
+              src="/images/logo sem texto.svg"
+              alt="Logo Colégio Tradição de Magia Divina"
+              width={200}
+              height={200}
+              priority
+              className="w-full h-full object-contain"
+            />
+          </div>
+          
+          {/* Título + Subtítulo */}
+          <div className="pt-4">
+            {/* Título - Kaushan Script */}
+            <h1 className="text-[56px] md:text-[64px] font-kaushian text-azul-escuro leading-tight mb-6">
+              Colégio Tradição de Magia Divina
+            </h1>
+            
+            {/* Subtítulo - Cinza corpo (#4A5568) */}
+            <p className="text-base font-router text-gray-text leading-relaxed mb-0 max-w-[600px]">
+              Subtítulo que define o contexto, compartilha mais informações sobre o site ou, de modo geral, estimula as pessoas a continuar conferindo a página.
+            </p>
+          </div>
+        </div>
       </div>
     </header>
   )

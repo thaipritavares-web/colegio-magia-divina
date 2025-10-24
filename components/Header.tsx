@@ -3,9 +3,11 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
+import { usePathname } from 'next/navigation'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const pathname = usePathname()
 
   const menuItems = [
     { label: 'Sobre o Colégio', href: '/sobre-colegio' },
@@ -36,15 +38,22 @@ export default function Header() {
 
           {/* Menu Desktop à direita */}
           <nav className="hidden md:flex items-center gap-8">
-            {menuItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-azul-escuro hover:text-roxo-medio transition-all duration-300 font-router text-base px-3 py-2 rounded hover:shadow-[0_4px_12px_rgba(255,255,255,0.9)]"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {menuItems.map((item) => {
+              const isActive = pathname === item.href
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`transition-all duration-300 font-router text-base px-4 py-2 rounded-md whitespace-nowrap ${
+                    isActive 
+                      ? 'text-azul-escuro font-router-bold bg-white/50 shadow-[0_2px_12px_rgba(255,255,255,0.9)]' 
+                      : 'text-azul-escuro hover:text-roxo-medio hover:bg-white/30'
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              )
+            })}
             
             <Link
               href="/auth/login"

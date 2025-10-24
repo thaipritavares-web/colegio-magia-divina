@@ -1,6 +1,6 @@
 # 🎯 DECISÕES DO PROJETO - REGISTRO COMPLETO
 
-**Última atualização:** 23/10/2025 - Checkpoint #10
+**Última atualização:** 24/10/2025 - Checkpoint #10
 
 ---
 
@@ -339,18 +339,18 @@ body {
 
 ---
 
-### 🔄 Indicador de Página Atual (Checkpoint #7)
+### ✅ Indicador de Página Atual (Decisão #027 - 24/10/2025)
 
-**Decisão:** Menu deve indicar visualmente a página atual
+**Decisão:** Implementar fundo branco semi-transparente com sombra pronunciada como indicador de página ativa
 
-**Implementação planejada:**
+**Implementação:**
 ```tsx
 const pathname = usePathname()
 
 <Link
   className={pathname === item.href 
-    ? "bg-lavanda/30 px-3 py-1 text-azul-marinho" 
-    : "text-azul-escuro hover:text-roxo-medio"
+    ? "bg-white/50 shadow-[0_2px_12px_rgba(255,255,255,0.9)] font-router-bold text-azul-escuro rounded-md whitespace-nowrap" 
+    : "text-azul-escuro hover:bg-white/30 hover:text-roxo-medio"
   }
 >
 ```
@@ -359,9 +359,69 @@ const pathname = usePathname()
 - Melhor orientação do usuário
 - Padrão de UX estabelecido
 - Reduz confusão na navegação
+- Elegante e sutil
 
-**Data:** Checkpoint #7  
-**Status:** 🔄 Aguardando implementação
+**Data:** 24/10/2025  
+**Status:** ✅ Implementado
+
+---
+
+### ✅ Cards de Seleção de Afiliação (Decisão #028 - 24/10/2025)
+
+**Contexto:** Página `/afilie-se` precisa apresentar claramente as duas opções de afiliação
+
+**Decisões Tomadas:**
+
+**1. Hierarquia Visual:**
+- Títulos promovidos de H3 para H2
+- Título da página: "Afilie-se ao Colégio"
+- Ícones de estrela: preenchida (Iniciador) e vazada (Iniciado)
+
+**2. Diferenciação dos Cards:**
+```tsx
+// Card Mago Iniciador (Esquerda)
+- Fundo: #DDCFE8 (Lavanda)
+- Elementos: #5A5AA4 (Roxo/Azul Médio)
+- Estrela: preenchida
+- Preço: R$ 250,00/ano
+
+// Card Mago Iniciado (Direita)
+- Fundo: rgba(255,255,255,0.7) com backdrop-blur-sm
+- Elementos: #26377F (Azul Escuro)
+- Estrela: vazada
+- Preço: R$ 200,00/ano
+```
+
+**3. Listas de Benefícios:**
+- Ícones SVG inline de check em círculo
+- Spacing consistente (space-y-2)
+- Texto em text-sm
+
+**4. Botões CTA:**
+- Textos específicos: "Afilie-se como Mago Iniciador/Iniciado"
+- Largura ajustada (px-8) ao invés de w-full
+- Centralizados com flex justify-center
+- Mesmo estilo: bg-roxo-medio hover:bg-azul-escuro
+
+**5. Remoções:**
+- Excluída caixa "Sistema em desenvolvimento"
+- Removido import de SimpleCard não utilizado
+
+**Motivo:**
+- Diferenciação visual clara entre tipos de afiliação
+- Hierarquia adequada (H2 para títulos de card)
+- Interface mais limpa e profissional
+- Botões mais elegantes e focados
+- Melhor escaneabilidade do conteúdo
+
+**Impacto UX:**
+- ✅ Usuário identifica rapidamente as diferenças
+- ✅ Decisão facilitada pela apresentação visual
+- ✅ CTAs mais diretos e menos intrusivos
+- ✅ Design responsivo mantido
+
+**Data:** 24/10/2025  
+**Status:** ✅ Implementado
 
 ---
 
@@ -513,18 +573,15 @@ boxShadow: {
 
 ---
 
-## 📋 RESUMO DAS DECISÕES DO CHECKPOINT #10
+## 📋 RESUMO DAS DECISÕES RECENTES
 
-| # | Decisão | Tipo | Impacto | Status |
-|---|---------|------|---------|--------|
-| 1 | Sistema de fontes unificado | Técnico | ALTO | 🔄 |
-| 2 | Nova hierarquia de cores | Design | ALTO | 🔄 |
-| 3 | H1 azul-marinho (#1B223F) | Design | MÉDIO | 🔄 |
-| 4 | H2 azul-escuro (#26377F) | Design | MÉDIO | 🔄 |
-| 5 | H3 branco em cards | Design | ALTO | 🔄 |
-| 6 | Textos em cinza (#4A5568) | Design | ALTO | 🔄 |
-| 7 | Correção nomenclatura cores | Técnico | BAIXO | 🔄 |
-| 8 | Auditoria UX completa | Documentação | ALTO | ✅ |
+| # | Decisão | Tipo | Data | Status |
+|---|---------|------|------|--------|
+| 028 | Cards de seleção de afiliação | UX/Design | 24/10/2025 | ✅ |
+| 027 | Indicador visual de página ativa | UX | 24/10/2025 | ✅ |
+| - | Cores do Footer (textos brancos) | Design | 24/10/2025 | ✅ |
+| - | Hierarquia de cores tipográfica | Design | 23/10/2025 | 🔄 |
+| - | Sistema de fontes unificado | Técnico | 23/10/2025 | 🔄 |
 
 **Legenda:**
 - ✅ Implementado
@@ -544,55 +601,5 @@ boxShadow: {
 
 ---
 
-**Última Revisão:** 23/10/2025 - Checkpoint #10  
+**Última Revisão:** 24/10/2025 - v3.1.2  
 **Próxima Revisão:** Após implementação do Checkpoint #10
-
-
----
-
-## 📅 24/10/2025 - Decisão #027: Indicador Visual de Página Ativa no Header
-
-### 🎯 Contexto
-Não havia indicativo visual claro de qual página o usuário estava navegando no menu superior (exceto Home).
-
-### ✅ Decisão Tomada
-**Implementar fundo branco semi-transparente com sombra pronunciada** como indicador de página ativa.
-
-### 🎨 Especificações Técnicas
-
-**Propriedades CSS aplicadas:**
-```css
-/* Página Ativa */
-bg-white/50                                    /* Fundo branco 50% transparente */
-shadow-[0_2px_12px_rgba(255,255,255,0.9)]    /* Sombra branca pronunciada */
-font-router-bold                               /* Negrito para reforço */
-text-azul-escuro                              /* Mantém cor padrão #26377F */
-rounded-md                                     /* Bordas arredondadas */
-whitespace-nowrap                              /* Evita quebra de linha */
-
-/* Estado Normal/Hover */
-hover:bg-white/30                              /* Fundo hover mais sutil */
-hover:text-roxo-medio                          /* Hover muda para #5A5AA4 */
-```
-
-### 🎯 Alternativas Consideradas e Rejeitadas
-
-1. ❌ **Sublinhado branco fino** - Pouco destaque visual
-2. ❌ **Texto branco** - Perderia consistência com demais links
-3. ❌ **Borda superior** - Menos elegante
-4. ✅ **Fundo branco semi-transparente** - ESCOLHIDO (elegante + destaque suficiente)
-
-### 📊 Impacto
-- **UX:** Navegação mais intuitiva
-- **Acessibilidade:** Indicador visual claro sem depender só de cor
-- **Design:** Mantém elegância e consistência da paleta oficial
-- **Implementação:** `components/Header.tsx` apenas
-
-### 🔗 Referências
-- Commit: `6b51e40` - "feat(header): adiciona indicador visual elegante para página ativa"
-- Arquivo modificado: `components/Header.tsx`
-- Não afeta: `HeaderHome.tsx` (header da home page)
-
-**Status:** ✅ Implementado  
-**Responsável:** Thais + Claude  
-**Data:** 24/10/2025

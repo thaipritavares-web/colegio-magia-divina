@@ -4,6 +4,47 @@ Histórico de versões e mudanças do projeto.
 
 ---
 
+## [v3.1.2] - 24/10/2025
+
+### ✨ Melhorias na Página de Afiliação
+
+**Cards de Seleção de Tipo de Afiliação** ([Decisão #028](DECISIONS.md))
+- Corrigido título da página: "Afiliar-se" → "Afilie-se ao Colégio"
+- Promovidos títulos dos cards de H3 para H2 (maior hierarquia visual)
+- Adicionados ícones de estrela distintos:
+  - Mago Iniciador: estrela preenchida (#5A5AA4)
+  - Mago Iniciado: estrela vazada (#26377F)
+- Implementados preços centralizados e destacados:
+  - Mago Iniciador: R$ 250,00/ano
+  - Mago Iniciado: R$ 200,00/ano
+- Adicionadas listas de benefícios com ícones de check
+- Diferenciação visual dos cards:
+  - Mago Iniciador: fundo lavanda (#DDCFE8) + elementos roxo/azul médio (#5A5AA4)
+  - Mago Iniciado: fundo branco semi-transparente (70% opacidade) + elementos azul escuro (#26377F)
+- Botões CTA otimizados:
+  - Textos específicos: "Afilie-se como Mago Iniciador/Iniciado"
+  - Largura ajustada ao conteúdo (removido w-full)
+  - Centralizados nos cards
+- Removida caixa informativa "Sistema em desenvolvimento"
+
+### 🎨 Design System
+- Card branco com transparência: `bg-white/70 backdrop-blur-sm`
+- Botões dimensionados: `px-8 py-3` (ajuste ao texto)
+- Ícones SVG inline para estrelas e checks
+- Paleta oficial mantida em todos os elementos
+
+### 📝 Arquivos Modificados
+- `app/afilie-se/page.tsx` - Reestruturação completa dos cards
+
+### 🎯 Impacto
+- ✅ Diferenciação clara entre tipos de afiliação
+- ✅ Hierarquia visual aprimorada
+- ✅ Interface mais limpa e profissional
+- ✅ Melhor escaneabilidade do conteúdo
+- ✅ CTA mais elegante e focado
+
+---
+
 ## [v3.1.1] - 24/10/2025
 
 ### ✨ Melhorias UX

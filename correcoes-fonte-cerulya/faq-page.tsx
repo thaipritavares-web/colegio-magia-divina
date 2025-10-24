@@ -7,10 +7,10 @@ export default function FAQ() {
 
       <div className="bg-lavanda p-8 rounded-lg text-center">
         <p className="text-xl text-azul-escuro mb-4">
-          Seção de perguntas frequentes em desenvolvimento.
+          SeÃ§Ã£o de perguntas frequentes em desenvolvimento.
         </p>
         <p className="text-azul-escuro">
-          Em breve você terá acesso a respostas para as dúvidas mais comuns sobre o Colégio e a Magia Divina.
+          Em breve vocÃª terÃ¡ acesso a respostas para as dÃºvidas mais comuns sobre o ColÃ©gio e a Magia Divina.
         </p>
       </div>
     </div>

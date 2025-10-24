@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
+import { P } from '@/components/Typography'
 
 export default function HeaderHome() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -18,8 +19,8 @@ export default function HeaderHome() {
   ]
 
   return (
-    <header className="sticky top-0 z-50 bg-gradient-to-r from-[rgba(255,255,255,0.95)] to-[rgba(236,224,240,0.95)] backdrop-blur-md shadow-md">
-      <div className="max-w-[1440px] mx-auto px-20 py-10">
+    <header className="sticky top-0 z-50 bg-gradient-to-r from-[rgba(255,255,255,0.95)] to-[rgba(236,224,240,0.95)] backdrop-blur-md shadow-header">
+      <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-20 py-10">
         
         {/* LINHA 1: Menu + Login à direita */}
         <nav className="flex justify-end items-center gap-8 mb-[60px]">
@@ -40,7 +41,7 @@ export default function HeaderHome() {
           {/* Botão Login */}
           <Link
             href="/auth/login"
-            className="hidden md:inline-block bg-roxo-medio hover:bg-azul-escuro text-white px-7 py-2.5 rounded-md font-router-bold transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+            className="hidden md:inline-block bg-roxo-medio hover:bg-azul-escuro text-white px-7 py-2.5 rounded-md font-router-bold transition-all duration-300 shadow-button hover:shadow-button-hover hover:-translate-y-0.5"
           >
             Login
           </Link>
@@ -115,15 +116,15 @@ export default function HeaderHome() {
           </div>
           
           <div className="pt-5">
-            {/* Título */}
+            {/* Título - Kaushan Script para nome do colégio + Azul Escuro (Checkpoint #10) */}
             <h1 className="text-[64px] font-kaushian text-azul-escuro leading-tight mb-5">
               Colégio Tradição de Magia Divina
             </h1>
             
-            {/* LINHA 3: Subtítulo */}
-            <p className="text-lg font-router-thin text-gray-text leading-relaxed max-w-[650px]">
+            {/* LINHA 3: Subtítulo - Cinza Médio para leitura (Checkpoint #10) */}
+            <P size="lg" className="mb-0 max-w-[650px] text-gray-medium">
               Subtítulo que define o contexto, compartilha mais informações sobre o site ou, de modo geral, estimula as pessoas a continuar conferindo a página.
-            </p>
+            </P>
           </div>
         </div>
       </div>

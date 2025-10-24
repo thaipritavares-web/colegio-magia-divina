@@ -1,38 +1,39 @@
+import { H1, H2, P } from '@/components/Typography'
+import Card from '@/components/Card'
+
 export default function RubensSaraceni() {
   return (
     <div className="container mx-auto px-4 py-16">
-      <h1 className="text-5xl font-router-thin text-roxo-medio mb-8" style={{letterSpacing: '-1px'}}>
-        Rubens Saraceni
-      </h1>
+      <H1>Rubens Saraceni</H1>
 
       <div className="max-w-4xl">
         <section className="mb-12">
-          <h2 className="text-3xl font-router-thin text-roxo-medio mb-6">Mentor Espiritual</h2>
-          <p className="font-router-thin text-gray-text leading-relaxed text-lg mb-4">
+          <H2>Mentor Espiritual</H2>
+          <P size="lg">
             Rubens Saraceni é o fundador e mentor espiritual do Colégio Tradição de Magia Divina. Através de sua conexão com o sagrado, recebeu e sistematizou os ensinamentos que formam a base da Magia Divina como conhecemos hoje.
-          </p>
+          </P>
         </section>
 
         <section className="mb-12">
-          <h2 className="text-3xl font-router-thin text-roxo-medio mb-6">Obra e Legado</h2>
-          <p className="font-router-thin text-gray-text leading-relaxed text-lg mb-4">
+          <H2>Obra e Legado</H2>
+          <P size="lg">
             Autor de dezenas de livros sobre Umbanda e Magia Divina, Rubens Saraceni dedica sua vida à transmissão dos conhecimentos sagrados. Seu trabalho revolucionou a compreensão da Umbanda e estabeleceu bases sólidas para a prática da Magia Divina.
-          </p>
+          </P>
         </section>
 
         <section className="mb-12">
-          <h2 className="text-3xl font-router-thin text-roxo-medio mb-6">Ensinamentos</h2>
-          <p className="font-router-thin text-gray-text leading-relaxed text-lg mb-4">
+          <H2>Ensinamentos</H2>
+          <P size="lg">
             Os ensinamentos de Rubens Saraceni abrangem desde os fundamentos da cosmogonia umbandista até as práticas mais avançadas de magia ritual, sempre enfatizando a ética, o respeito e o desenvolvimento espiritual consciente.
-          </p>
+          </P>
         </section>
 
-        <section className="bg-lavanda p-10 shadow-card-solid hover:shadow-card-solid-hover transition-all duration-300">
-          <h2 className="text-3xl font-router-thin text-azul-marinho mb-6">Principais Obras</h2>
-          <p className="font-router-thin text-gray-text leading-relaxed text-lg">
+        <Card>
+          <H2 className="mt-0">Principais Obras</H2>
+          <P size="lg">
             Entre suas principais obras estão os livros que abordam os diversos aspectos da Magia Divina, incluindo os rituais das Sete Chamas, Pedras, Ervas e demais graus de conhecimento.
-          </p>
-        </section>
+          </P>
+        </Card>
       </div>
     </div>
   )

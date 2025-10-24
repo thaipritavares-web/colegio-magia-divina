@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mockup - Nova Hierarquia de Cores (H3 Branco)</title>
+    <style>
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* PALETA OFICIAL */
+        :root {
+            --azul-marinho: #1B223F;
+            --azul-escuro: #26377F;
+            --roxo-medio: #5A5AA4;
+            --lilas-claro: #C6C0E1;
+            --lavanda: #DDCFE8;
+            --lilas-quase-branco: #ECE0F0;
+            --gray-text: #4A5568;
+            --gray-medium: #718096;
+        }
+
+        /* FUNDO REAL DO SITE - do globals.css */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(236, 224, 240, 0.95));
+            background-attachment: fixed;
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: var(--gray-text);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: transparent; /* Sem fundo extra */
+            padding: 60px;
+        }
+
+        /* CABEÇALHO */
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            color: var(--azul-marinho);
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: var(--gray-medium);
+        }
+
+        /* ANTES E DEPOIS - LADO A LADO */
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .column {
+            background: transparent; /* SEM fundo branco */
+            padding: 40px;
+            box-shadow: none; /* SEM sombra */
+        }
+
+        .column-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 15px;
+        }
+
+        .antes-header {
+            background: #fee;
+            border: 2px solid #f88;
+        }
+
+        .depois-header {
+            background: #efe;
+            border: 2px solid #8f8;
+        }
+
+        .column-header h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .antes-header h2 {
+            color: #c00;
+        }
+
+        .depois-header h2 {
+            color: #080;
+        }
+
+        .column-header p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* ================================
+           ESTILOS ANTES (ATUAL)
+           ================================ */
+        .antes h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            color: var(--roxo-medio); /* #5A5AA4 - MUITO CLARO */
+            margin-bottom: 30px;
+            letter-spacing: -0.5px;
+        }
+
+        .antes h2 {
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: var(--roxo-medio); /* #5A5AA4 - MUITO CLARO */
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .antes h3 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: var(--azul-escuro); /* #26377F */
+            margin-bottom: 12px;
+        }
+
+        .antes .card p,
+        .antes .card-white p {
+            color: var(--gray-text); /* #4A5568 - CINZA */
+        }
+
+        .antes p {
+            font-size: 1.1rem;
+            color: var(--gray-text); /* #4A5568 - CINZA para comparação justa */
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        /* ================================
+           ESTILOS DEPOIS (PROPOSTO)
+           ================================ */
+        .depois h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            color: var(--azul-marinho); /* #1B223F - MAIS ESCURO = MAIS DESTAQUE */
+            margin-bottom: 30px;
+            letter-spacing: -0.5px;
+        }
+
+        .depois h2 {
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: var(--azul-escuro); /* #26377F - BOM CONTRASTE */
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .depois h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #FFFFFF; /* BRANCO - DENTRO DAS CAIXAS COLORIDAS */
+            margin-bottom: 12px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Sutil para legibilidade */
+        }
+
+        .depois p {
+            font-size: 1.1rem;
+            color: var(--gray-text); /* #4A5568 - CINZA = MENOS DESTAQUE */
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        /* Texto dentro das caixas DEPOIS em cinza */
+        .depois .card p,
+        .depois .card-white p {
+            color: var(--gray-text); /* #4A5568 - CINZA para legibilidade */
+        }
+
+        /* CARDS/CAIXAS - QUADRADAS */
+        .card {
+            background: var(--lavanda);
+            padding: 30px;
+            border-radius: 0; /* QUADRADO */
+            margin: 20px 0;
+        }
+
+        .card-white {
+            background: var(--lilas-quase-branco);
+            padding: 30px;
+            border-radius: 0; /* QUADRADO */
+            margin: 20px 0;
+        }
+
+        /* LEGENDAS DE CORES */
+        .color-legend {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f9f9f9;
+            font-size: 12px;
+        }
+
+        .color-sample {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+            vertical-align: middle;
+            border: 1px solid #ddd;
+        }
+
+        /* ANÁLISE FINAL */
+        .analysis {
+            background: rgba(255, 255, 255, 0.8); /* Fundo branco semi-transparente para legibilidade */
+            padding: 40px;
+            margin-top: 40px;
+            box-shadow: 0 4px 12px rgba(27, 34, 63, 0.1);
+        }
+
+        .analysis h2 {
+            color: var(--azul-marinho);
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .problem {
+            padding: 20px;
+            background: #fee;
+            border-left: 4px solid #c00;
+        }
+
+        .solution {
+            padding: 20px;
+            background: #efe;
+            border-left: 4px solid #080;
+        }
+
+        .problem h3 {
+            color: #c00 !important;
+            font-size: 18px;
+            margin-bottom: 10px;
+            text-shadow: none !important;
+        }
+
+        .solution h3 {
+            color: #080 !important;
+            font-size: 18px;
+            margin-bottom: 10px;
+            text-shadow: none !important;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .highlight-box {
+            margin-top: 40px;
+            padding: 30px;
+            background: #f0f8ff;
+            border-left: 4px solid #26377F;
+        }
+
+        .highlight-box h3 {
+            color: #26377F !important;
+            margin-bottom: 15px;
+            text-shadow: none !important;
+        }
+
+        .highlight-box p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4A5568;
+        }
+
+        .highlight-box code {
+            font-family: monospace;
+            background: #e3f2fd;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+
+        .approval-box {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            background: #efe;
+        }
+
+        .approval-box h3 {
+            color: #080 !important;
+            margin-bottom: 15px;
+            text-shadow: none !important;
+        }
+
+        .approval-box p {
+            font-size: 1.1rem;
+            color: #4A5568;
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 1024px) {
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 30px;
+            }
+
+            .analysis-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- CABEÇALHO -->
+        <div class="header">
+            <h1>🎨 Mockup - Nova Hierarquia de Cores</h1>
+            <p>Comparação: Antes (atual) vs Depois (H3 em BRANCO)</p>
+        </div>
+
+        <!-- COMPARAÇÃO LADO A LADO -->
+        <div class="comparison">
+            <!-- ============================================
+                 COLUNA ANTES
+                 ============================================ -->
+            <div class="column antes">
+                <div class="column-header antes-header">
+                    <h2>❌ ANTES (Atual)</h2>
+                    <p>Títulos claros, textos escuros</p>
+                </div>
+
+                <h1>A Magia Divina</h1>
+                
+                <h2>O que é Magia Divina?</h2>
+                <p>
+                    A Magia Divina é um conjunto de conhecimentos e práticas sagradas que permitem ao praticante trabalhar conscientemente com as energias divinas.
+                </p>
+
+                <h2>Os Graus de Magia</h2>
+                <p>
+                    O conhecimento da Magia Divina está organizado em diversos graus, cada um focando em aspectos específicos do trabalho espiritual.
+                </p>
+
+                <div class="card">
+                    <h3>Principais Graus</h3>
+                    <p>
+                        • Magia Sagrada das Sete Chamas<br>
+                        • Magia Sagrada das Sete Pedras<br>
+                        • Magia Sagrada das Sete Ervas Sagradas<br>
+                        • Magia Sagrada das Sete Raios
+                    </p>
+                </div>
+
+                <h2>Princípios Fundamentais</h2>
+                <p>
+                    A Magia Divina fundamenta-se no respeito às leis divinas, na ética espiritual e no compromisso com o bem.
+                </p>
+
+                <div class="card-white">
+                    <h3>Como Começar?</h3>
+                    <p>
+                        Para iniciar-se na Magia Divina, é necessário buscar um Mago Iniciador certificado pelo Colégio. Consulte nossa seção de membros.
+                    </p>
+                </div>
+
+                <div class="color-legend">
+                    <strong>Cores usadas:</strong><br>
+                    <span class="color-sample" style="background: #5A5AA4;"></span> H1/H2: #5A5AA4 (roxo claro)<br>
+                    <span class="color-sample" style="background: #26377F;"></span> H3/Texto: #26377F (azul escuro)<br>
+                    <span style="color: #c00;">⚠️ PROBLEMA: Textos mais fortes que títulos!</span>
+                </div>
+            </div>
+
+            <!-- ============================================
+                 COLUNA DEPOIS
+                 ============================================ -->
+            <div class="column depois">
+                <div class="column-header depois-header">
+                    <h2>✅ DEPOIS (Proposto)</h2>
+                    <p>H3 em BRANCO dentro das caixas</p>
+                </div>
+
+                <h1>A Magia Divina</h1>
+                
+                <h2>O que é Magia Divina?</h2>
+                <p>
+                    A Magia Divina é um conjunto de conhecimentos e práticas sagradas que permitem ao praticante trabalhar conscientemente com as energias divinas.
+                </p>
+
+                <h2>Os Graus de Magia</h2>
+                <p>
+                    O conhecimento da Magia Divina está organizado em diversos graus, cada um focando em aspectos específicos do trabalho espiritual.
+                </p>
+
+                <div class="card">
+                    <h3>Principais Graus</h3>
+                    <p>
+                        • Magia Sagrada das Sete Chamas<br>
+                        • Magia Sagrada das Sete Pedras<br>
+                        • Magia Sagrada das Sete Ervas Sagradas<br>
+                        • Magia Sagrada das Sete Raios
+                    </p>
+                </div>
+
+                <h2>Princípios Fundamentais</h2>
+                <p>
+                    A Magia Divina fundamenta-se no respeito às leis divinas, na ética espiritual e no compromisso com o bem.
+                </p>
+
+                <div class="card-white">
+                    <h3>Como Começar?</h3>
+                    <p>
+                        Para iniciar-se na Magia Divina, é necessário buscar um Mago Iniciador certificado pelo Colégio. Consulte nossa seção de membros.
+                    </p>
+                </div>
+
+                <div class="color-legend">
+                    <strong>Cores usadas:</strong><br>
+                    <span class="color-sample" style="background: #1B223F;"></span> H1: #1B223F (azul marinho)<br>
+                    <span class="color-sample" style="background: #26377F;"></span> H2: #26377F (azul escuro)<br>
+                    <span class="color-sample" style="background: #FFFFFF; border: 2px solid #999;"></span> H3: #FFFFFF (branco - dentro de cards)<br>
+                    <span class="color-sample" style="background: #4A5568;"></span> Texto: #4A5568 (cinza)<br>
+                    <span style="color: #080;">✅ SOLUÇÃO: Hierarquia clara + H3 destaque!</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================
+             ANÁLISE COMPARATIVA
+             ============================================ -->
+        <div class="analysis">
+            <h2>📊 Análise da Solução com H3 Branco</h2>
+            
+            <div class="analysis-grid">
+                <div class="problem">
+                    <h3>❌ Problema Atual (ANTES)</h3>
+                    <ul>
+                        <li><strong>H1/H2:</strong> Roxo claro - pouco contraste</li>
+                        <li><strong>H3:</strong> Azul escuro - compete com texto</li>
+                        <li><strong>Textos:</strong> Azul escuro - contraste forte demais</li>
+                        <li><strong>Resultado:</strong> Hierarquia confusa</li>
+                        <li><strong>Cards:</strong> H3 se perde no fundo roxo</li>
+                    </ul>
+                </div>
+
+                <div class="solution">
+                    <h3>✅ Solução Proposta (DEPOIS)</h3>
+                    <ul>
+                        <li><strong>H1:</strong> Azul marinho - destaque máximo 💪</li>
+                        <li><strong>H2:</strong> Azul escuro - hierarquia clara 💪</li>
+                        <li><strong>H3:</strong> BRANCO - contraste total nas caixas! ⚡</li>
+                        <li><strong>Textos:</strong> Cinza - leitura confortável</li>
+                        <li><strong>Cards:</strong> H3 branco "salta" do fundo roxo! 🎯</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h3>💡 Vantagem do H3 Branco</h3>
+                <p>
+                    <strong>Contraste máximo nas caixas coloridas!</strong><br>
+                    O H3 branco sobre fundo <code>lavanda (#DDCFE8)</code> e <code>lilás-quase-branco (#ECE0F0)</code> 
+                    cria um efeito visual marcante, fazendo os títulos dos cards "saltarem" para o usuário.
+                </p>
+                <p style="margin-top: 15px;">
+                    <strong>Hierarquia final:</strong><br>
+                    H1 (azul marinho forte) → H2 (azul escuro) → H3 (branco brilhante em cards) → Texto (cinza suave)
+                </p>
+            </div>
+        </div>
+
+        <!-- ============================================
+             APROVAÇÃO
+             ============================================ -->
+        <div class="approval-box">
+            <h3>✅ Gostou do H3 em BRANCO?</h3>
+            <p>
+                Se aprovar, vou gerar os arquivos corrigidos com essa hierarquia!<br>
+                <strong>Ou prefere testar outra cor para o H3?</strong>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

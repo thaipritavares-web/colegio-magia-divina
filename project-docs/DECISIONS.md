@@ -1,6 +1,6 @@
 # 🎯 DECISÕES DO PROJETO - REGISTRO COMPLETO
 
-**Última atualização:** 20/10/2025 - Checkpoint #7
+**Última atualização:** 23/10/2025 - Checkpoint #10
 
 ---
 
@@ -10,7 +10,7 @@
 2. [Decisões de Design](#decisões-de-design)
 3. [Decisões de UX](#decisões-de-ux)
 4. [Decisões Técnicas](#decisões-técnicas)
-5. [Decisões Pendentes](#decisões-pendentes)
+5. [Histórico de Checkpoints](#histórico-de-checkpoints)
 
 ---
 
@@ -49,54 +49,22 @@
 
 ---
 
-### ✅ Roteamento
-
-**Decisão:** Usar App Router do Next.js 14  
-**Estrutura de Pastas:**
-```
-/app
-  /afilie-se
-  /blog
-  /faq
-  /magia-divina
-  /membros
-  /rubens-saraceni
-  /sobre-colegio
-  /auth/login
-```
-
-**Data:** Checkpoint #1  
-**Status:** ✅ Implementado
-
----
-
-### ⏳ Backend e Banco de Dados
-
-**Decisão:** Supabase para autenticação e database  
-**Motivo:**
-- Auth pronta out-of-the-box
-- PostgreSQL robusto
-- API automática
-- Fácil integração
-
-**Data:** Checkpoint #3  
-**Status:** ⏳ Pendente de implementação
-
----
-
 ## 🎨 DECISÕES DE DESIGN
 
-### ✅ Paleta de Cores (ATUALIZADA - Checkpoint #7)
+### ✅ Paleta de Cores Oficial
 
-**Decisão:** Tons de azul, roxo e lilás (SEM dourado)  
-**Cores Definidas:**
+**Decisão:** Paleta baseada em tons de azul, roxo e lilás
+
+**Cores Principais:**
 ```css
---azul-marinho: #1B223F       /* Textos principais, rodapé */
---azul-escuro: #26377F        /* Links, hover, menu */
---roxo-medio: #5A5AA4         /* CTAs, botões */
---lilas-claro: #C6C0E1        /* Texto secundário */
---lavanda: #DDCFE8            /* Cards, blocos */
---lilas-quase-branco: #ECE0F0 /* Header, seções alternadas */
+--azul-marinho: #1B223F       /* Títulos H1, textos fortes */
+--azul-escuro: #26377F        /* Títulos H2, links */
+--roxo-medio: #5A5AA4         /* Botões CTA, destaques */
+--lilas-claro: #C6C0E1        /* Bordas, detalhes */
+--lavanda: #DDCFE8            /* Fundos de cards */
+--lilas-quase-branco: #ECE0F0 /* Fundos suaves */
+--gray-text: #4A5568          /* Texto corpo */
+--gray-medium: #718096        /* Texto secundário */
 --branco: #FFFFFF             /* Fundo principal */
 ```
 
@@ -107,19 +75,129 @@
 
 ---
 
-### ✅ Tipografia
+### ✅ Sistema de Fontes (ATUALIZADO - Checkpoint #10)
 
-**Decisão:** Router Thin + Kaushan Script  
+**Decisão:** Sistema unificado com família Router única
+
+**Estrutura:**
+```css
+/* Família ÚNICA Router com múltiplos weights */
+@font-face {
+  font-family: 'Router';
+  font-weight: 200; /* ExtraLight */
+}
+@font-face {
+  font-family: 'Router';
+  font-weight: 300; /* Thin */
+}
+@font-face {
+  font-family: 'Router';
+  font-weight: 400; /* Regular - PADRÃO */
+}
+@font-face {
+  font-family: 'Router';
+  font-weight: 500; /* Medium */
+}
+@font-face {
+  font-family: 'Router';
+  font-weight: 700; /* Bold */
+}
+```
+
+**Classes CSS Customizadas:**
+```css
+.font-router-thin   { font-family: 'Router'; font-weight: 300; }
+.font-router-medium { font-family: 'Router'; font-weight: 500; }
+.font-router-bold   { font-family: 'Router'; font-weight: 700; }
+```
+
+**Tailwind Config:**
+```typescript
+fontFamily: {
+  'kaushian': ['Kaushan Script', 'cursive'],
+  'router': ['Router', 'sans-serif'], // Apenas uma família
+}
+```
+
 **Uso:**
-- **Router Thin:** Corpo do texto, títulos, menus
-- **Kaushan Script:** Nome do colégio (apenas)
+- **Router (weights variados):** Corpo do texto, títulos, menus
+- **Kaushan Script:** Nome do colégio na home (apenas)
 
-**Motivo:**
-- Router: Elegante e legível
-- Kaushan: Manuscrita, espiritual, única
+**Correção:** Sistema anterior tinha famílias separadas (Router Thin, Router Bold)  
+**Motivo:** 
+- Melhor controle de weights
+- Adiciona font-router-medium
+- Evita duplicações e conflitos
+- Facilita manutenção
 
-**Data:** Checkpoint #2  
+**Data:** Checkpoint #2 (inicial), Checkpoint #10 (refatorado)  
 **Status:** ✅ Implementado
+
+---
+
+### ✅ Hierarquia de Cores Tipográfica (NOVO - Checkpoint #10)
+
+**Decisão:** Sistema de cores otimizado para contraste e hierarquia visual
+
+**Problema Identificado:**
+- Títulos H1/H2 em roxo claro (#5A5AA4) tinham pouco contraste
+- Textos em azul escuro (#26377F) chamavam MAIS atenção que títulos
+- Hierarquia visual invertida prejudicava UX
+
+**Solução Implementada:**
+
+```tsx
+// H1 - Título Principal da Página
+// Cor: #1B223F (azul-marinho) - Contraste MÁXIMO
+// Peso: 300 (thin)
+className="text-3xl md:text-4xl lg:text-5xl font-router-thin text-azul-marinho mb-8"
+style={{letterSpacing: '-1px'}}
+
+// H2 - Títulos de Seção
+// Cor: #26377F (azul-escuro) - Contraste ALTO
+// Peso: 300 (thin)
+className="text-2xl md:text-3xl font-router-thin text-azul-escuro mb-6"
+
+// H3 - Títulos dentro de Cards/Caixas
+// Cor: #FFFFFF (branco) - Contraste MÁXIMO sobre fundos coloridos
+// Peso: 700 (bold)
+// Efeito: text-shadow sutil para legibilidade
+className="text-xl md:text-2xl font-router-bold text-white mb-4"
+style={{textShadow: '0 1px 2px rgba(0, 0, 0, 0.1)'}}
+
+// Texto Corpo
+// Cor: #4A5568 (gray-text) - Leitura confortável
+// Peso: 400 (regular)
+className="text-base font-router text-gray-text leading-relaxed"
+
+// Texto Secundário
+// Cor: #718096 (gray-medium) - Menos destaque
+// Peso: 400 (regular)
+className="text-sm font-router text-gray-medium"
+```
+
+**Fluxo Visual:**
+```
+MAIS CONTRASTE (mais atenção)
+    ↓
+H1 - #1B223F (azul-marinho, quase preto)
+H2 - #26377F (azul escuro forte)
+H3 - #FFFFFF (branco sobre caixas coloridas)
+Texto - #4A5568 (cinza para leitura)
+    ↓
+MENOS CONTRASTE (menos atenção)
+```
+
+**Benefícios:**
+- ✅ Hierarquia visual correta (títulos > textos)
+- ✅ H3 branco "salta" das caixas coloridas (lavanda/lilás)
+- ✅ Melhor escaneabilidade da página
+- ✅ Contraste adequado para acessibilidade
+- ✅ Leitura confortável com textos em cinza
+
+**Mockup Aprovado:** mockup-h3-branco.html  
+**Data:** Checkpoint #10 (23/10/2025)  
+**Status:** 🔄 Aguardando implementação
 
 ---
 
@@ -141,7 +219,7 @@
 **Decisão:** Visual quadrado + Glass morphism + Sombras  
 
 **Especificações:**
-- **SEM bordas arredondadas** (sem `rounded-lg/xl`)
+- **SEM bordas arredondadas** (border-radius: 0)
 - **COM glass morphism:** `bg-lavanda/60 backdrop-blur-sm`
 - **COM sombras hover:** `hover:-translate-y-2 shadow-card hover:shadow-card-hover`
 - **COM bordas lilás:** `border border-lilas-claro`
@@ -162,21 +240,21 @@ transition-all duration-300 hover:-translate-y-2 shadow-card hover:shadow-card-h
 
 ---
 
-### ✅ Hierarquia de Títulos (NOVO - Checkpoint #7)
+### ✅ Hierarquia de Títulos Responsivos (Checkpoint #7)
 
 **Decisão:** Títulos com tamanhos responsivos diferenciados
 
 **Sistema:**
 ```tsx
 // H1 - Título da Página
-className="text-3xl md:text-4xl lg:text-5xl font-router-thin text-roxo-medio mb-8"
+className="text-3xl md:text-4xl lg:text-5xl font-router-thin text-azul-marinho mb-8"
 style={{letterSpacing: '-1px'}}
 
 // H2 - Título de Seção  
-className="text-2xl md:text-3xl lg:text-4xl font-router-thin text-roxo-medio mb-6"
+className="text-2xl md:text-3xl font-router-thin text-azul-escuro mb-6"
 
 // H3 - Subtítulo/Card
-className="text-xl md:text-2xl font-router text-azul-marinho mb-4"
+className="text-xl md:text-2xl font-router-bold text-white mb-4"
 ```
 
 **Motivo:**
@@ -184,7 +262,7 @@ className="text-xl md:text-2xl font-router text-azul-marinho mb-4"
 - Responsividade adequada em mobile
 - Facilita escaneamento da página
 
-**Data:** Checkpoint #7  
+**Data:** Checkpoint #7 (inicial), Checkpoint #10 (refinado)  
 **Status:** 🔄 Aguardando implementação
 
 ---
@@ -200,355 +278,164 @@ className="text-xl md:text-2xl font-router text-azul-marinho mb-4"
 - Mais curto e objetivo
 
 **Data:** Checkpoint #6  
-**Status:** ✅ Implementado e corrigido
-
----
-
-### ✅ Menu de Navegação (ATUALIZADO - Checkpoint #7)
-
-**Decisão:** Menu sempre visível no topo direito com indicador de página atual  
-
-**Links:**
-1. Página Inicial
-2. Sobre o Colégio
-3. Rubens Saraceni
-4. Magia Divina
-5. Membros
-6. FAQ
-7. Blog
-8. Afilie-se
-
-**NOVO - Indicador de Página Atual:**
-```tsx
-// Link da página atual
-className="bg-lavanda/30 px-3 py-1 text-azul-marinho font-medium transition-colors"
-
-// Links normais
-className="text-azul-escuro hover:text-roxo-medio transition-colors"
-```
-
-**Motivo:** 
-- Usuário sabe onde está
-- Feedback visual claro
-- Fundo sutil (efeito botão)
-
-**Data:** Checkpoint #2 (inicial), Checkpoint #7 (indicador)  
-**Status:** 🔄 Aguardando implementação
-
----
-
-### ✅ Espaçamentos Padronizados (NOVO - Checkpoint #7)
-
-**Decisão:** Sistema consistente de espaçamentos
-
-**Padrões:**
-```tsx
-// Containers principais
-className="container mx-auto px-4 py-16"
-
-// Seções hero
-className="py-20"
-
-// Grid de cards
-className="grid md:grid-cols-3 gap-8"
-
-// Stack de conteúdo
-className="space-y-8"
-```
-
-**Motivo:**
-- Consistência visual entre páginas
-- Ritmo visual harmonioso
-- Manutenção facilitada
-
-**Data:** Checkpoint #7  
-**Status:** 🔄 Aguardando implementação
-
----
-
-### ✅ Animações de Entrada (NOVO - Checkpoint #7)
-
-**Decisão:** Scroll reveal com fade-in + slide
-
-**Especificações:**
-- Cards aparecem ao entrar na viewport
-- Efeito: `opacity 0→100` + `translateY 40px→0`
-- Duração: 700ms
-- Implementação: Intersection Observer API
-
-**Componente:**
-```tsx
-<FadeInSection>
-  <div className="card">
-    {/* conteúdo */}
-  </div>
-</FadeInSection>
-```
-
-**Motivo:**
-- Experiência mais dinâmica
-- Direciona atenção do usuário
-- Moderna e elegante
-
-**Data:** Checkpoint #7  
-**Status:** 🔄 Aguardando implementação
-
----
-
----
-
-### ✅ Abordagem Incremental para Checkpoints (NOVO - Checkpoint #8)
-
-**Decisão:** Dividir checkpoints grandes em checkpoints menores e incrementais  
-
-**Problema identificado:**
-- Checkpoint #7 continha muitas mudanças simultâneas (10 melhorias)
-- Risco alto: difícil identificar qual mudança causou problema
-- Difícil fazer rollback de mudanças específicas
-
-**Nova estratégia:**
-```
-ANTES: Checkpoint #7 = 10 mudanças de uma vez
-DEPOIS:
-  - Checkpoint #8 = Documentação de decisões
-  - Checkpoint #9 = Correção encoding UTF-8
-  - Checkpoint #10 = Ajustes visuais (parte 1)
-  - Checkpoint #11 = Ajustes visuais (parte 2)
-  - etc.
-```
-
-**Benefícios:**
-1. **Facilita rollback** - Pode reverter checkpoint específico
-2. **Facilita testes** - Menos mudanças por vez
-3. **Facilita identificação de problemas** - Sabe exatamente qual mudança causou o erro
-4. **Reduz risco** - Mudanças menores = menos chance de erro
-5. **Melhora documentação** - Cada checkpoint tem foco claro
-
-**Regra:**
-- Máximo 3-4 mudanças relacionadas por checkpoint
-- Checkpoints de documentação separados de checkpoints de código
-- Sempre testar após cada checkpoint
-
-**Aplicação:**
-- Checkpoint #7 será dividido em múltiplos checkpoints menores
-- Cada melhoria será implementada e testada separadamente
-- Documentação atualizada a cada checkpoint
-
-**Data:** Checkpoint #8 (23/10/2025)  
 **Status:** ✅ Implementado
 
-**Motivo:** 
-- Aprendizado com erros anteriores
-- Evitar perda de trabalho
-- Facilitar manutenção futura
+---
 
+### ✅ Fundo do Site
 
-### ✅ Contraste e Legibilidade (NOVO - Checkpoint #7)
+**Decisão:** Gradiente lilás suave fixo
 
-**Decisão:** Melhorar contraste mantendo estilo
-
-**Ajustes:**
-```tsx
-// ANTES
-bg-lavanda/40 text-gray-text
-
-// DEPOIS
-bg-lavanda/60 text-azul-marinho
+**Implementação:**
+```css
+body {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(236, 224, 240, 0.95));
+  background-attachment: fixed;
+}
 ```
 
 **Motivo:**
-- Acessibilidade (WCAG)
-- Melhor legibilidade
-- Mantém elegância visual
+- Visual suave e espiritual
+- Não interfere na legibilidade
+- Identidade visual consistente
 
-**Data:** Checkpoint #7  
-**Status:** 🔄 Aguardando implementação
+**Data:** Checkpoint #3  
+**Status:** ✅ Implementado
 
 ---
 
-### ⏳ Busca de Membros
+### 🔄 Indicador de Página Atual (Checkpoint #7)
 
-**Decisão:** Busca por nome, estado e cidade  
-**Motivo:** Principal funcionalidade do site  
-**Status:** ⏳ Pendente de implementação
+**Decisão:** Menu deve indicar visualmente a página atual
+
+**Implementação planejada:**
+```tsx
+const pathname = usePathname()
+
+<Link
+  className={pathname === item.href 
+    ? "bg-lavanda/30 px-3 py-1 text-azul-marinho" 
+    : "text-azul-escuro hover:text-roxo-medio"
+  }
+>
+```
+
+**Motivo:**
+- Melhor orientação do usuário
+- Padrão de UX estabelecido
+- Reduz confusão na navegação
+
+**Data:** Checkpoint #7  
+**Status:** 🔄 Aguardando implementação
 
 ---
 
 ## 🔧 DECISÕES TÉCNICAS
 
-### ✅ Tailwind Config
+### ✅ Middleware de Autenticação
 
-**Decisão:** Extender tema padrão com cores customizadas  
+**Decisão:** Proteção temporária com senha única
+
+**Implementação:**
 ```typescript
-theme: {
-  extend: {
-    colors: {
-      'azul-marinho': '#1B223F',
-      'azul-escuro': '#26377F',
-      'roxo-medio': '#5A5AA4',
-      'lilas-claro': '#C6C0E1',
-      'lavanda': '#DDCFE8',
-      'lilas-branco': '#ECE0F0',
-    }
-  }
+// middleware.ts
+if (pathname !== '/auth/login' && !isAuthenticated) {
+  return NextResponse.redirect(new URL('/auth/login', request.url))
 }
 ```
 
-**Data:** Checkpoint #1 (inicial), Checkpoint #7 (atualizado)  
-**Status:** ✅ Implementado
+**Motivo:**
+- Site em desenvolvimento
+- Proteção simples e eficaz
+- Será substituído por sistema completo
 
----
-
-### ✅ Gerenciamento de Estado no Cliente
-
-**Decisão:** 'use client' para LayoutClient  
-**Motivo:** usePathname() requer componente cliente  
 **Data:** Checkpoint #6  
 **Status:** ✅ Implementado
 
 ---
 
-### ✅ Importação de Fontes
+### ✅ Sistema de Sombras Padronizado (Checkpoint #8)
 
-**Decisão:** Fontes locais em `/public/fonts`  
+**Decisão:** Sombras baseadas em azul marinho (#1B223F)
+
+**Especificações:**
+```typescript
+boxShadow: {
+  'card': '0 2px 8px rgba(27, 34, 63, 0.08)',
+  'card-hover': '0 8px 16px rgba(27, 34, 63, 0.12)',
+  'button': '0 2px 4px rgba(27, 34, 63, 0.10)',
+  'button-hover': '0 4px 8px rgba(27, 34, 63, 0.15)',
+  'modal': '0 20px 40px rgba(27, 34, 63, 0.20)',
+}
+```
+
 **Motivo:**
-- Controle total
-- Sem dependência de CDN
-- Melhor performance
+- Consistência visual
+- Sombras sutis e elegantes
+- Alinhado com paleta de cores
 
-**Data:** Checkpoint #2  
-**Status:** ✅ Implementado
-
----
-
-### ✅ Componente de Animação (NOVO - Checkpoint #7)
-
-**Decisão:** Criar `FadeInSection.tsx` reutilizável  
-**Tecnologia:** Intersection Observer API  
-**Motivo:**
-- Reutilizável em todo o site
-- Performance otimizada
-- Fácil manutenção
-
-**Data:** Checkpoint #7  
-**Status:** 🔄 Aguardando criação
+**Data:** Checkpoint #8  
+**Status:** 🔄 Aguardando implementação
 
 ---
 
-### ⏳ Autenticação
+## 📅 HISTÓRICO DE CHECKPOINTS
 
-**Decisão:** Supabase Auth  
-**Funcionalidades:**
-- Login/Registro
-- Reset de senha
-- Proteção de rotas
+### Checkpoint #10 (23/10/2025) - ATUAL
 
-**Status:** ⏳ Pendente de implementação
+**Tema:** Auditoria UX e Refatoração de Hierarquia de Cores
 
----
+**Decisões:**
+- ✅ Auditoria completa de todas as páginas
+- ✅ Sistema de fontes unificado (família Router única)
+- ✅ Nova hierarquia de cores tipográfica
+- ✅ H3 branco em cards para máximo contraste
+- ✅ Textos em cinza (#4A5568) para leitura confortável
+- 🔄 Correção de nomenclaturas (lilas-branco → lilas-quase-branco)
 
-### ⏳ Pagamentos
+**Arquivos Documentados:**
+- DECISIONS.md (atualizado)
+- UX-GUIDELINES.md (atualizado)
+- DESIGN-SPECS.md (atualizado)
+- AUDITORIA-UX-COMPLETA.md (criado)
+- PLANO-CIRURGICO-CORRECOES.md (criado)
 
-**Decisão:** Mercado Pago  
-**Motivo:**
-- Popular no Brasil
-- API bem documentada
-- Suporte a PIX
-
-**Status:** ⏳ Pendente de implementação
-
----
-
-## ❓ DECISÕES PENDENTES
-
-### 1. Estrutura do Banco de Dados
-
-**Questão:** Schema exato das tabelas  
-**Tabelas Necessárias:**
-- users
-- members (afiliados)
-- payments
-- blog_posts
-- etc.
-
-**Próximo Passo:** Criar schema SQL
+**Status:** 🔄 Documentado, aguardando implementação
 
 ---
 
-### 2. Sistema de Aprovação
+### Checkpoint #9.5 (23/10/2025)
 
-**Questão:** Como aprovar novos membros?  
-**Opções:**
-- A) Automático após pagamento
-- B) Aprovação manual do admin
-- C) Híbrido (pré-aprovação + pagamento)
+**Tema:** Consolidação de Documentação
 
-**Próximo Passo:** Definir fluxo
+**Ações:**
+- ✅ Backup de documentação antiga
+- ✅ Criação de CHECKPOINTS-HISTORICO.md
+- ✅ Atualização de DESIGN-SPECS.md
+- ✅ Criação de PROGRESS-TRACKING.md
 
----
-
-### 3. Dashboard
-
-**Questão:** Funcionalidades do dashboard de afiliados  
-**Possibilidades:**
-- Certificado digital
-- Histórico de pagamentos
-- Atualização de dados
-- Download de materiais
-
-**Próximo Passo:** Especificar requisitos
+**Status:** ✅ Concluído
 
 ---
 
-### 4. Blog
+### Checkpoint #8 (Outubro 2025)
 
-**Questão:** CMS ou gerenciamento manual?  
-**Opções:**
-- A) Markdown no código
-- B) CMS headless (Strapi/Contentful)
-- C) Admin customizado
+**Tema:** Sistema de Sombras Padronizado
 
-**Próximo Passo:** Avaliar necessidades
+**Decisões:**
+- ✅ Sombras baseadas em azul-marinho
+- ✅ Opacidades padronizadas (0.08, 0.10, 0.12, 0.15, 0.20)
+- ✅ Transições suaves de 300ms
 
----
-
-### 5. Hospedagem Final
-
-**Questão:** Migrar para Vercel ou manter Hostgator?  
-**Considerações:**
-- Vercel: Otimizado para Next.js
-- Hostgator: Já pago, tradicional
-
-**Próximo Passo:** Testar performance
+**Status:** 🔄 Aguardando implementação
 
 ---
 
-## 📊 IMPACTO DAS DECISÕES
+### Checkpoint #7 (20/10/2025)
 
-### ✅ Decisões que Aceleraram o Desenvolvimento:
-1. Tailwind CSS (prototipação rápida)
-2. Next.js App Router (estrutura clara)
-3. TypeScript (menos bugs)
-4. Fontes locais (sem problemas de CDN)
-5. **NOVO:** Componente FadeInSection reutilizável
+**Tema:** Refinamento Visual e UX
 
-### ⚠️ Decisões que Criaram Trabalho Extra:
-1. Headers duplos (mas valeu a pena)
-2. Renomeação de rota (erro inicial corrigido)
-3. **NOVO:** Correção de paleta de cores (dourado removido)
-4. **NOVO:** Correção de logo (arquivo errado)
-
-### 🎯 Decisões Críticas para o Sucesso:
-1. Sistema de busca eficiente
-2. Autenticação segura
-3. Integração de pagamento confiável
-4. **NOVO:** UX refinada e consistente
-
----
-
-## 🔄 HISTÓRICO DE MUDANÇAS
-
-### Checkpoint #7: (ATUAL)
+**Decisões:**
 - 🔄 Correção do logo nas páginas internas
 - 🔄 Visual quadrado (sem rounded)
 - 🔄 Sombras com hover
@@ -560,39 +447,49 @@ theme: {
 - 🔄 Animação de entrada (scroll reveal)
 - 🔄 Hierarquia de títulos refinada
 
-### Checkpoint #6:
+**Status:** 🔄 Aguardando implementação
+
+---
+
+### Checkpoint #6 (Outubro 2025)
+
+**Tema:** Implementação Inicial
+
+**Ações:**
 - ✅ Implementado sistema de headers duplos
 - ✅ Corrigida rota de afiliação
 - ✅ Removida font-cerulya
 - ✅ Ajustado metadata
 - ✅ Paleta de cores corrigida (sem dourado)
 
-### Checkpoint #5:
+**Status:** ✅ Concluído
+
+---
+
+### Checkpoint #5 (Outubro 2025)
 - Primeiras correções de configuração
 
-### Checkpoint #3-4:
+### Checkpoint #3-4 (Outubro 2025)
 - Documentação completa
 - Especificações detalhadas
 
-### Checkpoint #1-2:
+### Checkpoint #1-2 (Início)
 - Decisões iniciais de stack e design
 
 ---
 
-## 📋 RESUMO DAS DECISÕES DO CHECKPOINT #7
+## 📋 RESUMO DAS DECISÕES DO CHECKPOINT #10
 
-| # | Decisão | Tipo | Status |
-|---|---------|------|--------|
-| 1 | Logo correto (Logo_Horizontal_Cores_01.svg) | Correção | 🔄 |
-| 2 | Visual quadrado (sem rounded) | Design | 🔄 |
-| 3 | Sombras com hover | Design | 🔄 |
-| 4 | Bordas lilás nos cards | Design | 🔄 |
-| 5 | Espaçamentos padronizados | UX | 🔄 |
-| 6 | Títulos responsivos | UX | 🔄 |
-| 7 | Contraste melhorado | UX | 🔄 |
-| 8 | Indicador página atual | UX | 🔄 |
-| 9 | Animação de entrada | UX | 🔄 |
-| 10 | Hierarquia de títulos | Design | 🔄 |
+| # | Decisão | Tipo | Impacto | Status |
+|---|---------|------|---------|--------|
+| 1 | Sistema de fontes unificado | Técnico | ALTO | 🔄 |
+| 2 | Nova hierarquia de cores | Design | ALTO | 🔄 |
+| 3 | H1 azul-marinho (#1B223F) | Design | MÉDIO | 🔄 |
+| 4 | H2 azul-escuro (#26377F) | Design | MÉDIO | 🔄 |
+| 5 | H3 branco em cards | Design | ALTO | 🔄 |
+| 6 | Textos em cinza (#4A5568) | Design | ALTO | 🔄 |
+| 7 | Correção nomenclatura cores | Técnico | BAIXO | 🔄 |
+| 8 | Auditoria UX completa | Documentação | ALTO | ✅ |
 
 **Legenda:**
 - ✅ Implementado
@@ -601,5 +498,16 @@ theme: {
 
 ---
 
-**Última Revisão:** 20/10/2025 - Checkpoint #7  
-**Próxima Revisão:** Após implementação do Checkpoint #7
+## 🎯 PRÓXIMOS PASSOS
+
+**Checkpoint #11 (Previsto):**
+1. Implementar correções do Checkpoint #10
+2. Testar em todos os breakpoints (320px, 768px, 1024px, 1440px)
+3. Validar contraste e acessibilidade
+4. Implementar correções pendentes do Checkpoint #7
+5. Sistema de sombras (Checkpoint #8)
+
+---
+
+**Última Revisão:** 23/10/2025 - Checkpoint #10  
+**Próxima Revisão:** Após implementação do Checkpoint #10

@@ -10,7 +10,7 @@ export default function Membros() {
           Sistema de consulta de membros em desenvolvimento.
         </p>
         <p className="text-azul-escuro">
-          Em breve você poderá buscar Magos Iniciadores e Iniciados por localização.
+          Em breve vocÃª poderÃ¡ buscar Magos Iniciadores e Iniciados por localizaÃ§Ã£o.
         </p>
       </div>
     </div>

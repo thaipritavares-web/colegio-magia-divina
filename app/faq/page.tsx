@@ -1,18 +1,19 @@
+import { H1, P } from '@/components/Typography'
+import { SimpleCard } from '@/components/Card'
+
 export default function FAQ() {
   return (
     <div className="container mx-auto px-4 py-12">
-      <h1 className="text-5xl font-router-thin text-roxo-medio mb-8" style={{letterSpacing: '-1px'}}>
-        Perguntas Frequentes (FAQ)
-      </h1>
+      <H1>Perguntas Frequentes (FAQ)</H1>
 
-      <div className="bg-lavanda p-8 text-center">
-        <p className="text-xl text-azul-escuro mb-4">
+      <SimpleCard>
+        <P size="xl" className="text-center mb-4">
           Seção de perguntas frequentes em desenvolvimento.
-        </p>
-        <p className="text-azul-escuro">
+        </P>
+        <P className="text-center mb-0">
           Em breve você terá acesso a respostas para as dúvidas mais comuns sobre o Colégio e a Magia Divina.
-        </p>
-      </div>
+        </P>
+      </SimpleCard>
     </div>
   )
 }

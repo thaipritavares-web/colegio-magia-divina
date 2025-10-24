@@ -2,7 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Kaushan Script */
+/* ============================================
+   FONTES - Sistema unificado Router
+   ============================================ */
+
+/* Kaushan Script - Apenas para título principal */
 @font-face {
   font-family: 'Kaushan Script';
   src: url('/fonts/kaushan-script-v19-latin-regular.woff2') format('woff2');
@@ -11,52 +15,9 @@
   font-display: swap;
 }
 
-/* Router - Regular */
-@font-face {
-  font-family: 'Router';
-  src: url('/fonts/fonnts.com-Router.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
+/* Router - Família ÚNICA com múltiplos weights */
 
-/* Router - Thin */
-@font-face {
-  font-family: 'Router Thin';
-  src: url('/fonts/fonnts.com-Router_Thin.otf') format('opentype');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* Router - Light */
-@font-face {
-  font-family: 'Router';
-  src: url('/fonts/fonnts.com-Router_Light.otf') format('opentype');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* Router - Medium */
-@font-face {
-  font-family: 'Router';
-  src: url('/fonts/fonnts.com-Router_Medium.otf') format('opentype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* Router - Bold */
-@font-face {
-  font-family: 'Router Bold';
-  src: url('/fonts/fonnts.com-Router_Bold.otf') format('opentype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* Router - ExtraLight */
+/* Router ExtraLight (200) */
 @font-face {
   font-family: 'Router';
   src: url('/fonts/fonnts.com-Router_Extralight.otf') format('opentype');
@@ -65,7 +26,65 @@
   font-display: swap;
 }
 
-/* Estilos base */
+/* Router Thin (300) */
+@font-face {
+  font-family: 'Router';
+  src: url('/fonts/fonnts.com-Router_Thin.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Router Regular (400) - PADRÃO */
+@font-face {
+  font-family: 'Router';
+  src: url('/fonts/fonnts.com-Router.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Router Medium (500) */
+@font-face {
+  font-family: 'Router';
+  src: url('/fonts/fonnts.com-Router_Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Router Bold (700) */
+@font-face {
+  font-family: 'Router';
+  src: url('/fonts/fonnts.com-Router_Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================
+   CLASSES DE FONTE CUSTOMIZADAS
+   ============================================ */
+
+.font-router-thin {
+  font-family: 'Router', sans-serif;
+  font-weight: 300;
+}
+
+.font-router-medium {
+  font-family: 'Router', sans-serif;
+  font-weight: 500;
+}
+
+.font-router-bold {
+  font-family: 'Router', sans-serif;
+  font-weight: 700;
+}
+
+/* ============================================
+   ESTILOS BASE
+   ============================================ */
+
 * {
   margin: 0;
   padding: 0;
@@ -75,57 +94,58 @@
 /* Fundo lilás claro suave - APLICADO EM TODO O SITE */
 body {
   font-family: 'Router', sans-serif;
+  font-weight: 400;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(236, 224, 240, 0.95));
   background-attachment: fixed;
-  color: #2D3748;
+  color: #4A5568;
   min-height: 100vh;
 }
 
-/* HIERARQUIA DE TÍTULOS - PADRONIZADA */
+/* ============================================
+   HIERARQUIA TIPOGRÁFICA
+   ============================================ */
 
-/* H1 - Título Principal da Página */
+/* H1 - Títulos principais (azul-marinho, thin) */
 h1 {
-  font-size: 3.5rem;
-  font-weight: 200;
+  font-family: 'Router', sans-serif;
+  font-weight: 300;
+  font-size: 3rem;
   color: #1B223F;
-  margin-bottom: 1rem;
-  letter-spacing: -0.5px;
+  margin-bottom: 2rem;
+  letter-spacing: -1px;
   line-height: 1.2;
 }
 
-/* H2 - Seções (padrão único para TODOS os H2) */
+/* H2 - Subtítulos (azul-escuro, thin) */
 h2 {
-  font-size: 2rem;
+  font-family: 'Router', sans-serif;
   font-weight: 300;
-  color: #5A5AA4;
-  margin-top: 2.5rem;
-  margin-bottom: 1.25rem;
+  font-size: 1.875rem;
+  color: #26377F;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
   line-height: 1.3;
 }
 
-/* H3 - Sub-seções (dentro de cards) */
+/* H3 - Títulos de cards (branco, bold) */
 h3 {
-  font-size: 1.4rem;
-  font-weight: 500;
-  color: #26377F;
+  font-family: 'Router', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #FFFFFF;
   margin-bottom: 1rem;
   line-height: 1.4;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-/* H4 - Se necessário */
-h4 {
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: #26377F;
-  margin-bottom: 0.75rem;
-}
-
-/* Parágrafos - Cor cinza escuro para legibilidade */
+/* Parágrafos */
 p {
-  font-size: 1.1rem;
-  color: #2D3748;
-  line-height: 1.8;
-  margin-bottom: 1.25rem;
+  font-family: 'Router', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #4A5568;
+  line-height: 1.625;
+  margin-bottom: 1rem;
 }
 
 /* Links */
@@ -139,41 +159,23 @@ a:hover {
   color: #5A5AA4;
 }
 
-/* Smooth scroll */
+/* ============================================
+   UTILITÁRIOS
+   ============================================ */
+
+/* Scroll suave */
 html {
   scroll-behavior: smooth;
 }
 
-/* Cards com glass effect - OVERRIDE para garantir consistência */
-.card, [class*="card"] {
-  background: rgba(255, 255, 255, 0.9) !important;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 8px 20px rgba(91, 90, 164, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-}
+/* ============================================
+   RESPONSIVIDADE
+   ============================================ */
 
-/* Responsividade de títulos */
+/* Mobile (320px - 767px) */
 @media (max-width: 768px) {
   h1 {
-    font-size: 2.5rem;
-  }
-  
-  h2 {
-    font-size: 1.75rem;
-  }
-  
-  h3 {
-    font-size: 1.25rem;
-  }
-  
-  p {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  h1 {
-    font-size: 2rem;
+    font-size: 1.875rem;
   }
   
   h2 {
@@ -181,6 +183,21 @@ html {
   }
   
   h3 {
-    font-size: 1.1rem;
+    font-size: 1.25rem;
+  }
+}
+
+/* Tablet pequeno (480px - 767px) */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+  
+  h2 {
+    font-size: 1.25rem;
+  }
+  
+  h3 {
+    font-size: 1.125rem;
   }
 }

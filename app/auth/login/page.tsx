@@ -27,7 +27,6 @@ export default function LoginPage() {
       const data = await response.json()
 
       if (data.success) {
-        // Redirecionar para home
         router.push('/')
         router.refresh()
       } else {
@@ -42,8 +41,11 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-lilas-branco via-white to-lavanda flex items-center justify-center px-4">
-      <div className="bg-white/80 backdrop-blur-sm border border-lavanda p-12 shadow-card-solid max-w-md w-full">
+    <div className="min-h-screen bg-gradient-to-b from-lilas-quase-branco via-white to-lavanda flex items-center justify-center px-4">
+      <div 
+        className="bg-white/80 backdrop-blur-sm border border-lavanda p-12 shadow-card-solid max-w-md w-full"
+        style={{ borderRadius: 0 }}
+      >
         {/* Logo */}
         <div className="flex justify-center mb-8">
           <Image 
@@ -56,10 +58,13 @@ export default function LoginPage() {
         </div>
 
         {/* Título */}
-        <h1 className="text-5xl font-router-thin text-roxo-medio text-center mb-2" style={{letterSpacing: '-1px'}}>
+        <h1 
+          className="text-4xl md:text-5xl font-router-thin text-roxo-medio text-center mb-2" 
+          style={{ letterSpacing: '-1px' }}
+        >
           Colégio Tradição de Magia Divina
         </h1>
-        <p className="text-center text-gray-text font-router-thin mb-8">
+        <p className="text-center text-gray-text font-router mb-8">
           Site em desenvolvimento - Acesso restrito
         </p>
 
@@ -77,7 +82,8 @@ export default function LoginPage() {
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-3 border border-lavanda focus:border-roxo-medio focus:outline-none focus:ring-2 focus:ring-roxo-medio/20 font-router-thin"
+              className="w-full px-4 py-3 border border-lavanda focus:border-roxo-medio focus:outline-none focus:ring-2 focus:ring-roxo-medio/20 font-router"
+              style={{ borderRadius: 0 }}
               placeholder="Digite a senha"
               disabled={loading}
               autoFocus
@@ -85,7 +91,10 @@ export default function LoginPage() {
           </div>
 
           {error && (
-            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 font-router-thin text-sm">
+            <div 
+              className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 font-router text-sm"
+              style={{ borderRadius: 0 }}
+            >
               {error}
             </div>
           )}
@@ -94,13 +103,14 @@ export default function LoginPage() {
             type="submit"
             disabled={loading || !password}
             className="w-full bg-gradient-to-r from-roxo-medio to-azul-escuro hover:from-azul-escuro hover:to-roxo-medio text-white px-6 py-3 font-router-bold transition-all duration-300 hover:scale-102 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+            style={{ borderRadius: 0 }}
           >
             {loading ? 'Verificando...' : 'Entrar'}
           </button>
         </form>
 
         {/* Rodapé */}
-        <p className="text-center text-gray-medium font-router-thin text-sm mt-8">
+        <p className="text-center text-gray-medium font-router text-sm mt-8">
           Para obter acesso, entre em contato com o administrador
         </p>
       </div>

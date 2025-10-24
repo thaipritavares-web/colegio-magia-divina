@@ -1,54 +1,57 @@
+import { H1, H2, H3, P } from '@/components/Typography'
+import Card from '@/components/Card'
+
 export default function MagiaDivina() {
   return (
     <div className="container mx-auto px-4 py-12">
-      <h1 className="text-5xl font-router-thin text-roxo-medio mb-8" style={{letterSpacing: '-1px'}}>
-        A Magia Divina
-      </h1>
+      <H1>A Magia Divina</H1>
 
       <div className="prose max-w-none">
         <section className="mb-8">
-          <h2 className="text-2xl font-bold text-azul-marinho mb-4">O que é Magia Divina?</h2>
-          <p className="text-azul-escuro leading-relaxed">
+          <H2>O que é Magia Divina?</H2>
+          <P>
             A Magia Divina é um conjunto de conhecimentos e práticas sagradas que permitem ao praticante trabalhar conscientemente com as energias divinas. Baseada nos ensinamentos da Umbanda Sagrada, ela oferece ferramentas para o desenvolvimento espiritual e o serviço ao próximo.
-          </p>
+          </P>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-bold text-azul-marinho mb-4">Os Graus de Magia</h2>
-          <p className="text-azul-escuro leading-relaxed mb-4">
+          <H2>Os Graus de Magia</H2>
+          <P>
             O conhecimento da Magia Divina está organizado em diversos graus, cada um focando em aspectos específicos do trabalho espiritual. Os principais graus incluem:
-          </p>
-          <div className="bg-lavanda p-6 ">
-            <ul className="space-y-2 text-azul-escuro">
+          </P>
+          
+          <Card variant="lavanda" padding="md">
+            <H3>Principais Graus</H3>
+            <ul className="space-y-2 font-router text-gray-text">
               <li>• Magia Sagrada das Sete Chamas</li>
               <li>• Magia Sagrada das Sete Pedras</li>
               <li>• Magia Sagrada das Sete Ervas Sagradas</li>
-              <li>• Magia Sagrada das Sete Raios</li>
-              <li>• Magia Sagrada das Sete Símbolos</li>
+              <li>• Magia Sagrada dos Sete Raios</li>
+              <li>• Magia Sagrada dos Sete Símbolos</li>
               <li>• E muitos outros graus avançados</li>
             </ul>
-          </div>
+          </Card>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-bold text-azul-marinho mb-4">Princípios Fundamentais</h2>
-          <p className="text-azul-escuro leading-relaxed">
+          <H2>Princípios Fundamentais</H2>
+          <P>
             A Magia Divina fundamenta-se no respeito às leis divinas, na ética espiritual e no compromisso com o bem. Todo praticante deve desenvolver-se integralmente, buscando equilíbrio entre conhecimento, prática e virtude.
-          </p>
+          </P>
         </section>
 
-        <section className="bg-lilas-branco p-6 ">
-          <h2 className="text-2xl font-bold text-azul-marinho mb-4">Como Começar?</h2>
-          <p className="text-azul-escuro mb-4">
+        <Card variant="lilas-quase-branco" padding="md">
+          <H3>Como Começar?</H3>
+          <P>
             Para iniciar-se na Magia Divina, é necessário buscar um Mago Iniciador certificado pelo Colégio. Consulte nossa seção de membros para encontrar um iniciador próximo a você.
-          </p>
+          </P>
           <a 
             href="/membros" 
             className="inline-block bg-roxo-medio hover:bg-azul-escuro text-white px-6 py-2 transition-colors"
           >
             Buscar Iniciadores
           </a>
-        </section>
+        </Card>
       </div>
     </div>
   )

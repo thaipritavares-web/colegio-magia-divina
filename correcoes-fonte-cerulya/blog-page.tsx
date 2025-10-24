@@ -10,7 +10,7 @@ export default function Blog() {
           Blog em desenvolvimento.
         </p>
         <p className="text-azul-escuro">
-          Em breve você poderá acessar artigos, notícias e conteúdos sobre Magia Divina.
+          Em breve vocÃª poderÃ¡ acessar artigos, notÃ­cias e conteÃºdos sobre Magia Divina.
         </p>
       </div>
     </div>

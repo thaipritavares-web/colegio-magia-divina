@@ -48,22 +48,22 @@ export default function LoginPage() {
         <div className="flex justify-center mb-8">
           <Image 
             src="/images/logo_sem_texto.png" 
-            alt="Logo Colégio" 
+            alt="Logo ColÃ©gio" 
             width={120} 
             height={120}
             className="object-contain"
           />
         </div>
 
-        {/* Título */}
+        {/* TÃ­tulo */}
         <h1 className="text-5xl font-router-thin text-roxo-medio text-center mb-2" style={{letterSpacing: '-1px'}}>
-          Colégio Tradição de Magia Divina
+          ColÃ©gio TradiÃ§Ã£o de Magia Divina
         </h1>
         <p className="text-center text-gray-text font-router-thin mb-8">
           Site em desenvolvimento - Acesso restrito
         </p>
 
-        {/* Formulário */}
+        {/* FormulÃ¡rio */}
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label 
@@ -99,7 +99,7 @@ export default function LoginPage() {
           </button>
         </form>
 
-        {/* Rodapé */}
+        {/* RodapÃ© */}
         <p className="text-center text-gray-medium font-router-thin text-sm mt-8">
           Para obter acesso, entre em contato com o administrador
         </p>

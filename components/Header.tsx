@@ -18,18 +18,18 @@ export default function Header() {
   ]
 
   return (
-    <header className="sticky top-0 z-50 bg-gradient-to-r from-[rgba(255,255,255,0.95)] to-[rgba(236,224,240,0.95)] backdrop-blur-md shadow-md">
-      <div className="max-w-[1440px] mx-auto px-20 py-5">
+    <header className="sticky top-0 z-50 bg-gradient-to-r from-[rgba(255,255,255,0.95)] to-[rgba(236,224,240,0.95)] backdrop-blur-md shadow-header">
+      <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-20 py-5">
         <div className="flex items-center justify-between">
           
           {/* Logo à esquerda */}
           <Link href="/" className="flex items-center">
             <Image 
               src="/images/Logo_Horizontal_Cores_01.svg"
-              alt="Colégio de Tradição de Magia Divina"
+              alt="Colégio Tradição de Magia Divina"
               width={480}
               height={96}
-              className="h-20 md:h-24 w-auto"
+              className="h-16 md:h-20 lg:h-24 w-auto"
               priority
            />
           </Link>
@@ -48,7 +48,7 @@ export default function Header() {
             
             <Link
               href="/auth/login"
-              className="bg-roxo-medio hover:bg-azul-escuro text-white px-7 py-2.5 rounded-md font-router-bold transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+              className="bg-roxo-medio hover:bg-azul-escuro text-white px-7 py-2.5 rounded-md font-router-bold transition-all duration-300 shadow-button hover:shadow-button-hover hover:-translate-y-0.5"
             >
               Login
             </Link>

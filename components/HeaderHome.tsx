@@ -31,7 +31,7 @@ export default function HeaderHome() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-azul-escuro hover:text-roxo-medio transition-all duration-300 font-router text-sm px-3 py-2 rounded hover:shadow-[0_2px_8px_rgba(236,224,240,0.8)] whitespace-nowrap"
+                className="text-azul-escuro hover:text-roxo-medio transition-all duration-300 font-router text-sm px-3 py-2 rounded hover:shadow-[0_4px_12px_rgba(255,255,255,0.9)] whitespace-nowrap"
               >
                 {item.label}
               </Link>
@@ -104,13 +104,13 @@ export default function HeaderHome() {
 
         {/* LINHA 2 e 3: Logo + Título + Subtítulo (SEMPRE à esquerda) */}
         <div className="flex items-start gap-8">
-          {/* Logo 200x200 */}
-          <div className="w-[200px] h-[200px] flex-shrink-0">
+          {/* Logo 220x220 */}
+          <div className="w-[220px] h-[220px] flex-shrink-0">
             <Image
               src="/images/logo sem texto.svg"
               alt="Logo Colégio Tradição de Magia Divina"
-              width={200}
-              height={200}
+              width={220}
+              height={220}
               priority
               className="w-full h-full object-contain"
             />

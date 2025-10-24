@@ -251,6 +251,54 @@ fontFamily: {
 
 ## 🎨 COMPONENTES VISUAIS
 
+### Footer
+
+**Especificações (ATUALIZADO - 24/10/2025):**
+```tsx
+<footer className="bg-azul-marinho text-white py-12 mt-16">
+  {/* Títulos H3 */}
+  <H3 variant="default" className="mb-4">
+    Colégio de Magia Divina
+  </H3>
+  
+  {/* Parágrafos - TODOS BRANCOS */}
+  <P variant="secondary" size="sm" className="mb-0 text-white">
+    Instituição oficial de ensino e preservação da Magia Divina.
+  </P>
+  
+  {/* Links - BRANCOS com hover lilás-claro */}
+  <Link href="/sobre-colegio" variant="light" 
+        className="text-white hover:text-lilas-claro">
+    Sobre o Colégio
+  </Link>
+  
+  {/* Copyright - BRANCO */}
+  <P variant="secondary" size="sm" className="mb-0 text-white">
+    © 2025 Colégio Tradição de Magia Divina. Todos os direitos reservados.
+  </P>
+</footer>
+```
+
+**Características:**
+- ✅ Fundo: `#1B223F` (azul-marinho)
+- ✅ Títulos H3: Brancos (via Typography variant="default")
+- ✅ Parágrafos: Brancos (`text-white` override)
+- ✅ Links: Brancos com hover lilás-claro (`#C6C0E1`)
+- ✅ Copyright: Branco
+- ✅ Padding vertical: 48px (py-12)
+- ✅ Grid: 3 colunas em desktop (md:grid-cols-3)
+- ✅ Borda superior no copyright: `border-azul-escuro`
+
+**Motivo da decisão:**
+- Máxima legibilidade sobre fundo azul-marinho escuro
+- Conformidade com mockup oficial
+- Contraste adequado para acessibilidade (WCAG AAA)
+
+**Commit:** 121ef92  
+**Status:** ✅ Implementado
+
+---
+
 ### Cards
 
 **Especificações:**

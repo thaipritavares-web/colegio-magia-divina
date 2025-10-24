@@ -197,7 +197,42 @@ MENOS CONTRASTE (menos atenção)
 
 **Mockup Aprovado:** mockup-h3-branco.html  
 **Data:** Checkpoint #10 (23/10/2025)  
-**Status:** 🔄 Aguardando implementação
+**Status:** ✅ Implementado
+
+---
+
+### ✅ Cores do Footer (24/10/2025)
+
+**Decisão:** Todos os textos do footer devem ser brancos (#FFFFFF)
+
+**Elementos afetados:**
+- Títulos H3 das colunas (já branco via Typography)
+- Parágrafos descritivos (P)
+- Links de navegação (Link)
+- Copyright
+
+**Implementação:**
+```tsx
+// Footer.tsx - Parágrafos
+<P variant="secondary" size="sm" className="mb-0 text-white">
+
+// Footer.tsx - Links
+<Link href="/..." variant="light" className="text-white hover:text-lilas-claro">
+
+// Footer.tsx - Copyright
+<P variant="secondary" size="sm" className="mb-0 text-white">
+```
+
+**Motivo:**
+- Melhor legibilidade sobre fundo azul-marinho (#1B223F)
+- Consistência visual total no footer
+- Contraste adequado para acessibilidade
+- Segue especificação do mockup oficial
+
+**Mockup de Referência:** image.png (footer oficial)  
+**Data:** 24/10/2025  
+**Commit:** 121ef92  
+**Status:** ✅ Implementado
 
 ---
 

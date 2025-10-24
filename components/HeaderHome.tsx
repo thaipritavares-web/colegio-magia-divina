@@ -106,7 +106,7 @@ export default function HeaderHome() {
         <div className="flex items-start gap-8">
           <div className="w-[200px] h-[200px] flex-shrink-0">
             <Image
-              src="/images/logo_sem_texto.png"
+              src="/images/logo sem texto.svg"
               alt="Logo Colégio Tradição de Magia Divina"
               width={200}
               height={200}

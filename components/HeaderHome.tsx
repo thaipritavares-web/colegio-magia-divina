@@ -20,36 +20,62 @@ export default function HeaderHome() {
 
   return (
     <header className="sticky top-0 z-50 bg-gradient-to-r from-[rgba(255,255,255,0.95)] to-[rgba(236,224,240,0.95)] backdrop-blur-md shadow-header">
-      <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-20 py-10">
+      <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-20 py-6">
         
-        {/* LINHA 1: Menu + Login à direita */}
-        <nav className="flex justify-end items-center gap-8 mb-[60px]">
+        {/* Layout Principal: Logo+Título à esquerda | Menu+Login à direita */}
+        <div className="flex items-center justify-between gap-8">
           
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-8">
+          {/* LADO ESQUERDO: Logo + Título */}
+          <div className="flex items-start gap-6">
+            <div className="w-[140px] h-[140px] flex-shrink-0">
+              <Image
+                src="/images/logo sem texto.svg"
+                alt="Logo Colégio Tradição de Magia Divina"
+                width={140}
+                height={140}
+                priority
+                className="w-full h-full object-contain"
+              />
+            </div>
+            
+            <div className="pt-2">
+              {/* Título - Kaushan Script */}
+              <h1 className="text-[48px] md:text-[56px] font-kaushian text-azul-escuro leading-tight mb-3">
+                Colégio Tradição de Magia Divina
+              </h1>
+              
+              {/* Subtítulo */}
+              <P size="base" className="mb-0 max-w-[550px] text-gray-medium">
+                Subtítulo que define o contexto, compartilha mais informações sobre o site ou, de modo geral, estimula as pessoas a continuar conferindo a página.
+              </P>
+            </div>
+          </div>
+
+          {/* LADO DIREITO: Menu + Login (Desktop) */}
+          <nav className="hidden lg:flex items-center gap-6">
             {menuItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-azul-escuro hover:text-roxo-medio transition-all duration-300 font-router text-base px-3 py-2 rounded hover:shadow-[0_2px_8px_rgba(236,224,240,0.8)]"
+                className="text-azul-escuro hover:text-roxo-medio transition-all duration-300 font-router text-sm px-3 py-2 rounded hover:shadow-[0_2px_8px_rgba(236,224,240,0.8)] whitespace-nowrap"
               >
                 {item.label}
               </Link>
             ))}
-          </div>
-
-          {/* Botão Login */}
-          <Link
-            href="/auth/login"
-            className="hidden md:inline-block bg-roxo-medio hover:bg-azul-escuro text-white px-7 py-2.5 rounded-md font-router-bold transition-all duration-300 shadow-button hover:shadow-button-hover hover:-translate-y-0.5"
-          >
-            Login
-          </Link>
+            
+            {/* Botão Login */}
+            <Link
+              href="/auth/login"
+              className="bg-roxo-medio hover:bg-azul-escuro text-white px-6 py-2.5 rounded-md font-router-bold transition-all duration-300 shadow-button hover:shadow-button-hover hover:-translate-y-0.5 whitespace-nowrap"
+            >
+              Login
+            </Link>
+          </nav>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 text-azul-escuro"
+            className="lg:hidden p-2 text-azul-escuro"
             aria-label="Menu"
           >
             <svg
@@ -75,11 +101,11 @@ export default function HeaderHome() {
               )}
             </svg>
           </button>
-        </nav>
+        </div>
 
         {/* Mobile Menu Dropdown */}
         {isMenuOpen && (
-          <div className="md:hidden mb-8 pb-4 border-b border-lilas-claro">
+          <div className="lg:hidden mt-6 pb-4 border-t border-lilas-claro pt-4">
             <div className="flex flex-col gap-4">
               {menuItems.map((item) => (
                 <Link
@@ -101,32 +127,6 @@ export default function HeaderHome() {
             </div>
           </div>
         )}
-
-        {/* LINHA 2: Logo + Título à esquerda */}
-        <div className="flex items-start gap-8">
-          <div className="w-[200px] h-[200px] flex-shrink-0">
-            <Image
-              src="/images/logo sem texto.svg"
-              alt="Logo Colégio Tradição de Magia Divina"
-              width={200}
-              height={200}
-              priority
-              className="w-full h-full object-contain"
-            />
-          </div>
-          
-          <div className="pt-5">
-            {/* Título - Kaushan Script para nome do colégio + Azul Escuro (Checkpoint #10) */}
-            <h1 className="text-[64px] font-kaushian text-azul-escuro leading-tight mb-5">
-              Colégio Tradição de Magia Divina
-            </h1>
-            
-            {/* LINHA 3: Subtítulo - Cinza Médio para leitura (Checkpoint #10) */}
-            <P size="lg" className="mb-0 max-w-[650px] text-gray-medium">
-              Subtítulo que define o contexto, compartilha mais informações sobre o site ou, de modo geral, estimula as pessoas a continuar conferindo a página.
-            </P>
-          </div>
-        </div>
       </div>
     </header>
   )

@@ -4,6 +4,103 @@ Histórico de versões e mudanças do projeto.
 
 ---
 
+## [v3.2.0] - 24/10/2025 - 🚧 EM DESENVOLVIMENTO
+
+### ✨ Formulário de Afiliação - Etapa 1: Dados Pessoais
+
+**Especificação Completa Documentada** ([Decisão #029](DECISIONS.md))
+- Criado documento técnico completo: `ETAPA1-DADOS-PESSOAIS-SPEC.md`
+- Definidas 6 correções críticas de UX identificadas pela usuária
+- Estabelecidas regras de dimensionamento inteligente de campos
+- Especificada lógica condicional de endereço profissional para Mago Iniciador
+
+**Correções Planejadas:**
+
+1. **Barra de Progresso das Etapas**
+   - Posicionamento: Logo abaixo do título H1
+   - 6 etapas com ícones: 👤 ⭐ 📄 📸 ✓ 💳
+   - Estados visuais: ativo (roxo #5A5AA4), concluído (verde + ✓), futuro (cinza #C6C0E1)
+   - 3 propostas de design para aprovação
+
+2. **Otimização de Espaço dos Campos**
+   - Dimensionamento baseado no conteúdo esperado
+   - Nome Completo: 60% (não 100%)
+   - E-mail: 50%
+   - Telefones: 30% cada
+   - Redução de espaçamento vertical: `space-y-6` → `space-y-4`
+   - Container: `max-w-4xl` → `max-w-5xl`
+   - Objetivo: eliminar barra de rolagem em desktop
+
+3. **Busca Automática de CEP**
+   - Trigger ao sair do campo (onBlur) - não mais botão manual
+   - Indicadores visuais de loading/sucesso/erro
+   - Feedback claro em caso de falha
+   - Mensagem: "CEP não encontrado. Preencha manualmente."
+
+4. **Endereço Profissional Condicional (Mago Iniciador)**
+   - Checkbox obrigatório: "Este endereço é onde você ministra Magia Divina?"
+   - Se SIM: usa endereço residencial (finaliza etapa)
+   - Se NÃO: abre seção com campos idênticos ao endereço residencial
+   - Título: "Preencha aqui o endereço que deseja deixar visível para alunos..."
+   - Mesma lógica Brasil (ViaCEP) vs Internacional
+   - Validação obrigatória da resposta
+
+5. **Redução de Espaçamento Vertical**
+   - Entre campos: 24px → 16px
+   - Padding interno: 8px → 6px
+   - Margem de labels: 8px → 4px
+
+6. **Alargamento do Container**
+   - De 896px → 1024px
+   - Para reduzir scroll em desktops
+
+### 📐 Estrutura de Dados
+
+**Interface FormDataEtapa1:**
+```typescript
+{
+  nomeCompleto: string
+  email: string
+  telCelular: string
+  telefoneFixo: string
+  numeroIdentidade: string
+  enderecoResidencial: EnderecoData
+  
+  // Apenas para Mago Iniciador:
+  enderecoMesmoProfissional?: boolean | null
+  enderecoProfissional?: EnderecoData
+}
+```
+
+### 🎨 Design System
+- Etapa ativa: #5A5AA4 (Roxo Médio)
+- Etapa concluída: #A8E6CF (Verde suave) + ícone ✓
+- Etapa futura: #C6C0E1 (Lilás Claro)
+- Loading CEP: spinner animado roxo
+- Sucesso CEP: círculo verde com ✓
+- Erro CEP: círculo vermelho com ✕
+
+### 📝 Arquivos a Criar/Modificar
+- `app/afilie-se/page.tsx` - Implementação das correções
+- `components/StepProgress.tsx` - Barra de progresso reutilizável
+- `lib/validators.ts` - Validações (CPF, email, telefone)
+- `lib/viacep.ts` - Busca automática de CEP
+
+### 🎯 Objetivos
+- ✅ Eliminar scroll em desktop (1920x1080, 1366x768)
+- ✅ Campos proporcionais ao conteúdo
+- ✅ UX fluida com busca automática
+- ✅ Diferenciação clara Iniciador vs Iniciado
+- ✅ Validações em tempo real
+- ✅ Feedback visual imediato
+
+### ⏳ Status
+- 📋 Especificação: **COMPLETA**
+- 💻 Implementação: **PENDENTE**
+- 🧪 Testes: **PENDENTE**
+
+---
+
 ## [v3.1.2] - 24/10/2025
 
 ### ✨ Melhorias na Página de Afiliação

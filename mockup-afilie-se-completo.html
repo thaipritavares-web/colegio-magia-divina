@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mockup: Página Afilie-se - Colégio Tradição de Magia Divina</title>
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Google Fonts - Kaushan Script -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+    
+    <style>
+        /* === RESET E FONTES === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        @font-face {
+            font-family: 'Router';
+            src: url('data:font/woff2;base64,d09GMgABAAAAABVAAA8AAAAAK') format('woff2');
+            font-weight: 400;
+        }
+        
+        body {
+            font-family: 'Router', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(236, 224, 240, 0.95));
+            background-attachment: fixed;
+            color: #4A5568;
+            line-height: 1.6;
+        }
+        
+        /* === HEADER FIXO === */
+        .header-fixo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(27, 34, 63, 0.08);
+            padding: 1rem 2rem;
+        }
+        
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-text {
+            font-family: 'Kaushan Script', cursive;
+            font-size: 1.5rem;
+            color: #1B223F;
+        }
+        
+        .menu-nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .menu-nav a {
+            font-family: 'Router', sans-serif;
+            color: #26377F;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-nav a:hover {
+            color: #5A5AA4;
+        }
+        
+        .btn-login {
+            background: #5A5AA4;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-login:hover {
+            background: #26377F;
+            transform: translateY(-2px);
+        }
+        
+        /* === TÍTULO DA PÁGINA === */
+        .titulo-pagina-fixo {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: linear-gradient(90deg, 
+                rgba(255, 255, 255, 0.95) 0%, 
+                rgba(221, 207, 232, 0.95) 50%, 
+                rgba(255, 255, 255, 0.95) 100%);
+            z-index: 999;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 2px 4px rgba(27, 34, 63, 0.05);
+        }
+        
+        .titulo-pagina-fixo h1 {
+            font-family: 'Router', sans-serif;
+            font-weight: 300;
+            font-size: 2rem;
+            color: #1B223F;
+            text-align: center;
+            letter-spacing: -0.5px;
+        }
+        
+        .subtitulo-tipo {
+            text-align: center;
+            color: #5A5AA4;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-top: 0.25rem;
+        }
+        
+        /* === CONTEÚDO PRINCIPAL === */
+        .conteudo-principal {
+            margin-top: 150px;
+            padding: 2rem;
+            min-height: calc(100vh - 150px);
+        }
+        
+        /* === ESTADO 1: CARDS DE ESCOLHA === */
+        .cards-escolha-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+        
+        .cards-escolha-container.fade-out {
+            opacity: 0;
+        }
+        
+        .card-afiliacao {
+            background: rgba(221, 207, 232, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid #C6C0E1;
+            padding: 2.5rem;
+            box-shadow: 0 2px 8px rgba(27, 34, 63, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .card-afiliacao:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 16px rgba(27, 34, 63, 0.12);
+        }
+        
+        .icone-tipo {
+            font-size: 80px;
+            text-align: center;
+            color: #5A5AA4;
+            margin-bottom: 1.5rem;
+        }
+        
+        .titulo-tipo {
+            font-family: 'Router', sans-serif;
+            font-weight: 700;
+            font-size: 1.75rem;
+            color: #1B223F;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .preco {
+            font-family: 'Router', sans-serif;
+            font-weight: 700;
+            font-size: 2rem;
+            color: #5A5AA4;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .descricao {
+            font-family: 'Router', sans-serif;
+            font-weight: 400;
+            font-size: 1rem;
+            color: #4A5568;
+            text-align: center;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        
+        .beneficios {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .beneficios li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0;
+            font-size: 0.95rem;
+            color: #1B223F;
+        }
+        
+        .beneficios li i {
+            color: #5A5AA4;
+            font-size: 1.25rem;
+        }
+        
+        .requisitos {
+            background: white;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            border-left: 3px solid #5A5AA4;
+        }
+        
+        .requisitos h4 {
+            color: #1B223F;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .requisitos ul {
+            list-style: none;
+            padding-left: 1rem;
+        }
+        
+        .requisitos li {
+            color: #4A5568;
+            font-size: 0.9rem;
+            padding: 0.25rem 0;
+        }
+        
+        .btn-escolher {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: #5A5AA4;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-family: 'Router', sans-serif;
+            font-weight: 500;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-escolher:hover {
+            background: #26377F;
+            box-shadow: 0 4px 8px rgba(27, 34, 63, 0.15);
+        }
+        
+        /* === ESTADO 2: FORMULÁRIO === */
+        .formulario-container {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .formulario-container.active {
+            display: block;
+            opacity: 1;
+        }
+        
+        /* === PROGRESS BAR === */
+        .progress-bar-container {
+            position: fixed;
+            top: 145px;
+            left: 0;
+            right: 0;
+            background: white;
+            z-index: 998;
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 8px rgba(27, 34, 63, 0.08);
+        }
+        
+        .progress-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+        }
+        
+        .etapa {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            flex: 1;
+        }
+        
+        .icone-etapa {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .etapa.pendente .icone-etapa {
+            background: #C6C0E1;
+            color: #1B223F;
+        }
+        
+        .etapa.ativa .icone-etapa {
+            background: #5A5AA4;
+            color: white;
+            box-shadow: 0 0 0 4px rgba(90, 90, 164, 0.2);
+            animation: pulse 2s infinite;
+        }
+        
+        .etapa.concluida .icone-etapa {
+            background: #26377F;
+            color: white;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 4px rgba(90, 90, 164, 0.2); }
+            50% { box-shadow: 0 0 0 8px rgba(90, 90, 164, 0.1); }
+        }
+        
+        .nome-etapa {
+            font-family: 'Router', sans-serif;
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-align: center;
+            white-space: nowrap;
+        }
+        
+        .etapa.pendente .nome-etapa {
+            color: #718096;
+        }
+        
+        .etapa.ativa .nome-etapa {
+            color: #5A5AA4;
+            font-weight: 700;
+        }
+        
+        .etapa.concluida .nome-etapa {
+            color: #26377F;
+        }
+        
+        .linha-conectora {
+            position: absolute;
+            top: 24px;
+            left: calc(50% + 24px);
+            width: calc(100% - 48px);
+            height: 2px;
+            background: #C6C0E1;
+            z-index: 1;
+        }
+        
+        .etapa.concluida .linha-conectora {
+            background: #26377F;
+        }
+        
+        .etapa:last-child .linha-conectora {
+            display: none;
+        }
+        
+        /* === CONTEÚDO DAS ETAPAS === */
+        .etapas-content {
+            margin-top: 250px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 2rem;
+        }
+        
+        .etapa-form {
+            display: none;
+            background: white;
+            padding: 2.5rem;
+            box-shadow: 0 2px 8px rgba(27, 34, 63, 0.08);
+        }
+        
+        .etapa-form.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .etapa-form h2 {
+            font-family: 'Router', sans-serif;
+            font-weight: 300;
+            font-size: 1.75rem;
+            color: #1B223F;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .etapa-form h2 i {
+            color: #5A5AA4;
+        }
+        
+        .subtitle-form {
+            color: #718096;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+        
+        /* === RESUMO DO TIPO (Etapa 1) === */
+        .resumo-tipo-card {
+            background: linear-gradient(135deg, #C6C0E1 0%, #DDCFE8 100%);
+            border: 2px solid #5A5AA4;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .resumo-tipo-card .icone-grande {
+            font-size: 64px;
+            color: #5A5AA4;
+            margin-bottom: 1rem;
+        }
+        
+        .resumo-tipo-card h3 {
+            font-size: 1.5rem;
+            color: #1B223F;
+            margin-bottom: 0.5rem;
+        }
+        
+        .resumo-tipo-card .preco-destaque {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #5A5AA4;
+        }
+        
+        /* === FORMULÁRIOS === */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #1B223F;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #C6C0E1;
+            font-family: 'Router', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #5A5AA4;
+            box-shadow: 0 0 0 3px rgba(90, 90, 164, 0.1);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        /* === GRAUS === */
+        .graus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .grau-card {
+            background: #ECE0F0;
+            border: 1px solid #C6C0E1;
+            padding: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .grau-card:hover {
+            border-color: #5A5AA4;
+            transform: translateY(-2px);
+        }
+        
+        .grau-card.selected {
+            background: #DDCFE8;
+            border: 2px solid #5A5AA4;
+        }
+        
+        .grau-card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .grau-card-header input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        
+        .grau-icone {
+            font-size: 1.5rem;
+        }
+        
+        .grau-nome {
+            font-size: 0.9rem;
+            color: #1B223F;
+            font-weight: 500;
+            flex: 1;
+        }
+        
+        .badge-obrigatorio {
+            background: #5A5AA4;
+            color: white;
+            padding: 0.25rem 0.5rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+        
+        /* === BOTÕES === */
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .btn-secondary {
+            padding: 0.75rem 1.5rem;
+            background: white;
+            color: #5A5AA4;
+            border: 2px solid #5A5AA4;
+            cursor: pointer;
+            font-family: 'Router', sans-serif;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background: #5A5AA4;
+            color: white;
+        }
+        
+        .btn-primary {
+            padding: 0.75rem 1.5rem;
+            background: #5A5AA4;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-family: 'Router', sans-serif;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: #26377F;
+            box-shadow: 0 4px 8px rgba(27, 34, 63, 0.15);
+        }
+        
+        /* === RESPONSIVO === */
+        @media (max-width: 768px) {
+            .cards-escolha-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 1rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .graus-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .progress-bar {
+                overflow-x: auto;
+                padding-bottom: 0.5rem;
+            }
+            
+            .nome-etapa {
+                font-size: 0.75rem;
+            }
+            
+            .icone-etapa {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+            
+            .button-group {
+                flex-direction: column;
+            }
+        }
+        
+        /* === CARD ARCO-ÍRIS === */
+        .card-arco-iris {
+            position: relative;
+            padding: 2rem;
+            background: white;
+            margin: 2rem 0;
+            overflow: hidden;
+        }
+        
+        .card-arco-iris::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            background: linear-gradient(
+                135deg,
+                #FF0000, #FF7F00, #FFFF00, #00FF00, #0000FF, #4B0082, #8B00FF
+            );
+            animation: rainbow-glow 3s ease infinite;
+            z-index: 0;
+        }
+        
+        .card-arco-iris::after {
+            content: '';
+            position: absolute;
+            inset: 3px;
+            background: white;
+            z-index: 1;
+        }
+        
+        .card-arco-iris-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        
+        @keyframes rainbow-glow {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER FIXO -->
+    <header class="header-fixo">
+        <div class="header-content">
+            <div class="logo-text">Colégio Tradição</div>
+            <nav class="menu-nav">
+                <a href="#home">Home</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#rubens">Rubens</a>
+                <a href="#magia">Magia Divina</a>
+                <a href="#membros">Membros</a>
+                <a href="#faq">FAQ</a>
+                <a href="#blog">Blog</a>
+                <a href="#afilie-se" style="color: #5A5AA4; font-weight: 700;">Afilie-se</a>
+                <a href="#login" class="btn-login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- TÍTULO DA PÁGINA FIXO -->
+    <div class="titulo-pagina-fixo">
+        <h1 id="titulo-principal">Afilie-se ao Colégio</h1>
+        <div class="subtitulo-tipo hidden" id="subtitulo-tipo"></div>
+    </div>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="conteudo-principal">
+        <!-- ESTADO 1: CARDS DE ESCOLHA -->
+        <div class="cards-escolha-container" id="cards-escolha">
+            <!-- CARD INICIADOR -->
+            <div class="card-afiliacao">
+                <div class="icone-tipo">★</div>
+                <h2 class="titulo-tipo">Mago Iniciador(a)</h2>
+                <p class="preco">R$ 250,00/ano</p>
+                <p class="descricao">
+                    Professor de Magia Divina afiliado ao Colégio Tradição, 
+                    autorizado a ministrar cursos e atender magos iniciados.
+                </p>
+                
+                <ul class="beneficios">
+                    <li><i class="ph ph-check-circle"></i> Autorização para ministrar cursos</li>
+                    <li><i class="ph ph-check-circle"></i> Material didático atualizado</li>
+                    <li><i class="ph ph-check-circle"></i> Curso preparatório</li>
+                    <li><i class="ph ph-check-circle"></i> Cursos de reciclagem</li>
+                    <li><i class="ph ph-check-circle"></i> Consulta com Mestres</li>
+                    <li><i class="ph ph-check-circle"></i> Acesso a eventos internos</li>
+                    <li><i class="ph ph-check-circle"></i> Acesso a eventos magísticos</li>
+                    <li><i class="ph ph-check-circle"></i> Rede de apoio</li>
+                </ul>
+                
+                <div class="requisitos">
+                    <h4>Pré-requisitos:</h4>
+                    <p style="margin-bottom: 0.5rem;">Mínimo 5 graus, incluindo obrigatoriamente:</p>
+                    <ul>
+                        <li>• Magia das Sete Chamas</li>
+                        <li>• Magia das Sete Pedras</li>
+                        <li>• Magia das Sete Ervas</li>
+                        <li>• Magia dos Sete Raios</li>
+                        <li>• + 1 grau adicional</li>
+                    </ul>
+                </div>
+                
+                <button class="btn-escolher" onclick="escolherTipo('iniciador')">
+                    Afiliar-se como Iniciador
+                    <i class="ph ph-arrow-right"></i>
+                </button>
+            </div>
+
+            <!-- CARD INICIADO -->
+            <div class="card-afiliacao">
+                <div class="icone-tipo">☆</div>
+                <h2 class="titulo-tipo">Mago Iniciado(a)</h2>
+                <p class="preco">R$ 200,00/ano</p>
+                <p class="descricao">
+                    Praticantes que concluíram um ou mais graus de Magia Divina 
+                    e atendem ao público com seu conhecimento.
+                </p>
+                
+                <ul class="beneficios">
+                    <li><i class="ph ph-check-circle"></i> Material didático atualizado</li>
+                    <li><i class="ph ph-check-circle"></i> Consulta com Iniciadores e Mestres</li>
+                    <li><i class="ph ph-check-circle"></i> Acesso a eventos internos</li>
+                    <li><i class="ph ph-check-circle"></i> Acesso a eventos magísticos</li>
+                    <li><i class="ph ph-check-circle"></i> Rede de apoio</li>
+                </ul>
+                
+                <div class="requisitos">
+                    <h4>Pré-requisitos:</h4>
+                    <p>Mínimo 1 grau:</p>
+                    <ul>
+                        <li>• Magia das Sete Chamas (Fogo)</li>
+                    </ul>
+                </div>
+                
+                <button class="btn-escolher" onclick="escolherTipo('iniciado')">
+                    Afiliar-se como Iniciado
+                    <i class="ph ph-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- ESTADO 2: FORMULÁRIO MULTI-STEP -->
+        <div class="formulario-container" id="formulario-container">
+            <!-- PROGRESS BAR -->
+            <div class="progress-bar-container">
+                <div class="progress-bar">
+                    <div class="etapa ativa" data-etapa="1">
+                        <div class="icone-etapa">
+                            <i class="ph ph-star"></i>
+                        </div>
+                        <span class="nome-etapa">Tipo</span>
+                        <div class="linha-conectora"></div>
+                    </div>
+                    <div class="etapa pendente" data-etapa="2">
+                        <div class="icone-etapa">
+                            <i class="ph ph-user"></i>
+                        </div>
+                        <span class="nome-etapa">Dados</span>
+                        <div class="linha-conectora"></div>
+                    </div>
+                    <div class="etapa pendente" data-etapa="3">
+                        <div class="icone-etapa">
+                            <i class="ph ph-map-pin"></i>
+                        </div>
+                        <span class="nome-etapa">Endereço</span>
+                        <div class="linha-conectora"></div>
+                    </div>
+                    <div class="etapa pendente" data-etapa="4">
+                        <div class="icone-etapa">
+                            <i class="ph ph-file-text"></i>
+                        </div>
+                        <span class="nome-etapa">Documentos</span>
+                        <div class="linha-conectora"></div>
+                    </div>
+                    <div class="etapa pendente" data-etapa="5">
+                        <div class="icone-etapa">
+                            <i class="ph ph-certificate"></i>
+                        </div>
+                        <span class="nome-etapa">Graus</span>
+                        <div class="linha-conectora"></div>
+                    </div>
+                    <div class="etapa pendente" data-etapa="6">
+                        <div class="icone-etapa">
+                            <i class="ph ph-check-circle"></i>
+                        </div>
+                        <span class="nome-etapa">Revisão</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTEÚDO DAS ETAPAS -->
+            <div class="etapas-content">
+                <!-- ETAPA 1: CONFIRMAÇÃO DO TIPO -->
+                <div class="etapa-form active" data-etapa-content="1">
+                    <h2>
+                        <i class="ph ph-star"></i>
+                        Tipo de Afiliação Selecionado
+                    </h2>
+                    <p class="subtitle-form">Você escolheu se afiliar como <span id="tipo-escolhido-texto"></span></p>
+                    
+                    <div class="resumo-tipo-card">
+                        <div class="icone-grande" id="icone-resumo"></div>
+                        <h3 id="titulo-resumo"></h3>
+                        <p class="preco-destaque" id="preco-resumo"></p>
+                    </div>
+                    
+                    <div class="button-group">
+                        <button class="btn-secondary" onclick="voltarParaEscolha()">
+                            <i class="ph ph-arrow-left"></i>
+                            Voltar
+                        </button>
+                        <button class="btn-primary" onclick="proximaEtapa(2)">
+                            Próximo
+                            <i class="ph ph-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ETAPA 2: DADOS PESSOAIS -->
+                <div class="etapa-form" data-etapa-content="2">
+                    <h2>
+                        <i class="ph ph-user"></i>
+                        Dados Pessoais
+                    </h2>
+                    <p class="subtitle-form">Preencha seus dados básicos</p>
+                    
+                    <div class="form-group">
+                        <label>Nome Completo *</label>
+                        <input type="text" placeholder="Seu nome completo">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>CPF *</label>
+                            <input type="text" placeholder="000.000.000-00">
+                        </div>
+                        <div class="form-group">
+                            <label>RG / Documento *</label>
+                            <input type="text" placeholder="Número do documento">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Email Principal *</label>
+                        <input type="email" placeholder="seu@email.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Confirmar Email *</label>
+                        <input type="email" placeholder="seu@email.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Email Secundário (opcional)</label>
+                        <input type="email" placeholder="outro@email.com">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Telefone Celular *</label>
+                            <input type="tel" placeholder="(00) 00000-0000">
+                        </div>
+                        <div class="form-group">
+                            <label>Telefone Fixo (opcional)</label>
+                            <input type="tel" placeholder="(00) 0000-0000">
+                        </div>
+                    </div>
+                    
+                    <div class="button-group">
+                        <button class="btn-secondary" onclick="proximaEtapa(1)">
+                            <i class="ph ph-arrow-left"></i>
+                            Voltar
+                        </button>
+                        <button class="btn-primary" onclick="proximaEtapa(3)">
+                            Próximo
+                            <i class="ph ph-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ETAPA 3: ENDEREÇO -->
+                <div class="etapa-form" data-etapa-content="3">
+                    <h2>
+                        <i class="ph ph-map-pin"></i>
+                        Endereço
+                    </h2>
+                    <p class="subtitle-form">Informe seu endereço completo</p>
+                    
+                    <div class="form-group">
+                        <label>País *</label>
+                        <select>
+                            <option>Brasil</option>
+                            <option>Argentina</option>
+                            <option>Chile</option>
+                            <option>Uruguai</option>
+                            <option>Paraguai</option>
+                            <option>Portugal</option>
+                            <option>Estados Unidos</option>
+                            <option>Espanha</option>
+                            <option>Itália</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>CEP * (pressione TAB para buscar automaticamente)</label>
+                        <input type="text" placeholder="00000-000">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Logradouro *</label>
+                        <input type="text" placeholder="Rua, Avenida, etc">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Número *</label>
+                            <input type="text" placeholder="123">
+                        </div>
+                        <div class="form-group">
+                            <label>Complemento (opcional)</label>
+                            <input type="text" placeholder="Apto, Bloco, etc">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Bairro *</label>
+                        <input type="text" placeholder="Nome do bairro">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Cidade *</label>
+                            <input type="text" placeholder="Nome da cidade">
+                        </div>
+                        <div class="form-group">
+                            <label>Estado *</label>
+                            <select>
+                                <option value="">Selecione</option>
+                                <option>SP</option>
+                                <option>RJ</option>
+                                <option>MG</option>
+                                <!-- etc -->
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="button-group">
+                        <button class="btn-secondary" onclick="proximaEtapa(2)">
+                            <i class="ph ph-arrow-left"></i>
+                            Voltar
+                        </button>
+                        <button class="btn-primary" onclick="proximaEtapa(4)">
+                            Próximo
+                            <i class="ph ph-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ETAPA 4: DOCUMENTOS -->
+                <div class="etapa-form" data-etapa-content="4">
+                    <h2>
+                        <i class="ph ph-file-text"></i>
+                        Documentos Obrigatórios
+                    </h2>
+                    <p class="subtitle-form">Envie os documentos necessários</p>
+                    
+                    <div class="form-group">
+                        <label>Documento de Identidade (RG/CNH) * - PDF, JPG ou PNG até 5MB</label>
+                        <input type="file" accept=".pdf,.jpg,.jpeg,.png">
+                        <small style="color: #718096;">Nome sugerido: CPF-IDENTIDADE.pdf</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Comprovante de Endereço * - PDF, JPG ou PNG até 5MB</label>
+                        <input type="file" accept=".pdf,.jpg,.jpeg,.png">
+                        <small style="color: #718096;">Nome sugerido: CPF-COMPROVANTE.pdf</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Foto 3x4 * - JPG ou PNG até 2MB</label>
+                        <input type="file" accept=".jpg,.jpeg,.png">
+                        <small style="color: #718096;">Nome sugerido: CPF-FOTO.jpg</small>
+                    </div>
+                    
+                    <div class="button-group">
+                        <button class="btn-secondary" onclick="proximaEtapa(3)">
+                            <i class="ph ph-arrow-left"></i>
+                            Voltar
+                        </button>
+                        <button class="btn-primary" onclick="proximaEtapa(5)">
+                            Próximo
+                            <i class="ph ph-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ETAPA 5: GRAUS -->
+                <div class="etapa-form" data-etapa-content="5">
+                    <h2>
+                        <i class="ph ph-certificate"></i>
+                        Graus de Magia
+                    </h2>
+                    <p class="subtitle-form">Selecione os graus que você já concluiu</p>
+                    
+                    <div class="graus-grid" id="graus-grid">
+                        <!-- Será preenchido via JavaScript -->
+                    </div>
+                    
+                    <div id="card-arco-iris" class="card-arco-iris hidden">
+                        <div class="card-arco-iris-content">
+                            <h3 style="color: #1B223F; margin-bottom: 1rem;">🌈 Reconhecimento Especial</h3>
+                            <p style="color: #4A5568; margin-bottom: 0.5rem;">Parabéns por ter completado <strong id="qtd-graus">0</strong> graus!</p>
+                            <p style="color: #5A5AA4; font-style: italic; margin-bottom: 1rem;">
+                                "Que o Divino Mistério do Arco Íris te abençoe"
+                            </p>
+                            <p style="color: #1B223F;">
+                                Seu título: <strong id="titulo-mago"></strong>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="button-group">
+                        <button class="btn-secondary" onclick="proximaEtapa(4)">
+                            <i class="ph ph-arrow-left"></i>
+                            Voltar
+                        </button>
+                        <button class="btn-primary" onclick="proximaEtapa(6)">
+                            Próximo
+                            <i class="ph ph-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ETAPA 6: REVISÃO -->
+                <div class="etapa-form" data-etapa-content="6">
+                    <h2>
+                        <i class="ph ph-check-circle"></i>
+                        Revisão e Confirmação
+                    </h2>
+                    <p class="subtitle-form">Revise todos os dados antes de enviar</p>
+                    
+                    <div style="background: #ECE0F0; padding: 2rem; margin-bottom: 2rem;">
+                        <h3 style="color: #1B223F; margin-bottom: 1rem;">Resumo da Afiliação</h3>
+                        
+                        <p><strong>Tipo:</strong> <span id="resumo-tipo-final"></span></p>
+                        <p><strong>Valor:</strong> <span id="resumo-valor-final"></span></p>
+                        
+                        <hr style="border: none; border-top: 1px solid #C6C0E1; margin: 1rem 0;">
+                        
+                        <p style="font-size: 0.9rem; color: #718096;">
+                            ℹ️ Após confirmação, você será direcionado para o pagamento via Mercado Pago.
+                        </p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label style="display: flex; align-items: center; gap: 0.5rem;">
+                            <input type="checkbox" required>
+                            Li e aceito os termos e condições
+                        </label>
+                    </div>
+                    
+                    <div class="button-group">
+                        <button class="btn-secondary" onclick="proximaEtapa(5)">
+                            <i class="ph ph-arrow-left"></i>
+                            Voltar
+                        </button>
+                        <button class="btn-primary" onclick="finalizarAfiliacao()">
+                            Enviar Solicitação
+                            <i class="ph ph-check"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // === DADOS GLOBAIS ===
+        let tipoSelecionado = '';
+        let etapaAtual = 1;
+        
+        const GRAUS_MAGIA = [
+            { id: 1, nome: "Magia Sagrada das Sete Chamas", icone: "🔥", obrigatorio: true },
+            { id: 2, nome: "Magia Sagrada das Sete Pedras", icone: "💎", obrigatorio: true },
+            { id: 3, nome: "Magia Sagrada das Sete Ervas Sagradas", icone: "🌿", obrigatorio: true },
+            { id: 4, nome: "Magia Sagrada das Sete Raios", icone: "⚡", obrigatorio: true },
+            { id: 5, nome: "Magia Sagrada das Sete Símbolos", icone: "✨" },
+            { id: 6, nome: "Magia Sagrada das Sete Espadas", icone: "⚔️" },
+            { id: 7, nome: "Magia Sagrada das Sete Eixos", icone: "🌐" },
+            { id: 8, nome: "Magia Sagrada das Sete Energias", icone: "⚡" },
+            { id: 9, nome: "Magia Sagrada das Sete Círculos", icone: "⭕" },
+            { id: 10, nome: "Magia Sagrada das Sete Esferas", icone: "🔮" },
+            { id: 11, nome: "Magia Sagrada das Sete Árvores", icone: "🌳" },
+            { id: 12, nome: "Magia Sagrada das Sete Anjos", icone: "👼" },
+            { id: 13, nome: "Magia Sagrada das Sete Luzes e Cores", icone: "🌈" },
+            { id: 14, nome: "Magia Sagrada das Sete Vórtices", icone: "🌀" },
+            { id: 15, nome: "Magia Sagrada das Sete Portais", icone: "🚪" },
+            { id: 16, nome: "Magia Sagrada das Sete Assopros", icone: "💨" },
+            { id: 17, nome: "Magia Sagrada das Sete Giros", icone: "🔄" },
+            { id: 18, nome: "Magia Sagrada das Sete Vestes", icone: "👗" },
+            { id: 19, nome: "Magia Sagrada das Sete Mantos", icone: "🧥" },
+            { id: 20, nome: "Magia Sagrada das Sete Gênios", icone: "🧞" },
+            { id: 21, nome: "Magia Sagrada dos Mentais", icone: "🧠" },
+            { id: 22, nome: "Magia Sagrada das Cruzes", icone: "✝️" },
+            { id: 23, nome: "Magia Sagrada dos Fatores", icone: "⚙️" },
+            { id: 24, nome: "Magia Sagrada dos Dragões", icone: "🐉" },
+            { id: 25, nome: "Magia Sagrada dos Elementais", icone: "🌊" },
+            { id: 26, nome: "Magia Sagrada das Essências", icone: "🌸" },
+            { id: 27, nome: "Magia Sagrada das Diferenças", icone: "⚖️" },
+            { id: 28, nome: "Magia Sagrada das Conchas", icone: "🐚" },
+            { id: 29, nome: "Magia Sagrada das Águas", icone: "💧" }
+        ];
+        
+        let grausSelecionados = [];
+        
+        // === FUNÇÕES ===
+        function escolherTipo(tipo) {
+            tipoSelecionado = tipo;
+            
+            // Fade out dos cards
+            document.getElementById('cards-escolha').classList.add('fade-out');
+            
+            setTimeout(() => {
+                // Esconder cards
+                document.getElementById('cards-escolha').classList.add('hidden');
+                
+                // Mostrar formulário
+                document.getElementById('formulario-container').classList.add('active');
+                
+                // Atualizar subtítulo
+                const subtitulo = document.getElementById('subtitulo-tipo');
+                subtitulo.textContent = `Mago ${tipo === 'iniciador' ? 'Iniciador' : 'Iniciado'}`;
+                subtitulo.classList.remove('hidden');
+                
+                // Atualizar resumo na etapa 1
+                document.getElementById('tipo-escolhido-texto').textContent = 
+                    `Mago ${tipo === 'iniciador' ? 'Iniciador(a)' : 'Iniciado(a)'}`;
+                document.getElementById('icone-resumo').textContent = tipo === 'iniciador' ? '★' : '☆';
+                document.getElementById('titulo-resumo').textContent = 
+                    `Mago ${tipo === 'iniciador' ? 'Iniciador(a)' : 'Iniciado(a)'}`;
+                document.getElementById('preco-resumo').textContent = 
+                    `R$ ${tipo === 'iniciador' ? '250' : '200'},00/ano`;
+                
+                // Scroll to top
+                window.scrollTo(0, 0);
+            }, 300);
+        }
+        
+        function voltarParaEscolha() {
+            // Fade out do formulário
+            document.getElementById('formulario-container').classList.remove('active');
+            
+            setTimeout(() => {
+                // Mostrar cards
+                document.getElementById('cards-escolha').classList.remove('hidden', 'fade-out');
+                
+                // Esconder subtítulo
+                document.getElementById('subtitulo-tipo').classList.add('hidden');
+                
+                // Reset
+                tipoSelecionado = '';
+                etapaAtual = 1;
+                
+                window.scrollTo(0, 0);
+            }, 300);
+        }
+        
+        function proximaEtapa(novaEtapa) {
+            // Atualizar etapa atual
+            etapaAtual = novaEtapa;
+            
+            // Atualizar progress bar
+            document.querySelectorAll('.etapa').forEach((el, index) => {
+                el.classList.remove('ativa', 'concluida', 'pendente');
+                
+                if (index + 1 < etapaAtual) {
+                    el.classList.add('concluida');
+                    el.querySelector('.icone-etapa i').className = 'ph ph-check-circle';
+                } else if (index + 1 === etapaAtual) {
+                    el.classList.add('ativa');
+                } else {
+                    el.classList.add('pendente');
+                }
+            });
+            
+            // Atualizar conteúdo
+            document.querySelectorAll('.etapa-form').forEach(form => {
+                form.classList.remove('active');
+            });
+            document.querySelector(`[data-etapa-content="${etapaAtual}"]`).classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+            
+            // Carregar graus na etapa 5
+            if (etapaAtual === 5) {
+                carregarGraus();
+            }
+            
+            // Atualizar resumo na etapa 6
+            if (etapaAtual === 6) {
+                document.getElementById('resumo-tipo-final').textContent = 
+                    `Mago ${tipoSelecionado === 'iniciador' ? 'Iniciador' : 'Iniciado'}`;
+                document.getElementById('resumo-valor-final').textContent = 
+                    `R$ ${tipoSelecionado === 'iniciador' ? '250' : '200'},00/ano`;
+            }
+        }
+        
+        function carregarGraus() {
+            const grausGrid = document.getElementById('graus-grid');
+            grausGrid.innerHTML = '';
+            
+            GRAUS_MAGIA.forEach(grau => {
+                const card = document.createElement('div');
+                card.className = 'grau-card';
+                card.onclick = () => toggleGrau(grau.id);
+                
+                card.innerHTML = `
+                    <div class="grau-card-header">
+                        <input type="checkbox" id="grau-${grau.id}" ${grau.obrigatorio && tipoSelecionado === 'iniciador' ? 'checked' : ''}>
+                        <span class="grau-icone">${grau.icone}</span>
+                        <span class="grau-nome">${grau.nome}</span>
+                        ${grau.obrigatorio && tipoSelecionado === 'iniciador' ? '<span class="badge-obrigatorio">OBRIGATÓRIO</span>' : ''}
+                    </div>
+                `;
+                
+                grausGrid.appendChild(card);
+                
+                // Marcar obrigatórios como selecionados
+                if (grau.obrigatorio && tipoSelecionado === 'iniciador') {
+                    grausSelecionados.push(grau.id);
+                    card.classList.add('selected');
+                }
+            });
+            
+            atualizarCardArcoIris();
+        }
+        
+        function toggleGrau(grauId) {
+            const card = event.currentTarget;
+            const checkbox = card.querySelector('input[type="checkbox"]');
+            
+            // Toggle
+            checkbox.checked = !checkbox.checked;
+            card.classList.toggle('selected');
+            
+            // Atualizar array
+            if (checkbox.checked) {
+                if (!grausSelecionados.includes(grauId)) {
+                    grausSelecionados.push(grauId);
+                }
+            } else {
+                grausSelecionados = grausSelecionados.filter(id => id !== grauId);
+            }
+            
+            atualizarCardArcoIris();
+        }
+        
+        function atualizarCardArcoIris() {
+            const qtd = grausSelecionados.length;
+            const cardArcoIris = document.getElementById('card-arco-iris');
+            
+            if (qtd >= 21) {
+                cardArcoIris.classList.remove('hidden');
+                document.getElementById('qtd-graus').textContent = qtd;
+                
+                let titulo = '';
+                if (qtd >= 29) {
+                    titulo = `Mestre Mago ${tipoSelecionado === 'iniciador' ? 'Iniciador' : 'Iniciado'} do Arco Íris Divino`;
+                } else {
+                    titulo = `Mago ${tipoSelecionado === 'iniciador' ? 'Iniciador' : 'Iniciado'} do Arco Íris Divino`;
+                }
+                
+                document.getElementById('titulo-mago').textContent = titulo;
+            } else {
+                cardArcoIris.classList.add('hidden');
+            }
+        }
+        
+        function finalizarAfiliacao() {
+            alert('🎉 Solicitação enviada com sucesso!\n\nVocê será redirecionado para o pagamento via Mercado Pago.\n\n(Este é um mockup de demonstração)');
+        }
+    </script>
+</body>
+</html>

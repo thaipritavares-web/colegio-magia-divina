@@ -1,575 +1,124 @@
-# 🎯 DECISÕES DO PROJETO - REGISTRO COMPLETO
+# DECISIONS - REGISTRO DE DECISÕES TÉCNICAS
 
-**Última atualização:** 24/10/2025 - Checkpoint #10
-
----
-
-## 📋 ÍNDICE
-
-1. [Decisões de Arquitetura](#decisões-de-arquitetura)
-2. [Decisões de Design](#decisões-de-design)
-3. [Decisões de UX](#decisões-de-ux)
-4. [Decisões Técnicas](#decisões-técnicas)
-5. [Histórico de Checkpoints](#histórico-de-checkpoints)
+**Última atualização:** 24/10/2025 - v3.2.0
 
 ---
 
-## 🏗️ DECISÕES DE ARQUITETURA
-
-### ✅ Framework e Stack
-
-**Decisão:** Next.js 14 com App Router + TypeScript + Tailwind CSS  
-**Motivo:** 
-- SEO nativo e server-side rendering
-- TypeScript para type safety
-- Tailwind para desenvolvimento rápido
-- App Router para estrutura moderna
-
-**Data:** Início do projeto  
-**Status:** ✅ Implementado
-
----
-
-### ✅ Estrutura de Headers
-
-**Decisão:** Dois headers diferentes (HeaderHome e Header)  
-**Motivo:**
-- Home precisa de visual impactante com logo grande
-- Páginas internas precisam de header compacto
-- Melhor experiência do usuário
-
-**Implementação:**
-```tsx
-// LayoutClient.tsx alterna entre os headers
-{pathname === '/' ? <HeaderHome /> : <Header />}
-```
-
-**Data:** Checkpoint #6  
-**Status:** ✅ Implementado
-
----
-
-## 🎨 DECISÕES DE DESIGN
-
-### ✅ Paleta de Cores Oficial
-
-**Decisão:** Paleta baseada em tons de azul, roxo e lilás
-
-**Cores Principais:**
-```css
---azul-marinho: #1B223F       /* Títulos H1, textos fortes */
---azul-escuro: #26377F        /* Títulos H2, links */
---roxo-medio: #5A5AA4         /* Botões CTA, destaques */
---lilas-claro: #C6C0E1        /* Bordas, detalhes */
---lavanda: #DDCFE8            /* Fundos de cards */
---lilas-quase-branco: #ECE0F0 /* Fundos suaves */
---gray-text: #4A5568          /* Texto corpo */
---gray-medium: #718096        /* Texto secundário */
---branco: #FFFFFF             /* Fundo principal */
-```
-
-**Correção:** Paleta antiga com "dourado" foi descartada  
-**Motivo:** Representam espiritualidade, serenidade e elegância  
-**Data:** Checkpoint #2 (definida), Checkpoint #7 (corrigida)  
-**Status:** ✅ Implementado e corrigido
-
----
-
-### ✅ Sistema de Fontes (ATUALIZADO - Checkpoint #10)
-
-**Decisão:** Sistema unificado com família Router única
-
-**Estrutura:**
-```css
-/* Família ÚNICA Router com múltiplos weights */
-@font-face {
-  font-family: 'Router';
-  font-weight: 200; /* ExtraLight */
-}
-@font-face {
-  font-family: 'Router';
-  font-weight: 300; /* Thin */
-}
-@font-face {
-  font-family: 'Router';
-  font-weight: 400; /* Regular - PADRÃO */
-}
-@font-face {
-  font-family: 'Router';
-  font-weight: 500; /* Medium */
-}
-@font-face {
-  font-family: 'Router';
-  font-weight: 700; /* Bold */
-}
-```
-
-**Classes CSS Customizadas:**
-```css
-.font-router-thin   { font-family: 'Router'; font-weight: 300; }
-.font-router-medium { font-family: 'Router'; font-weight: 500; }
-.font-router-bold   { font-family: 'Router'; font-weight: 700; }
-```
-
-**Tailwind Config:**
-```typescript
-fontFamily: {
-  'kaushian': ['Kaushan Script', 'cursive'],
-  'router': ['Router', 'sans-serif'], // Apenas uma família
-}
-```
-
-**Uso:**
-- **Router (weights variados):** Corpo do texto, títulos, menus
-- **Kaushan Script:** Nome do colégio na home (apenas)
-
-**Correção:** Sistema anterior tinha famílias separadas (Router Thin, Router Bold)  
-**Motivo:** 
-- Melhor controle de weights
-- Adiciona font-router-medium
-- Evita duplicações e conflitos
-- Facilita manutenção
-
-**Data:** Checkpoint #2 (inicial), Checkpoint #10 (refatorado)  
-**Status:** ✅ Implementado
-
----
-
-### ✅ Hierarquia de Cores Tipográfica (NOVO - Checkpoint #10)
-
-**Decisão:** Sistema de cores otimizado para contraste e hierarquia visual
-
-**Problema Identificado:**
-- Títulos H1/H2 em roxo claro (#5A5AA4) tinham pouco contraste
-- Textos em azul escuro (#26377F) chamavam MAIS atenção que títulos
-- Hierarquia visual invertida prejudicava UX
-
-**Solução Implementada:**
-
-```tsx
-// H1 - Título Principal da Página
-// Cor: #1B223F (azul-marinho) - Contraste MÁXIMO
-// Peso: 300 (thin)
-className="text-3xl md:text-4xl lg:text-5xl font-router-thin text-azul-marinho mb-8"
-style={{letterSpacing: '-1px'}}
-
-// H2 - Títulos de Seção
-// Cor: #26377F (azul-escuro) - Contraste ALTO
-// Peso: 300 (thin)
-className="text-2xl md:text-3xl font-router-thin text-azul-escuro mb-6"
-
-// H3 - Títulos dentro de Cards/Caixas
-// Cor: #FFFFFF (branco) - Contraste MÁXIMO sobre fundos coloridos
-// Peso: 700 (bold)
-// Efeito: text-shadow sutil para legibilidade
-className="text-xl md:text-2xl font-router-bold text-white mb-4"
-style={{textShadow: '0 1px 2px rgba(0, 0, 0, 0.1)'}}
-
-// Texto Corpo
-// Cor: #4A5568 (gray-text) - Leitura confortável
-// Peso: 400 (regular)
-className="text-base font-router text-gray-text leading-relaxed"
-
-// Texto Secundário
-// Cor: #718096 (gray-medium) - Menos destaque
-// Peso: 400 (regular)
-className="text-sm font-router text-gray-medium"
-```
-
-**Fluxo Visual:**
-```
-MAIS CONTRASTE (mais atenção)
-    ↓
-H1 - #1B223F (azul-marinho, quase preto)
-H2 - #26377F (azul escuro forte)
-H3 - #FFFFFF (branco sobre caixas coloridas)
-Texto - #4A5568 (cinza para leitura)
-    ↓
-MENOS CONTRASTE (menos atenção)
-```
-
-**Benefícios:**
-- ✅ Hierarquia visual correta (títulos > textos)
-- ✅ H3 branco "salta" das caixas coloridas (lavanda/lilás)
-- ✅ Melhor escaneabilidade da página
-- ✅ Contraste adequado para acessibilidade
-- ✅ Leitura confortável com textos em cinza
-
-**Mockup Aprovado:** mockup-h3-branco.html  
-**Data:** Checkpoint #10 (23/10/2025)  
-**Status:** ✅ Implementado
-
----
-
-### ✅ Cores do Footer (24/10/2025)
-
-**Decisão:** Todos os textos do footer devem ser brancos (#FFFFFF)
-
-**Elementos afetados:**
-- Títulos H3 das colunas (já branco via Typography)
-- Parágrafos descritivos (P)
-- Links de navegação (Link)
-- Copyright
-
-**Implementação:**
-```tsx
-// Footer.tsx - Parágrafos
-<P variant="secondary" size="sm" className="mb-0 text-white">
-
-// Footer.tsx - Links
-<Link href="/..." variant="light" className="text-white hover:text-lilas-claro">
-
-// Footer.tsx - Copyright
-<P variant="secondary" size="sm" className="mb-0 text-white">
-```
-
-**Motivo:**
-- Melhor legibilidade sobre fundo azul-marinho (#1B223F)
-- Consistência visual total no footer
-- Contraste adequado para acessibilidade
-- Segue especificação do mockup oficial
-
-**Mockup de Referência:** image.png (footer oficial)  
+## ✅ DECISÃO #030: Barra de Progresso do Formulário de Afiliação
 **Data:** 24/10/2025  
-**Commit:** 121ef92  
-**Status:** ✅ Implementado
+**Tipo:** UX/Design  
+**Status:** ✅ Aprovado  
+**Versão:** v3.2.0
 
----
+### **Contexto:**
+Necessidade de implementar uma barra de progresso visual no formulário multi-step de afiliação (5 etapas), que seja:
+- Elegante e moderna
+- Ocupe pouco espaço vertical (importante para evitar scroll)
+- Clara e intuitiva
+- Responsiva para mobile
 
-### ✅ Logo (ATUALIZADO - Checkpoint #7)
+### **Opções Avaliadas:**
 
-**Decisão:**
-- **Home:** Logo sem texto (200x200px)
-- **Páginas internas:** `Logo_Horizontal_Cores_01.svg` (tamanho adequado)
+**Opção 1 - Minimalista com Linha Conectora:**
+- Círculos conectados por linha horizontal
+- Etapa atual: círculo grande, roxo (#5A5AA4), pulsante
+- Etapas concluídas: círculo médio, verde (#4CAF50), com ✓
+- Etapas futuras: círculo pequeno, vazado, cinza (#C6C0E1)
+- Espaço vertical: ~60px
 
-**Correção:** Logo nas páginas internas estava incorreto  
-**Motivo:** Hierarquia visual e identidade visual correta  
-**Data:** Checkpoint #6 (inicial), Checkpoint #7 (corrigido)  
-**Status:** 🔄 Aguardando correção
+**Opção 2 - Cards Compactos:**
+- Cards individuais para cada etapa
+- Etapa atual: borda grossa, escala 110%, indicador "▼ AQUI"
+- Espaço vertical: ~100px
+- Menos adequado para mobile
 
----
+**Opção 3 - Barra Horizontal com Lista:**
+- Barra de progresso com percentual no topo
+- Lista vertical de todas as etapas
+- Espaço vertical: ~200px
+- Mais tradicional
 
-### ✅ Estilo Visual (ATUALIZADO - Checkpoint #7)
+### **Decisão:**
+✅ **APROVADO: Opção 1 - Minimalista com Linha Conectora**
 
-**Decisão:** Visual quadrado + Glass morphism + Sombras  
+### **Justificativa:**
+- Melhor custo-benefício entre espaço vertical e elegância visual
+- Visual moderno e clean alinhado com identidade do projeto
+- Ocupa menos espaço (crítico para evitar scroll excessivo)
+- Animação sutil (pulse) destaca etapa atual sem ser intrusiva
+- Totalmente responsivo (mobile mostra etapa atual + contador)
+- Fácil implementação e manutenção
 
-**Especificações:**
-- **SEM bordas arredondadas** (border-radius: 0)
-- **COM glass morphism:** `bg-lavanda/60 backdrop-blur-sm`
-- **COM sombras hover:** `hover:-translate-y-2 shadow-card hover:shadow-card-hover`
-- **COM bordas lilás:** `border border-lilas-claro`
+### **Especificações Técnicas:**
 
-**Motivo:**
-- Visual mais elegante e refinado
-- Efeito de "saltar da tela" no hover
-- Melhor contraste e legibilidade
+**Estrutura de 5 Etapas:**
+1. 👤 **Dados** - Dados Pessoais
+2. 🎓 **Graus** - Graus de Magia (ícone alterado de ⭐ para 🎓 para remeter a certificado)
+3. 📄 **Docs** - Upload de Documentos
+4. ✓ **Revisão** - Revisão Final
+5. 💳 **Pagamento** - Mercado Pago
 
-**Exemplo:**
-```tsx
-className="bg-lavanda/60 backdrop-blur-sm border border-lilas-claro p-8 
-transition-all duration-300 hover:-translate-y-2 shadow-card hover:shadow-card-hover"
-```
+**Estados Visuais:**
 
-**Data:** Checkpoint #5 (inicial), Checkpoint #7 (refinado)  
-**Status:** 🔄 Aguardando implementação
-
----
-
-### ✅ Hierarquia de Títulos Responsivos (Checkpoint #7)
-
-**Decisão:** Títulos com tamanhos responsivos diferenciados
-
-**Sistema:**
-```tsx
-// H1 - Título da Página
-className="text-3xl md:text-4xl lg:text-5xl font-router-thin text-azul-marinho mb-8"
-style={{letterSpacing: '-1px'}}
-
-// H2 - Título de Seção  
-className="text-2xl md:text-3xl font-router-thin text-azul-escuro mb-6"
-
-// H3 - Subtítulo/Card
-className="text-xl md:text-2xl font-router-bold text-white mb-4"
-```
-
-**Motivo:**
-- Melhor hierarquia visual
-- Responsividade adequada em mobile
-- Facilita escaneamento da página
-
-**Data:** Checkpoint #7 (inicial), Checkpoint #10 (refinado)  
-**Status:** 🔄 Aguardando implementação
-
----
-
-## 👤 DECISÕES DE UX
-
-### ✅ Nomenclatura da Rota de Afiliação
-
-**Decisão:** `/afilie-se` (não `/afiliar-se`)  
-**Motivo:**
-- Imperativo ("Afilie-se!")
-- Chamada à ação direta
-- Mais curto e objetivo
-
-**Data:** Checkpoint #6  
-**Status:** ✅ Implementado
-
----
-
-### ✅ Fundo do Site
-
-**Decisão:** Gradiente lilás suave fixo
-
-**Implementação:**
+*Etapa Atual:*
 ```css
-body {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(236, 224, 240, 0.95));
-  background-attachment: fixed;
-}
+width: 56px;
+height: 56px;
+background: #5A5AA4;
+animation: pulse 2s infinite;
+box-shadow: 0 4px 12px rgba(90, 90, 164, 0.4);
+label: font-weight: 700, color: #5A5AA4;
 ```
 
-**Motivo:**
-- Visual suave e espiritual
-- Não interfere na legibilidade
-- Identidade visual consistente
-
-**Data:** Checkpoint #3  
-**Status:** ✅ Implementado
-
----
-
-### ✅ Indicador de Página Atual (Decisão #027 - 24/10/2025)
-
-**Decisão:** Implementar fundo branco semi-transparente com sombra pronunciada como indicador de página ativa
-
-**Implementação:**
-```tsx
-const pathname = usePathname()
-
-<Link
-  className={pathname === item.href 
-    ? "bg-white/50 shadow-[0_2px_12px_rgba(255,255,255,0.9)] font-router-bold text-azul-escuro rounded-md whitespace-nowrap" 
-    : "text-azul-escuro hover:bg-white/30 hover:text-roxo-medio"
-  }
->
+*Etapa Concluída:*
+```css
+width: 48px;
+height: 48px;
+background: #4CAF50;
+box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+icon: ✓ branco;
+label: color: #4CAF50;
 ```
 
-**Motivo:**
-- Melhor orientação do usuário
-- Padrão de UX estabelecido
-- Reduz confusão na navegação
-- Elegante e sutil
-
-**Data:** 24/10/2025  
-**Status:** ✅ Implementado
-
----
-
-### ✅ Cards de Seleção de Afiliação (Decisão #028 - 24/10/2025)
-
-**Contexto:** Página `/afilie-se` precisa apresentar claramente as duas opções de afiliação
-
-**Decisões Tomadas:**
-
-**1. Hierarquia Visual:**
-- Títulos promovidos de H3 para H2
-- Título da página: "Afilie-se ao Colégio"
-- Ícones de estrela: preenchida (Iniciador) e vazada (Iniciado)
-
-**2. Diferenciação dos Cards:**
-```tsx
-// Card Mago Iniciador (Esquerda)
-- Fundo: #DDCFE8 (Lavanda)
-- Elementos: #5A5AA4 (Roxo/Azul Médio)
-- Estrela: preenchida
-- Preço: R$ 250,00/ano
-
-// Card Mago Iniciado (Direita)
-- Fundo: rgba(255,255,255,0.7) com backdrop-blur-sm
-- Elementos: #26377F (Azul Escuro)
-- Estrela: vazada
-- Preço: R$ 200,00/ano
+*Etapa Futura:*
+```css
+width: 44px;
+height: 44px;
+background: transparent;
+border: 2px solid #C6C0E1;
+opacity: 0.6;
+label: color: #C6C0E1;
 ```
 
-**3. Listas de Benefícios:**
-- Ícones SVG inline de check em círculo
-- Spacing consistente (space-y-2)
-- Texto em text-sm
+**Linhas Conectoras:**
+- Concluída: `background: #4CAF50`
+- Ativa: `background: linear-gradient(to right, #5A5AA4 50%, #ECE0F0 50%)`
+- Futura: `background: #ECE0F0`
 
-**4. Botões CTA:**
-- Textos específicos: "Afilie-se como Mago Iniciador/Iniciado"
-- Largura ajustada (px-8) ao invés de w-full
-- Centralizados com flex justify-center
-- Mesmo estilo: bg-roxo-medio hover:bg-azul-escuro
+### **Alteração de Ícone:**
+- **Original:** ⭐ (estrela)
+- **Alterado para:** 🎓 (capelo/certificado)
+- **Motivo:** Remeter diretamente a certificados e graus acadêmicos, mais adequado ao contexto de formação em Magia Divina
 
-**5. Remoções:**
-- Excluída caixa "Sistema em desenvolvimento"
-- Removido import de SimpleCard não utilizado
+### **Responsividade:**
+- **Desktop (>768px):** Todas as 5 etapas visíveis
+- **Mobile (<768px):** Apenas etapa atual + contador "Etapa X de 5"
 
-**Motivo:**
-- Diferenciação visual clara entre tipos de afiliação
-- Hierarquia adequada (H2 para títulos de card)
-- Interface mais limpa e profissional
-- Botões mais elegantes e focados
-- Melhor escaneabilidade do conteúdo
+### **Mockup Aprovado:**
+Arquivo: `/outputs/proposta1-barra-progresso.html` (versão final com ícone 🎓)
 
-**Impacto UX:**
-- ✅ Usuário identifica rapidamente as diferenças
-- ✅ Decisão facilitada pela apresentação visual
-- ✅ CTAs mais diretos e menos intrusivos
-- ✅ Design responsivo mantido
+### **Impacto:**
+- Etapa 1 (Dados Pessoais): Implementar barra no topo
+- Etapa 2 (Graus): Implementar barra no topo
+- Etapa 3 (Documentos): Implementar barra no topo
+- Etapa 4 (Revisão): Implementar barra no topo
+- Etapa 5 (Pagamento): Redirecionar para Mercado Pago
 
-**Data:** 24/10/2025  
-**Status:** ✅ Implementado
-
----
-
-## 🔧 DECISÕES TÉCNICAS
-
-### ✅ Middleware de Autenticação
-
-**Decisão:** Proteção temporária com senha única
-
-**Implementação:**
-```typescript
-// middleware.ts
-if (pathname !== '/auth/login' && !isAuthenticated) {
-  return NextResponse.redirect(new URL('/auth/login', request.url))
-}
-```
-
-**Motivo:**
-- Site em desenvolvimento
-- Proteção simples e eficaz
-- Será substituído por sistema completo
-
-**Data:** Checkpoint #6  
-**Status:** ✅ Implementado
-
----
-
-### ✅ Sistema de Sombras Padronizado (Checkpoint #8)
-
-**Decisão:** Sombras baseadas em azul marinho (#1B223F)
-
-**Especificações:**
-```typescript
-boxShadow: {
-  'card': '0 2px 8px rgba(27, 34, 63, 0.08)',
-  'card-hover': '0 8px 16px rgba(27, 34, 63, 0.12)',
-  'button': '0 2px 4px rgba(27, 34, 63, 0.10)',
-  'button-hover': '0 4px 8px rgba(27, 34, 63, 0.15)',
-  'modal': '0 20px 40px rgba(27, 34, 63, 0.20)',
-}
-```
-
-**Motivo:**
-- Consistência visual
-- Sombras sutis e elegantes
-- Alinhado com paleta de cores
-
-**Data:** Checkpoint #8  
-**Status:** 🔄 Aguardando implementação
-
----
-
-## 📅 HISTÓRICO DE CHECKPOINTS
-
-### Checkpoint #10 (23/10/2025) - ATUAL
-
-**Tema:** Auditoria UX e Refatoração de Hierarquia de Cores
-
-**Decisões:**
-- ✅ Auditoria completa de todas as páginas
-- ✅ Sistema de fontes unificado (família Router única)
-- ✅ Nova hierarquia de cores tipográfica
-- ✅ H3 branco em cards para máximo contraste
-- ✅ Textos em cinza (#4A5568) para leitura confortável
-- 🔄 Correção de nomenclaturas (lilas-branco → lilas-quase-branco)
-
-**Arquivos Documentados:**
-- DECISIONS.md (atualizado)
-- UX-GUIDELINES.md (atualizado)
-- DESIGN-SPECS.md (atualizado)
-- AUDITORIA-UX-COMPLETA.md (criado)
-- PLANO-CIRURGICO-CORRECOES.md (criado)
-
-**Status:** 🔄 Documentado, aguardando implementação
-
----
-
-### Checkpoint #9.5 (23/10/2025)
-
-**Tema:** Consolidação de Documentação
-
-**Ações:**
-- ✅ Backup de documentação antiga
-- ✅ Criação de CHECKPOINTS-HISTORICO.md
-- ✅ Atualização de DESIGN-SPECS.md
-- ✅ Criação de PROGRESS-TRACKING.md
-
-**Status:** ✅ Concluído
-
----
-
-### Checkpoint #8 (Outubro 2025)
-
-**Tema:** Sistema de Sombras Padronizado
-
-**Decisões:**
-- ✅ Sombras baseadas em azul-marinho
-- ✅ Opacidades padronizadas (0.08, 0.10, 0.12, 0.15, 0.20)
-- ✅ Transições suaves de 300ms
-
-**Status:** 🔄 Aguardando implementação
-
----
-
-### Checkpoint #7 (20/10/2025)
-
-**Tema:** Refinamento Visual e UX
-
-**Decisões:**
-- 🔄 Correção do logo nas páginas internas
-- 🔄 Visual quadrado (sem rounded)
-- 🔄 Sombras com hover
-- 🔄 Bordas lilás nos cards
-- 🔄 Espaçamentos padronizados
-- 🔄 Títulos responsivos
-- 🔄 Contraste melhorado
-- 🔄 Indicador de página atual no menu
-- 🔄 Animação de entrada (scroll reveal)
-- 🔄 Hierarquia de títulos refinada
-
-**Status:** 🔄 Aguardando implementação
-
----
-
-### Checkpoint #6 (Outubro 2025)
-
-**Tema:** Implementação Inicial
-
-**Ações:**
-- ✅ Implementado sistema de headers duplos
-- ✅ Corrigida rota de afiliação
-- ✅ Removida font-cerulya
-- ✅ Ajustado metadata
-- ✅ Paleta de cores corrigida (sem dourado)
-
-**Status:** ✅ Concluído
-
----
-
-### Checkpoint #5 (Outubro 2025)
-- Primeiras correções de configuração
-
-### Checkpoint #3-4 (Outubro 2025)
-- Documentação completa
-- Especificações detalhadas
-
-### Checkpoint #1-2 (Início)
-- Decisões iniciais de stack e design
+### **Próximos Passos:**
+1. Implementar barra de progresso em todas as etapas do formulário
+2. Testar animações e transições
+3. Validar responsividade em 320px, 768px, 1024px, 1440px
+4. Implementar correções da Etapa 1 (campos, espaçamentos, CEP automático)
 
 ---
 
@@ -577,6 +126,8 @@ boxShadow: {
 
 | # | Decisão | Tipo | Data | Status |
 |---|---------|------|------|--------|
+| 030 | Barra de progresso formulário | UX/Design | 24/10/2025 | ✅ |
+| 029 | Correções Etapa 1 - Dados Pessoais | UX | 24/10/2025 | 🔄 |
 | 028 | Cards de seleção de afiliação | UX/Design | 24/10/2025 | ✅ |
 | 027 | Indicador visual de página ativa | UX | 24/10/2025 | ✅ |
 | - | Cores do Footer (textos brancos) | Design | 24/10/2025 | ✅ |
@@ -593,13 +144,14 @@ boxShadow: {
 ## 🎯 PRÓXIMOS PASSOS
 
 **Checkpoint #11 (Previsto):**
-1. Implementar correções do Checkpoint #10
-2. Testar em todos os breakpoints (320px, 768px, 1024px, 1440px)
-3. Validar contraste e acessibilidade
-4. Implementar correções pendentes do Checkpoint #7
-5. Sistema de sombras (Checkpoint #8)
+1. Implementar barra de progresso (Decisão #030)
+2. Implementar correções da Etapa 1 (Decisão #029)
+3. Testar em todos os breakpoints (320px, 768px, 1024px, 1440px)
+4. Validar contraste e acessibilidade
+5. Implementar correções pendentes do Checkpoint #7
+6. Sistema de sombras (Checkpoint #8)
 
 ---
 
-**Última Revisão:** 24/10/2025 - v3.1.2  
-**Próxima Revisão:** Após implementação do Checkpoint #10
+**Última Revisão:** 24/10/2025 - v3.2.0  
+**Próxima Revisão:** Após implementação das Decisões #029 e #030

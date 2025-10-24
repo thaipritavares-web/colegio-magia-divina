@@ -8,7 +8,7 @@ export default function Footer() {
           {/* Coluna 1 */}
           <div>
             <H3 variant="default" className="mb-4">Colégio de Magia Divina</H3>
-            <P variant="secondary" size="sm" className="mb-0 text-gray-300">
+            <P variant="secondary" size="sm" className="mb-0 text-white">
               Instituição oficial de ensino e preservação da Magia Divina.
             </P>
           </div>
@@ -18,22 +18,22 @@ export default function Footer() {
             <H3 variant="default" className="mb-4">Links Úteis</H3>
             <ul className="space-y-2">
               <li>
-                <Link href="/sobre-colegio" variant="light">
+                <Link href="/sobre-colegio" variant="light" className="text-white hover:text-lilas-claro">
                   Sobre o Colégio
                 </Link>
               </li>
               <li>
-                <Link href="/afilie-se" variant="light">
+                <Link href="/afilie-se" variant="light" className="text-white hover:text-lilas-claro">
                   Afiliar-se
                 </Link>
               </li>
               <li>
-                <Link href="/membros" variant="light">
+                <Link href="/membros" variant="light" className="text-white hover:text-lilas-claro">
                   Consulta de Membros
                 </Link>
               </li>
               <li>
-                <Link href="/faq" variant="light">
+                <Link href="/faq" variant="light" className="text-white hover:text-lilas-claro">
                   FAQ
                 </Link>
               </li>
@@ -43,7 +43,7 @@ export default function Footer() {
           {/* Coluna 3 */}
           <div>
             <H3 variant="default" className="mb-4">Contato</H3>
-            <P variant="secondary" size="sm" className="mb-0 text-gray-300">
+            <P variant="secondary" size="sm" className="mb-0 text-white">
               Para mais informações sobre afiliação e cursos,<br />
               consulte um Mago Iniciador em sua região.
             </P>
@@ -52,7 +52,7 @@ export default function Footer() {
         
         {/* Copyright */}
         <div className="border-t border-azul-escuro mt-8 pt-8 text-center">
-          <P variant="secondary" size="sm" className="mb-0 text-gray-300">
+          <P variant="secondary" size="sm" className="mb-0 text-white">
             © 2025 Colégio Tradição de Magia Divina. Todos os direitos reservados.
           </P>
         </div>

@@ -40,7 +40,7 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-azul-escuro hover:text-roxo-medio transition-all duration-300 font-router text-base px-3 py-2 rounded hover:shadow-[0_2px_8px_rgba(236,224,240,0.8)]"
+                className="text-azul-escuro hover:text-roxo-medio transition-all duration-300 font-router text-base px-3 py-2 rounded hover:shadow-[0_4px_12px_rgba(255,255,255,0.9)]"
               >
                 {item.label}
               </Link>

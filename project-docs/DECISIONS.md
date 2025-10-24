@@ -546,3 +546,53 @@ boxShadow: {
 
 **Última Revisão:** 23/10/2025 - Checkpoint #10  
 **Próxima Revisão:** Após implementação do Checkpoint #10
+
+
+---
+
+## 📅 24/10/2025 - Decisão #027: Indicador Visual de Página Ativa no Header
+
+### 🎯 Contexto
+Não havia indicativo visual claro de qual página o usuário estava navegando no menu superior (exceto Home).
+
+### ✅ Decisão Tomada
+**Implementar fundo branco semi-transparente com sombra pronunciada** como indicador de página ativa.
+
+### 🎨 Especificações Técnicas
+
+**Propriedades CSS aplicadas:**
+```css
+/* Página Ativa */
+bg-white/50                                    /* Fundo branco 50% transparente */
+shadow-[0_2px_12px_rgba(255,255,255,0.9)]    /* Sombra branca pronunciada */
+font-router-bold                               /* Negrito para reforço */
+text-azul-escuro                              /* Mantém cor padrão #26377F */
+rounded-md                                     /* Bordas arredondadas */
+whitespace-nowrap                              /* Evita quebra de linha */
+
+/* Estado Normal/Hover */
+hover:bg-white/30                              /* Fundo hover mais sutil */
+hover:text-roxo-medio                          /* Hover muda para #5A5AA4 */
+```
+
+### 🎯 Alternativas Consideradas e Rejeitadas
+
+1. ❌ **Sublinhado branco fino** - Pouco destaque visual
+2. ❌ **Texto branco** - Perderia consistência com demais links
+3. ❌ **Borda superior** - Menos elegante
+4. ✅ **Fundo branco semi-transparente** - ESCOLHIDO (elegante + destaque suficiente)
+
+### 📊 Impacto
+- **UX:** Navegação mais intuitiva
+- **Acessibilidade:** Indicador visual claro sem depender só de cor
+- **Design:** Mantém elegância e consistência da paleta oficial
+- **Implementação:** `components/Header.tsx` apenas
+
+### 🔗 Referências
+- Commit: `6b51e40` - "feat(header): adiciona indicador visual elegante para página ativa"
+- Arquivo modificado: `components/Header.tsx`
+- Não afeta: `HeaderHome.tsx` (header da home page)
+
+**Status:** ✅ Implementado  
+**Responsável:** Thais + Claude  
+**Data:** 24/10/2025
